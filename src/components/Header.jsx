@@ -22,7 +22,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import Diversity2Icon from '@mui/icons-material/Diversity2';
+import { FcContacts } from "react-icons/fc";
 
 const products = [
     { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -47,7 +47,8 @@ export const Header = () => {
       <div className="flex lg:flex-1">
         <a href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Your Company</span>
-            <Diversity2Icon className="h-8 w-auto"/>
+          <FcContacts className="h-8 w-auto"  />
+
         </a>
       </div>
       <div className="flex lg:hidden">
@@ -77,7 +78,7 @@ export const Header = () => {
                   key={item.name}
                   className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-white"
                 >
-                  <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-800">
+                  <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 hover:text-gray-800 group-hover:bg-gray-800">
                     <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-300" />
                   </div>
                   <div className="flex-auto">
@@ -127,7 +128,7 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <Diversity2Icon className="h-8 w-auto "/>
+            <FcContacts className="h-8 w-auto"  />
           </a>
           <button
             type="button"
