@@ -8,7 +8,7 @@ export const Home = () => {
     //readWorkers(setWorkers)
     
     return (
-     <div className='page bg-gray-950 flex'>
+     <div className='page bg-gray-950 flex flex-wrap justify-center align-center'>
       <Card/> 
      </div>
      /* 
