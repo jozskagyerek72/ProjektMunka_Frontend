@@ -1,6 +1,7 @@
+
 export const Card = () => {
         return(
-            <div className="flex flex-wrap justify-center m-auto gap-10 p-10 ">
+            <div className="flex flex-wrap justify-center m-auto gap-10 p-10 text-white ">
                 <div className="card flex bg-gray-800 border-2 w-80 shadow-xl">
                     <figure>
                     <img
