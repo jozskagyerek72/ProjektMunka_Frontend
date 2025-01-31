@@ -1,6 +1,6 @@
-import React from 'react'
+//import React from 'react'
 
-import { useLocation } from 'react-router-dom'
+//import { useLocation } from 'react-router-dom'
 
 export const Authentication = () => {
 
@@ -42,8 +42,8 @@ export const Authentication = () => {
                         <div>
                             <button className="btn btn-block btn-primary">Sign Up</button>
                         </div>
-                        <span className=''>Already have an account ?
-                            <a href="#" className="text-blue-600 hover:text-blue-800 hover:underline p-10">Login</a></span>
+                        <span className='text-center '>Already have an account ?</span>
+                        <button className='btn btn-block  btn-primary'>Login</button>
                     </form>
                 </div>
             </div>
