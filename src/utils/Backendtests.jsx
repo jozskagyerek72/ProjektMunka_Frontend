@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import { addWorker, readShifts, readWorkers } from '../utils/crudUtil'
+import { addWorker, readShifts, readWorkers, startShift } from '../utils/crudUtil'
 import { useEffect } from 'react'
 //import { data } from 'react-router-dom'
 
@@ -20,6 +20,12 @@ export const Backendtests = () => {
   {
     let newWorkerData = {...data}
     addWorker(newWorkerData)
+  }
+
+  const onShiftStart = async (data) =>
+  {
+    let startShiftData = {...data}
+    startShift(startShiftData)
   }
 
   return (
@@ -43,6 +49,12 @@ export const Backendtests = () => {
       {shifts&& shifts.map(shift=>
         <p style={{color:"black"}} key={shift.id}>{shift.workerid} : {shift.workername} | {new Date(shift.start.seconds*1000).toLocaleString()} - {new Date(shift.end.seconds*1000).toLocaleString()} : {shift.totalhours}</p>
       )}
+
+      <h2>startshift @workerId:</h2>
+      <form onSubmit={handleSubmit(onShiftStart)}>
+        <input {...register("name", { required: true })} type='text' placeholder='name' />
+        <input type="submit"   />
+      </form>
     </div>
   )
 }

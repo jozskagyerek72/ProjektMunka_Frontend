@@ -10,17 +10,9 @@ import { Analytics } from './pages/Analytics'
 import { Workers } from './pages/Workers'
 import { Gate } from './pages/Gate'
 import { WorkerDetails } from './pages/WorkerDetails'
-
+import {Authentication} from "./pages/Authentication"
 import { Backendtests } from './utils/Backendtests'
 
-const router = createBrowserRouter([
-  {
-    element: <Header />,
-    children: [
-      { path: '/', element: <Home /> },
-      { path: '/profile', element: <Profile /> },
-
-import { Authentication } from './pages/Authentication'
 
 const router = createBrowserRouter([
   {
