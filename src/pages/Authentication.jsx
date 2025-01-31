@@ -1,4 +1,4 @@
-import React from 'react'
+//import React from 'react'
 
 import { useLocation } from 'react-router-dom'
 
@@ -30,11 +30,11 @@ export const Authentication = () => {
                         </label>
                         <input type="text" placeholder="******************" />
                     </div>
-                    <div class="flex items-center justify-between">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    <div className="flex items-center justify-between">
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                             {isSignedIn ? 'Sign in' : 'Sign up'}
                         </button>
-                        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+                        <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
                             Forgot Password?
                         </a>
                     </div>

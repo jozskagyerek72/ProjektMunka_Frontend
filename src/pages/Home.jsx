@@ -1,5 +1,4 @@
-import {React} from 'react'
-import { Card } from '../components/Card'
+//import {React} from 'react'
 import { HomePageCards } from '../components/HomePageCards'
 import { Change } from '../components/Change'
 
