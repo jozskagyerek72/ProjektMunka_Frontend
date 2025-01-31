@@ -8,13 +8,16 @@ import { Analytics } from './pages/Analytics'
 import { Workers } from './pages/Workers'
 import { Gate } from './pages/Gate'
 import { WorkerDetails } from './pages/WorkerDetails'
+import { Authentication } from './pages/Authentication'
 
 const router = createBrowserRouter([
   {
-    element:<div><Header /><Outlet/><Footer/></div> ,
+    element: <div><Header /><Outlet /><Footer /></div>,
     children: [
       { path: '/', element: <Home /> },
       { path: '/profile', element: <Profile /> },
+      { path: '/authentication/signin', element: <Authentication /> },
+      { path: '/authentication/signup', element: <Authentication /> },
       { path: '/analytics', element: <Analytics /> },
       { path: '/workers', element: <Workers /> },
       { path: '/gate', element: <Gate /> },
@@ -42,8 +45,8 @@ const router = createBrowserRouter([
 function App() {
 
   return <RouterProvider router={router} future={{ v7_startTransition: true }} />
-     
-  
+
+
 }
 
 export default App
