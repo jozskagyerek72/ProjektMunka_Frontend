@@ -8,6 +8,7 @@ import { Analytics } from './pages/Analytics'
 import { Workers } from './pages/Workers'
 import { Gate } from './pages/Gate'
 import { WorkerDetails } from './pages/WorkerDetails'
+import { Backendtests } from './utils/Backendtests'
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
       { path: '/workers', element: <Workers /> },
       { path: '/gate', element: <Gate /> },
       { path: '/workersdetails', element: <WorkerDetails /> },
-      {}
+      { path: '/tests', element: <Backendtests /> }
     ]
   }
 ],
