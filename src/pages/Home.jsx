@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 //import {React} from 'react'
-=======
-import {React} from 'react'
->>>>>>> 61626cb469440ae2ee5e3553829b40bb5647796e
+
 import { HomePageCards } from '../components/HomePageCards'
 import { Change } from '../components/Change'
 
@@ -15,7 +12,7 @@ export const Home = () => {
 
       <div className='home bg-gray-950 flex flex-wrap justify-center align-center'>
             <div className="container flex flex-wrap">
-              <h1>WorkLinker</h1>
+              <h1 className='wlh1'>WorkLinker</h1>
               <p></p>
               <p className='wlp'>Building Teams, Nurturing Growth, Inspiring Success.</p>
             </div>

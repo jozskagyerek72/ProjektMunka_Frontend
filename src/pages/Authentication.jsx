@@ -1,99 +1,52 @@
-<<<<<<< HEAD
-//import React from 'react'
-
-import { useLocation } from 'react-router-dom'
-
-export const Authentication = () => {
-
-    const location = useLocation()
-    const isSignedIn = location.pathname == '/authentication/signin'
-
-    return (
-        <div className='home bg-white flex justify-center align-center'>
-            <div className="w-full max-w-xs p-8 bg-gray-950 h-min">
-                <h3 className='text-center'>{isSignedIn ? 'Sign in' : 'Sign up'}</h3>
-                <form className='bg-gray shadow-md rounded'>
-                    <div className='mb-4'>
-                        <label htmlFor="email">
-                            E-mail
-                        </label>
-                        <input type="text" placeholder='E-mail' />
-                    </div>
-                    <div className='mb-4'>
-                        <label htmlFor="username">
-                            Username
-                        </label>
-                        <input type="text" placeholder='Username' />
-                    </div>
-                    <div className='mb-4'>
-                        <label htmlFor="password">
-                            Password
-                        </label>
-                        <input type="text" placeholder="******************" />
-                    </div>
-                    <div className="flex items-center justify-between">
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                            {isSignedIn ? 'Sign in' : 'Sign up'}
-                        </button>
-                        <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-                            Forgot Password?
-                        </a>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    )
-}
-
-=======
-
-
 import React from 'react'
 
 import { useLocation } from 'react-router-dom'
 
 export const Authentication = () => {
 
-    const location = useLocation()
-    const isSignedIn = location.pathname == '/authentication/signin'
+    //const location = useLocation()
+    //const isSignedIn = location.pathname == '/authentication/signin'
 
     return (
-        <div className='home bg-white flex justify-center align-center'>
-            <div className="w-full max-w-xs p-8 bg-gray-950 h-min">
-                <h3 className='text-center'>{isSignedIn ? 'Sign in' : 'Sign up'}</h3>
-                <form className='bg-gray shadow-md rounded'>
-                    <div className='mb-4'>
-                        <label htmlFor="email">
-                            E-mail
-                        </label>
-                        <input type="text" placeholder='E-mail' />
-                    </div>
-                    <div className='mb-4'>
-                        <label htmlFor="username">
-                            Username
-                        </label>
-                        <input type="text" placeholder='Username' />
-                    </div>
-                    <div className='mb-4'>
-                        <label htmlFor="password">
-                            Password
-                        </label>
-                        <input type="text" placeholder="******************" />
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                            {isSignedIn ? 'Sign in' : 'Sign up'}
-                        </button>
-                        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-                            Forgot Password?
-                        </a>
-                    </div>
-                </form>
+        <div className='home bg-gray-950 flex justify-center align-center'>
+            <div className="relative flex flex-col justify-center h-screen overflow-hidden">
+                <div className="w-full p-6 m-auto bg-gray-700 border-2 rounded-md shadow-md lg:max-w-xl">
+                    <h1 className="text-3xl font-semibold text-center text-white">Sign Up</h1>
+                    <form className="space-y-4">
+                        <div>
+                            <label className="label">
+                                <span className="text-base label-text">Name</span>
+                            </label>
+                            <input type="text" placeholder="Name" className="w-full input input-bordered input-primary" />
+                        </div>
+                        <div>
+                            <label className="label">
+                                <span className="text-base label-text">Email</span>
+                            </label>
+                            <input type="text" placeholder="Email Address" className="w-full input input-bordered input-primary" />
+                        </div>
+                        <div>
+                            <label className="label">
+                                <span className="text-base label-text">Password</span>
+                            </label>
+                            <input type="password" placeholder="Enter Password"
+                                className="w-full input input-bordered input-primary" />
+                        </div>
+                        <div>
+                            <label className="label">
+                                <span className="text-base label-text">Confirm Password</span>
+                            </label>
+                            <input type="password" placeholder="Confirm Password"
+                                className="w-full input input-bordered input-primary" />
+                        </div>
+                        <div>
+                            <button className="btn btn-block btn-primary">Sign Up</button>
+                        </div>
+                        <span className=''>Already have an account ?
+                            <a href="#" className="text-blue-600 hover:text-blue-800 hover:underline p-10">Login</a></span>
+                    </form>
+                </div>
             </div>
-
         </div>
     )
 }
-
->>>>>>> 61626cb469440ae2ee5e3553829b40bb5647796e
