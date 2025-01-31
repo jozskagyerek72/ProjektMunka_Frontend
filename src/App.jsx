@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import './App.css'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
@@ -11,7 +11,7 @@ import { WorkerDetails } from './pages/WorkerDetails'
 
 const router = createBrowserRouter([
   {
-    element: <Header />,
+    element:<div><Header /><Outlet/><Footer/></div> ,
     children: [
       { path: '/', element: <Home /> },
       { path: '/profile', element: <Profile /> },
@@ -21,6 +21,7 @@ const router = createBrowserRouter([
       { path: '/workersdetails', element: <WorkerDetails /> },
       {}
     ]
+
   }
 ],
   {
@@ -40,13 +41,9 @@ const router = createBrowserRouter([
 
 function App() {
 
-  return (
-    <RouterProvider router={router} future={{ v7_startTransition: true }}>
-      <Header />
-      <Home />
-      <Footer />
-    </RouterProvider>
-  )
+  return <RouterProvider router={router} future={{ v7_startTransition: true }} />
+     
+  
 }
 
 export default App
