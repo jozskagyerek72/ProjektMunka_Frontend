@@ -42,10 +42,6 @@ export const HomePageCards = () => {
           <img
 
             src="./apply.jpg"
-
-            src="./worker.jpg"
-
-
             alt="apply"
 
           />
