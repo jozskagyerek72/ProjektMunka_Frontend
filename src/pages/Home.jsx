@@ -9,7 +9,7 @@ export const Home = () => {
     
     
     return (
-      <>
+
       <div className='home bg-gray-950 flex flex-wrap justify-center align-center'>
             <div className="container">
               <h1>WorkLinker</h1>
@@ -25,9 +25,7 @@ export const Home = () => {
             
       </div>
      
-     
-    
-    </>
+
   )
 }
 
