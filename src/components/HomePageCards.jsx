@@ -7,7 +7,7 @@ export const HomePageCards = () => {
         <figure>
           <img
             src="./Hra.jpg"
-            alt="Shoes"
+            alt="Hr"
           />
         </figure>
         <div className="card-body">
@@ -22,7 +22,7 @@ export const HomePageCards = () => {
         <figure>
           <img
             src="./worker.jpg"
-            alt="Shoes"
+            alt="worker"
           />
         </figure>
         <div className="card-body">
@@ -37,7 +37,7 @@ export const HomePageCards = () => {
         <figure>
           <img
             src="./worker.jpg"
-            alt="Shoes"
+            alt="apply"
           />
         </figure>
         <div className="card-body">
