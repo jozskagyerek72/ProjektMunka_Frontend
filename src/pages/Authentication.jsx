@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { useLocation } from 'react-router-dom'
 
 export const Authentication = () => {
@@ -39,6 +40,7 @@ export const Authentication = () => {
                     </div>
                 </form>
             </div>
+
         </div>
     )
 }
