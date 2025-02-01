@@ -25,15 +25,15 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 import { FcContacts } from "react-icons/fc";
 
 const products = [
-    { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-    { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-    { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-    { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-    { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+    { name: 'Analytics', description: 'See your own analytics', href: '#', icon: ChartPieIcon },
+    { name: 'Gate', description: 'Check in/out', href: '#', icon: FingerPrintIcon },
+    { name: 'Workers', description: 'Analize workers (Only for HR!)', href: '#', icon: SquaresPlusIcon },
+    { name: '...', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+    { name: 'Profile', description: 'Your profile data', href: '#', icon:  CursorArrowRaysIcon },
   ]
   const callsToAction = [
-    { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-    { name: 'Contact sales', href: '#', icon: PhoneIcon },
+    { name: 'How to use QR code?', href: 'https://www.youtube.com/watch?v=GRJGKS9blm8', icon: PlayCircleIcon },
+    { name: 'Contact', href: '#', icon: PhoneIcon },
   ]
 
 
@@ -64,7 +64,7 @@ export const Header = () => {
       <PopoverGroup className="hidden lg:flex lg:gap-x-12">
         <Popover className="relative">
           <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-white">
-            Product
+            Pages
             <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-white" />
           </PopoverButton>
 
@@ -144,7 +144,7 @@ export const Header = () => {
             <div className="space-y-2 py-6">
               <Disclosure as="div" className="-mx-3">
                 <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-gray-800">
-                  Product
+                  Pages
                   <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
                 </DisclosureButton>
                 <DisclosurePanel className="mt-2 space-y-2">
