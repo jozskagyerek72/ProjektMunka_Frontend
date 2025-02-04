@@ -29,13 +29,19 @@ export const startShift = async (formdata) =>
         console.log(formdata);
         
         const newItem = { ...formdata, start: serverTimestamp() }
-        await addDoc(collectionRef, newItem) 
+        await addDoc(collectionRef, newItem).then(docRef => console.log("uj post azonositoja:"+docRef.id)
+        )
 }
 
 export const endShift = async (shiftId) =>
 {
         const docRef = doc(db, "shifts", shiftId)
         await updateDoc(docRef, {end: serverTimestamp()})
+}
+
+export const checkShiftStatus = () =>
+{
+        
 }
 
 export const readShifts = ( setShifts ) =>
