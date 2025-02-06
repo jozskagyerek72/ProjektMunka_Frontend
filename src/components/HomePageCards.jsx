@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export const HomePageCards = () => {
   return (
@@ -33,7 +34,7 @@ export const HomePageCards = () => {
           <h2 className="card-title text-4xl ">Sign in as a worker</h2>
           <p className=" cardtext text-xl">Examine your statistics.</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Sign in</button>
+            <NavLink to='/authentication/signin'><button className="btn btn-primary">Sign in</button></NavLink>
           </div>
         </div>
       </div>
@@ -59,6 +60,6 @@ export const HomePageCards = () => {
         </div>
       </div>
     </div>
-    
+
   );
 };
