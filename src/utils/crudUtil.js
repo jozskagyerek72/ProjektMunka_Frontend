@@ -1,4 +1,4 @@
-import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, updateDoc } from "firebase/firestore"
+import { addDoc, collection, doc, onSnapshot, orderBy, query, serverTimestamp, Timestamp, updateDoc } from "firebase/firestore"
 import { db } from "./firebaseApp"
 
 export const readWorkers = async ( setWorkers ) =>
@@ -23,20 +23,25 @@ export const addWorker = async ( formdata ) =>
     await addDoc(collectionRef, newItem)
 }
 
-export const startShift = async (formdata) =>
+export const startShift = async (formdata, setState) =>
 {
         const collectionRef = collection(db, "shifts")
         console.log(formdata);
         
-        const newItem = { ...formdata, start: serverTimestamp() }
-        await addDoc(collectionRef, newItem).then(docRef => console.log("uj post azonositoja:"+docRef.id)
-        )
+        const newItem = { ...formdata, start: Timestamp.now() }
+        await addDoc(collectionRef, newItem).then(docRef => {   
+                console.log("uj post azonositoja:"+docRef.id)
+                setState(docRef.id)
+        })
 }
 
 export const endShift = async (shiftId) =>
 {
         const docRef = doc(db, "shifts", shiftId)
-        await updateDoc(docRef, {end: serverTimestamp()})
+        let endtime = Timestamp.now()
+        let duration = Timestamp.fromMillis( endtime.toMillis() - docRef.start.toMillis() )
+        // ez igy nem mukodik meg mivel datumot returnol
+        await updateDoc(docRef, {end: endtime, duration:duration})
 }
 
 export const checkShiftStatus = () =>
