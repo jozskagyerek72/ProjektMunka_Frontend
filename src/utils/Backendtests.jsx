@@ -2,7 +2,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import { addWorker, readShifts, readWorkers, startShift } from '../utils/crudUtil'
+import { addWorker, endShift, readShifts, readWorkers, startShift } from '../utils/crudUtil'
 import { useEffect } from 'react'
 
 import { data } from 'react-router-dom'
@@ -16,6 +16,7 @@ export const Backendtests = () => {
   const [workers, setWorkers] = useState([])
   //useEffect(()=>{readWorkers(setWorkers)},[workers])
   readWorkers(setWorkers)
+  const [shiftID, setShiftID] = useState(null)
 
   const [shifts,setShifts] = useState([])
   readShifts(setShifts)
@@ -28,14 +29,22 @@ export const Backendtests = () => {
     addWorker(newWorkerData)
   }
 
+
+  const onShiftStart = async (data) =>
+  {
+    let startShiftData = {...data}
+    startShift(startShiftData, setShiftID)
+  }
+
+
   return (
-    <div>
+    <div >
       <div>
         <h2>workers:</h2>
         {workers&& workers.map(worker =>
           <div key={worker.id}>
           <p style={{color:"white"}} > {worker.id} : {worker.name} : {worker.field} : {worker.hourlypay}</p>
-          <QRCode  value={JSON.stringify(worker)}/>
+          <QRCode  value={worker.id}/>
           </div>
         )}
       </div>
@@ -64,6 +73,8 @@ export const Backendtests = () => {
         <input {...register("name", { required: true })} type='text' placeholder='name' />
         <input type="button" onClick={()=>onShiftStart({name:"teszt2/4"})}  value="start" />
       </form>
+
+      <button onClick={()=>endShift(shiftID)}>end shift</button>
 
     </div>
   )
