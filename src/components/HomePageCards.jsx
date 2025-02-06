@@ -1,10 +1,12 @@
+
 import React from "react";
 import { NavLink } from "react-router-dom";
+
 
 export const HomePageCards = () => {
   return (
     <div className="grid lg:grid-cols-3 lg:grid-rows-1 grid-rows-3 justify-center m-auto p-10 gap-10">
-      <div className="card bg-base-100 image-full border-white border-2  shadow-xl">
+      <div className="card bg-base-100 image-full border-white border-2  shadow-gray-700 shadow-xs">
         <figure>
           <img
             src="./Hra.jpg"
@@ -21,7 +23,7 @@ export const HomePageCards = () => {
           </div>
         </div>
       </div>
-      <div className="card bg-base-100 image-full border-white border-2  shadow-xl">
+      <div className="card bg-base-100 image-full border-white shadow-gray-700 shadow-xs border-2">
         <figure>
           <img
             src="./worker.jpg"
@@ -38,12 +40,11 @@ export const HomePageCards = () => {
           </div>
         </div>
       </div>
-      <div className="card bg-base-100 image-full border-white border-2 shadow-xl">
+      <div className="card bg-base-100 image-full border-white border-2  shadow-gray-700 shadow-xs">
         <figure>
           <img
 
             src="./apply.jpg"
-
 
             alt="apply"
 
