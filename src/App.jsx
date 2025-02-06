@@ -4,6 +4,7 @@ import './App.css'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Home } from './pages/Home'
+
 import { Profile } from './pages/Profile'
 import { Analytics } from './pages/Analytics'
 import { Workers } from './pages/Workers'
@@ -11,6 +12,7 @@ import { Gate } from './pages/Gate'
 import { WorkerDetails } from './pages/WorkerDetails'
 import { Authentication } from './pages/Authentication'
 //import { Backendtests } from './utils/Backendtests'
+
 
 
 const router = createBrowserRouter([
