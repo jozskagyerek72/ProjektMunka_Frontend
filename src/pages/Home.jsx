@@ -20,10 +20,18 @@ export const Home = () => {
               <HomePageCards/>
               <Change/> 
             </div>
-            <div className='videocontainer'>                
-                <div className="player_wrapper m-10 p-10">
-                  <ReactPlayer className="player" url='https://www.youtube.com/watch?v=GRJGKS9blm8' /> 
-                  <p className='text-center'>We are providing an easy enter on your workplace with a QR scanner identification</p>
+            <div className='video_container bg-gray-800 text-center'> 
+                          
+                  <h2 className='text-4xl text-center text-white'>What are we using?</h2> 
+                <div className="player_wrapper flex object-contain flex-wrap m-10 p-10">
+                  <video controls muted>
+                      <source src="./public/qr.mp4" type="video/mp4" />
+                  </video>
+                  {/* <p className='mobile text-2xl text-white'>Video only shows on desktop.</p> */}
+                </div>
+                
+                <div className='flex flex-wrap'>
+                <p className='text-center text-2xl  text-white mb-10'>We are providing an easy enter in your workplace with a QR scanner identification.</p>
                 </div>
               </div>
            

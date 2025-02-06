@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { addWorker, readShifts, readWorkers, startShift } from '../utils/crudUtil'
 import { useEffect } from 'react'
-import { data } from 'react-router-dom'
+//import { data } from 'react-router-dom'
 
 export const Backendtests = () => {
 
@@ -28,7 +28,10 @@ export const Backendtests = () => {
       <div>
         <h2>workers:</h2>
         {workers&& workers.map(worker =>
-          <p style={{color:"black"}} key={worker.id}> {worker.id} : {worker.name} : {worker.field} : {worker.hourlypay}</p>
+          <div key={worker.id}>
+          <p style={{color:"white"}} > {worker.id} : {worker.name} : {worker.field} : {worker.hourlypay}</p>
+          <QRCode  value={JSON.stringify(worker)}/>
+          </div>
         )}
       </div>
 
@@ -44,6 +47,12 @@ export const Backendtests = () => {
       {shifts&& shifts.map(shift=>
         <p style={{color:"black"}} key={shift.id}>{shift.workerid} : {shift.workername} | {new Date(shift.start.seconds*1000).toLocaleString()} - {new Date(shift.end.seconds*1000).toLocaleString()} : {shift.totalhours}</p>
       )}
+
+      <h2>startshift @workerId:</h2>
+      <form onSubmit={handleSubmit(onShiftStart)}>
+        <input {...register("name", { required: true })} type='text' placeholder='name' />
+        <input type="submit"   />
+      </form>
     </div>
   )
 }
