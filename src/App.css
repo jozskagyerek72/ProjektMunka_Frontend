@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tailwindcss";
 @plugin "daisyui";
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 
 .home{
@@ -16,6 +16,8 @@
     width: 100%;
 }
 
+
+
 .container {
     width: 100%;
     height: 100vh;
@@ -25,8 +27,21 @@
     align-items: center;
   }
   
-  h1 {
+  .wlh1 {
     font-size: 10vw;
+    text-transform: uppercase;
+    font-family: 'Gambetta', serif;
+    letter-spacing: -3px;
+    transition: 700ms ease;
+    font-variation-settings: "wght" 311;
+    margin-bottom: 0.8rem;
+    color: PaleGoldenRod;
+    outline: none;
+    text-align: center;
+  }
+
+  .wlh12{
+    font-size: 4vw;
     text-transform: uppercase;
     font-family: 'Gambetta', serif;
     letter-spacing: -3px;
@@ -51,22 +66,49 @@
 
 
   .wlp {
-    font-size: 1.5em;
     line-height: 150%;
     text-align: center;
     color: MintCream;
     letter-spacing: .5px;
+    font-family: 'Rocher';
+    --s: 0.2em;   /* the thickness of the line */
+    --c: PaleGoldenRod; /* the color */
+  
+    color: #0000;
+    padding-bottom: var(--s);
+    background: 
+    linear-gradient(90deg,var(--c) 50%,#ffffff 0) calc(100% - var(--_p,0%))/200% 100%,
+    linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat;
+    -webkit-background-clip: text,padding-box;
+          background-clip: text,padding-box;
+    transition: 0.5s;
+    font-size: 5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+  }
+  .wlp:hover{
+    --_p: 100%
   }
 
   .section{
-    border-top-left-radius: 30% 40%;
-    border-top-right-radius: 30% 40%;
+    border-radius: 10px;
     /* height: 400px; */
     justify-content: center;
     align-items: center;
     text-align: justify;
   }
-  
+
+  .video_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+ }
+
+
+
+
 
 
   
