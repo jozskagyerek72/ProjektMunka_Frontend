@@ -2,10 +2,10 @@ import { useContext } from "react"
 import { UserContext } from "../context/UserContext"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
-import { ToastContainer } from "react-toastify"
-import { toast } from "react-toastify"
+import { toast } from "sonner"
+import { Toaster } from "sonner"
 
-export const Toastify = ({ signin, err, signup, signout, resetpassword }) => {
+export const Toast = ({ signin, err, signup, signout, resetpassword }) => {
     const { setMsg } = useContext(UserContext)
     const navigate = useNavigate()
 
@@ -24,7 +24,7 @@ export const Toastify = ({ signin, err, signup, signout, resetpassword }) => {
 
     return (
         <div>
-            <ToastContainer />
+            <Toaster />
         </div>
     )
 }

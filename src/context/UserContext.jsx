@@ -20,16 +20,17 @@ export const UserProvider = ({ children }) => {
     const signOutUser = async () => {
         await signOut(auth)
         setMsg({})
-        setMsg({ signout: 'Sikeres kijelentkezés!' })
+        setMsg({ signout: 'Signed out successfully!' })
     }
 
     const signInUser = async (email, password) => {
         try {
             await signInWithEmailAndPassword(auth, email, password)
             setMsg({})
-            setMsg({ signin: 'Sikeres bejelentkezés!' })
+            setMsg({ signin: 'Signed in successfully!' })
         } catch (error) {
-            setMsg({ err: error.message })
+            console.log(error.message);
+
         }
     }
 
@@ -38,9 +39,10 @@ export const UserProvider = ({ children }) => {
             await createUserWithEmailAndPassword(auth, email, password)
             await updateProfile(auth.currentUser, { displayName })
             setMsg({})
-            setMsg({ signup: 'Sikeres regisztráció!' })
+            setMsg({ signup: 'Signed up successfully!' })
         } catch (error) {
-            setMsg({ err: error.message })
+            console.log(error.message);
+
         }
     }
 
