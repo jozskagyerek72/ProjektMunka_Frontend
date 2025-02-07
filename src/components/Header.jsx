@@ -41,7 +41,7 @@ const products = [
     { name: 'Contact', href: '#', icon: PhoneIcon },
   ]
 
-]
+
 
 
 
@@ -136,7 +136,10 @@ export const Header = () => {
       <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
         <div className="flex items-center justify-between">
           <a href="#" className="-m-1.5 p-1.5">
-
+      </a>
+      </div>
+      </DialogPanel>
+      </Dialog>
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <NavLink className="nav-link -m-1.5 p-1.5" to='/'>
@@ -203,7 +206,7 @@ export const Header = () => {
               >
                 Log in
               </a>
-
+        </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-white">
@@ -264,7 +267,10 @@ export const Header = () => {
             Log in <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
+        </div>
+        </div>
       </nav>
+
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
@@ -335,7 +341,7 @@ export const Header = () => {
           </div>
         </DialogPanel>
       </Dialog>
-    </header>
+  </header>
   )
 }
 

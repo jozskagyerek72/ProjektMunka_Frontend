@@ -4,22 +4,6 @@ import './App.css'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Home } from './pages/Home'
-<<<<<<<<< Temporary merge branch 1
-=========
-
-/*
-function App() {
- 
-
-  return (
-    <>
-      <Header/>
-      <Home/>
-      <Footer/>
-    </>
-  )
-*/
->>>>>>>>> Temporary merge branch 2
 import { Profile } from './pages/Profile'
 import { Analytics } from './pages/Analytics'
 import { Workers } from './pages/Workers'
