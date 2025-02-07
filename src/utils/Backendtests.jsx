@@ -69,12 +69,13 @@ export const Backendtests = () => {
       )}
 
       <h2>startshift @workerId:</h2>
-      <form >
+      <form onSubmit={handleSubmit(onShiftStart)}>
         <input {...register("name", { required: true })} type='text' placeholder='name' />
-        <input type="button" onClick={()=>onShiftStart({name:"teszt2/4"})}  value="start" />
+        <input type="submit"   />
       </form>
 
       <button onClick={()=>endShift(shiftID)}>end shift</button>
+
 
     </div>
   )
