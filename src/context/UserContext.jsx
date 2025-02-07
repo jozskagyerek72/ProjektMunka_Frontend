@@ -50,7 +50,7 @@ export const UserProvider = ({ children }) => {
         try {
             await sendPasswordResetEmail(auth, email)
             setMsg({})
-            setMsg({ resetpassword: 'A jelszóvisszaállítási e-mail elküldve! ' })
+            setMsg({ resetpassword: 'Password reset e-mail sent successfully! ' })
         } catch (error) {
             setMsg({ err: error.message })
         }
