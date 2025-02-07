@@ -1,7 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
-import { Toastify } from '../components/Toastify'
+import { toast, Toaster } from 'sonner'
+import { Form } from 'react-router-dom'
+import { Toast } from '../components/Toast'
 
 export const Authentication = () => {
     const { user, signInUser, msg, setMsg, signUpUser } = useContext(UserContext)
@@ -29,7 +31,7 @@ export const Authentication = () => {
         <div className='home bg-white flex justify-center align-center'>
             <div className="w-full max-w-xs p-8 bg-gray-950 h-min">
                 <h3 className='text-center'>{isSignedIn ? 'Sign in' : 'Sign up'}</h3>
-                <form className='bg-gray shadow-md rounded' onSubmit={handleSubmit}>
+                <Form className='bg-gray shadow-md rounded' onSubmit={handleSubmit}>
                     <div className='mb-4'>
                         <label htmlFor="email">
                             E-mail
@@ -51,16 +53,16 @@ export const Authentication = () => {
                         <input type="text" placeholder="******************" name='password' />
                     </div>
                     <div className="flex items-center justify-between">
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             {isSignedIn ? 'Sign in' : 'Sign up'}
                         </button>
                         <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#" onClick={() => navigate('/resetpassword')}>
                             Forgot Password?
                         </a>
                     </div>
-                </form>
+                </Form>
 
-                {msg && <Toastify {...msg} />}
+                {msg && <Toast {...msg} />}
             </div>
 
         </div>

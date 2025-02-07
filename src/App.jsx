@@ -1,4 +1,3 @@
-
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import './App.css'
 import { Footer } from './components/Footer'
@@ -33,8 +32,6 @@ const router = createBrowserRouter([
       { path: '/tests', element: <Backendtests /> }
 
     ]
-
-
   }
 ],
   {
@@ -54,10 +51,7 @@ const router = createBrowserRouter([
 
 function App() {
 
-
   return <RouterProvider router={router} future={{ v7_startTransition: true }} />
-
-
 
 }
 
