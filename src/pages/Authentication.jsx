@@ -28,30 +28,33 @@ export const Authentication = () => {
     }
 
     return (
-        <div className='home bg-white flex justify-center align-center'>
-            <div className="w-full max-w-xs p-8 bg-gray-950 h-min">
-                <h3 className='text-center'>{isSignedIn ? 'Sign in' : 'Sign up'}</h3>
-                <Form className='bg-gray shadow-md rounded' onSubmit={handleSubmit}>
-                    <div className='mb-4'>
-                        <label htmlFor="email">
+        <div className="flex justify-center items-center h-screen">
+            <div className="w-full max-w-xs flex-auto">
+                <Form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="e-mail">
                             E-mail
                         </label>
-                        <input type="text" placeholder='E-mail' name='e-mail' />
+                        <input className="input input-bordered w-full max-w-xs" name="e-mail" type="text" placeholder="E-mail" />
                     </div>
+
                     {!isSignedIn &&
-                        <div className='mb-4'>
-                            <label htmlFor="username">
+                        <div className="mb-4">
+                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                                 Username
                             </label>
-                            <input type="text" placeholder='Username' name='username' />
+                            <input className="input input-bordered w-full max-w-xs" name="username" type="text" placeholder="Username" />
                         </div>
                     }
-                    <div className='mb-4'>
-                        <label htmlFor="password">
+
+                    <div className="mb-6">
+                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                             Password
                         </label>
-                        <input type="text" placeholder="******************" name='password' />
+                        <input className="input input-bordered w-full max-w-xs" name="password" type="password" placeholder="******************" />
                     </div>
+
                     <div className="flex items-center justify-between">
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             {isSignedIn ? 'Sign in' : 'Sign up'}
@@ -60,12 +63,16 @@ export const Authentication = () => {
                             Forgot Password?
                         </a>
                     </div>
-                </Form>
 
+                </Form>
+                <p className="text-center text-gray-500 text-xs">
+                    &copy;2025 WorkLinker inc. All rights reserved.
+                </p>
                 {msg && <Toast {...msg} />}
             </div>
-
         </div>
+
+
     )
 }
 
