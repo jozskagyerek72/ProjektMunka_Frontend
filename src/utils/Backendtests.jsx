@@ -74,9 +74,6 @@ export const Backendtests = () => {
         <input type="submit"   />
       </form>
 
-      <button onClick={()=>endShift(shiftID)}>end shift</button>
-
-
     </div>
   )
 }
