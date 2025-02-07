@@ -1,7 +1,4 @@
-
-import React from 'react'
-import { useContext } from 'react'
-import { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 import { Toastify } from '../components/Toastify'
@@ -9,9 +6,9 @@ import { Toastify } from '../components/Toastify'
 export const Authentication = () => {
     const { user, signInUser, msg, setMsg, signUpUser } = useContext(UserContext)
 
-    const location = useLocation()
-    const isSignedIn = location.pathname == '/authentication/signin'
     const navigate = useNavigate()
+    const location = useLocation()
+    const isSignedIn = location.pathname == '/authentication/signin' //ha egyenlő, true értéket fog kapni
 
     useEffect(() => {
         setMsg(null)
@@ -39,12 +36,14 @@ export const Authentication = () => {
                         </label>
                         <input type="text" placeholder='E-mail' name='e-mail' />
                     </div>
-                    <div className='mb-4'>
-                        <label htmlFor="username">
-                            Username
-                        </label>
-                        <input type="text" placeholder='Username' name='username' />
-                    </div>
+                    {!isSignedIn &&
+                        <div className='mb-4'>
+                            <label htmlFor="username">
+                                Username
+                            </label>
+                            <input type="text" placeholder='Username' name='username' />
+                        </div>
+                    }
                     <div className='mb-4'>
                         <label htmlFor="password">
                             Password
