@@ -29,8 +29,7 @@ export const UserProvider = ({ children }) => {
             setMsg({})
             setMsg({ signin: 'Signed in successfully!' })
         } catch (error) {
-            console.log(error.message);
-
+            setMsg({ err: error.message })
         }
     }
 
@@ -41,8 +40,7 @@ export const UserProvider = ({ children }) => {
             setMsg({})
             setMsg({ signup: 'Signed up successfully!' })
         } catch (error) {
-            console.log(error.message);
-
+            setMsg({ err: error.message })
         }
     }
 
@@ -51,6 +49,18 @@ export const UserProvider = ({ children }) => {
             await sendPasswordResetEmail(auth, email)
             setMsg({})
             setMsg({ resetpassword: 'Password reset e-mail sent successfully! ' })
+        } catch (error) {
+            setMsg({ err: error.message })
+        }
+    }
+
+    const updateUser = async (displayName, imageURL) => {
+        try {
+            if (displayName && imageURL) await updateProfile(auth.currentUser, { displayName, imageURL })
+            else if (displayName) await updateProfile(auth.currentUser, { displayName })
+            else if (imageURL) await updateProfile(auth.currentUser, { imageURL })
+            setMsg({})
+            setMsg({ update: 'Profile successfully updated! ' })
         } catch (error) {
             setMsg({ err: error.message })
         }
