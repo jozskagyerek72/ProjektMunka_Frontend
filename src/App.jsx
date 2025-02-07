@@ -11,6 +11,9 @@ import { Gate } from './pages/Gate'
 import { WorkerDetails } from './pages/WorkerDetails'
 import {Authentication} from "./pages/Authentication"
 import { Backendtests } from './utils/Backendtests'
+import { Authentication } from "./pages/Authentication"
+import { Backendtests } from './utils/Backendtests'
+import { PasswordReset } from './pages/PasswordReset'
 
 
 const router = createBrowserRouter([
@@ -21,15 +24,16 @@ const router = createBrowserRouter([
       { path: '/profile', element: <Profile /> },
       { path: '/authentication/signin', element: <Authentication /> },
       { path: '/authentication/signup', element: <Authentication /> },
+      { path: '/resetpassword', element: <PasswordReset /> },
 
       { path: '/analytics', element: <Analytics /> },
       { path: '/workers', element: <Workers /> },
       { path: '/gate', element: <Gate /> },
       { path: '/workersdetails', element: <WorkerDetails /> },
 
-      //{ path: '/tests', element: <Backendtests /> }
-    
-      
+
+      { path: '/tests', element: <Backendtests /> }
+
     ]
 
 

@@ -45,6 +45,7 @@ export const HomePageCards = () => {
           <img
 
             src="./apply.jpg"
+
             alt="apply"
 
           />
