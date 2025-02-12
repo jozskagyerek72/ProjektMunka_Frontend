@@ -45,10 +45,10 @@ export const Authentication = () => {
                         </div>
                     }
                     <div className='mb-4'>
-                        <label htmlFor="password">
+                        <label htmlFor="password" >
                             Password
                         </label>
-                        <input type="text" placeholder="******************" name='password' />
+                        <input type="password" typeof='password' placeholder="******************" name='password' />
                     </div>
                     <div class="flex items-center justify-between">
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
