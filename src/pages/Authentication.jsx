@@ -1,7 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
-import { Toastify } from '../components/Toastify'
+import { toast, Toaster } from 'sonner'
+import { Form } from 'react-router-dom'
+import { Toast } from '../components/Toast'
 
 export const Authentication = () => {
     const { user, signInUser, msg, setMsg, signUpUser } = useContext(UserContext)
@@ -26,44 +28,50 @@ export const Authentication = () => {
     }
 
     return (
-        <div className='home bg-white flex justify-center align-center'>
-            <div className="w-full max-w-xs p-8 bg-gray-950 h-min">
-                <h3 className='text-center'>{isSignedIn ? 'Sign in' : 'Sign up'}</h3>
-                <form className='bg-gray shadow-md rounded' onSubmit={handleSubmit}>
-                    <div className='mb-4'>
-                        <label htmlFor="email">
+        <div className="flex justify-center items-center h-screen">
+            <div className="w-full max-w-xs flex-auto">
+                <Form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="e-mail">
                             E-mail
                         </label>
-                        <input type="text" placeholder='E-mail' name='e-mail' />
+                        <input className="input input-bordered w-full max-w-xs" name="e-mail" type="text" placeholder="E-mail" />
                     </div>
+
                     {!isSignedIn &&
-                        <div className='mb-4'>
-                            <label htmlFor="username">
+                        <div className="mb-4">
+                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                                 Username
                             </label>
-                            <input type="text" placeholder='Username' name='username' />
+                            <input className="input input-bordered w-full max-w-xs" name="username" type="text" placeholder="Username" />
                         </div>
                     }
+
                     <div className='mb-4'>
-                        <label htmlFor="password">
+                        <label htmlFor="password" >
                             Password
                         </label>
-                        <input type="password" className='text-white'  placeholder="******************" name='password' />
+                        <input type="text" placeholder="******************" name='password' />
                     </div>
                     <div class="flex items-center justify-between">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                             {isSignedIn ? 'Sign in' : 'Sign up'}
                         </button>
-                        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#" onClick={() => navigate('/resetpassword')}>
+                        <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#" onClick={() => navigate('/resetpassword')}>
                             Forgot Password?
                         </a>
                     </div>
-                </form>
 
-                {msg && <Toastify {...msg} />}
+                </Form>
+                <p className="text-center text-gray-500 text-xs">
+                    &copy;2025 WorkLinker inc. All rights reserved.
+                </p>
+                {msg && <Toast {...msg} />}
             </div>
-
         </div>
+
+
     )
 }
 

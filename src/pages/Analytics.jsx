@@ -1,10 +1,8 @@
 //import React from 'react'
 
 export const Analytics = () => {
-    return (
-        <div>
-            analytics...
-        </div>
-    )
-}
-
+  return (
+    <div className="gate">
+    </div>
+  );
+};
