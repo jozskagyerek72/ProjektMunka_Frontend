@@ -19,11 +19,11 @@ export const Authentication = () => {
     const handleSubmit = (event) => {
         event.preventDefault
         const data = new FormData(event.currentTarget)
-        console.log(data.get('e-mail'), data.get('username'), data.get('password'));
+        console.log(data.get('e-mail'), data.get('displayName'), data.get('password'));
         if (isSignedIn) {
             signInUser(data.get('e-mail'), data.get('password'))
         } else {
-            signUpUser(data.get('e-mail'), data.get('password'), data.get('username'))
+            signUpUser(data.get('e-mail'), data.get('password'), data.get('displayName'))
         }
     }
 
@@ -41,10 +41,10 @@ export const Authentication = () => {
 
                     {!isSignedIn &&
                         <div className="mb-4">
-                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-                                Username
+                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="displayName">
+                                Name
                             </label>
-                            <input className="input input-bordered w-full max-w-xs" name="username" type="text" placeholder="Username" />
+                            <input className="input input-bordered w-full max-w-xs" name="displayName" type="text" placeholder="displayName" />
                         </div>
                     }
 
