@@ -9,21 +9,22 @@ export const Profile = () => {
 
     const { user, updateUser, msg, signOutUser } = useContext(UserContext)
     const [avatar, setAvatar] = useState(null)
-    const navigate = useNavigate    ()
+    const navigate = useNavigate()
 
     return (
-        <div className="flex items-center justify-center h-screen">
-            <div class="card card-side bg-base-100 h-100 shadow-xl">
-                <figure>
+        <div className="bg-gray-950 flex items-center justify-center h-screen">
+            <div className="card card-side border-gray-300 border-2 bg-base-100 h-100 shadow-xl">
+                <figure className="border-3 border-black">
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                        src="https://imgcdn.stablediffusionweb.com/2024/4/19/077e2879-36fd-4520-b63c-926135a71b2d.jpg"
                         alt="Movie" />
                 </figure>
-                <div class="card-body">
-                    <h2 class="card-title">New movie is released!</h2>
-                    <p>Click the button to watch on Jetflix app.</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Watch</button>
+                <div className="card-body">
+                    <h2 className="card-title text-2xl">*Worker Name*</h2>
+                    <h3>*Worker ID*</h3>
+                    <p>*Job description*</p>
+                    <div className="card-actions justify-end">
+                        <button className="btn btn-primary">Change picture</button>
                     </div>
                 </div>
             </div>
