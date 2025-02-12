@@ -14,7 +14,7 @@ export const Profile = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url)
+        user?.imageURL && setAvatar(extractUrlAndId(user.imageURL).url)
     }, [user])
 
     const { register, handleSubmit, formState: { errors } } = useForm({
