@@ -36,7 +36,7 @@ export const Authentication = () => {
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="e-mail">
                             E-mail
                         </label>
-                        <input className="input input-bordered w-full max-w-xs" name="e-mail" type="text" placeholder="E-mail" />
+                        <input className="input input-bordered w-full max-w-xs" name="e-mail" type="email" placeholder="E-mail" />
                     </div>
 
                     {!isSignedIn &&
@@ -54,13 +54,6 @@ export const Authentication = () => {
                             Password
                         </label>
                         <input className="input input-bordered w-full max-w-xs" name="password" type="password" placeholder="******************" />
-
-                    <div className='mb-4'>
-                        <label htmlFor="password">
-                            Password
-                        </label>
-                        <input type="password" typeof='password' placeholder="******************" name='password' />
-                    </div>
                     </div>
 
                     <div className="flex items-center justify-between">
