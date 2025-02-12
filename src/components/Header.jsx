@@ -26,7 +26,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import { FcContacts } from "react-icons/fc";
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const products = [
 
@@ -47,8 +47,6 @@ const products = [
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-
   return (
     <header className="bg-gray-800">
 
@@ -126,7 +124,7 @@ export const Header = () => {
         </a>
       </PopoverGroup>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" className="text-sm/6 font-semibold text-white">
+        <a href="/authentication/signin" className="text-sm/6 font-semibold text-white">
           Log in <span aria-hidden="true">&rarr;</span>
         </a>
       </div>
@@ -200,7 +198,7 @@ export const Header = () => {
               </div>
               <div className="py-6">
                 <a
-                  href="#"
+                  href="/authentication/signin"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-gray-800"
                 >
                   Log in
