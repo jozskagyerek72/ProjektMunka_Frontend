@@ -1,6 +1,6 @@
-import axios from "axios";
 
-export const uploadFile = async (file) => {
+
+export const uploadImage = async (file) => {
     const formData = new FormData()
     formData.append('file', file)
     formData.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET)
