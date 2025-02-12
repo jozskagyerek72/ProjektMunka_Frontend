@@ -30,14 +30,14 @@ import { NavLink } from 'react-router-dom'
 
 const products = [
 
-    { name: 'Analytics', description: 'See your own analytics', href: '#', icon: ChartPieIcon },
-    { name: 'Gate', description: 'Check in/out', href: '#', icon: FingerPrintIcon },
-    { name: 'Workers', description: 'Analize workers (Only for HR!)', href: '#', icon: SquaresPlusIcon },
-    { name: '...', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-    { name: 'Profile', description: 'Your profile data', href: '#', icon:  CursorArrowRaysIcon },
+    { name: 'Analytics', description: 'See your own analytics', href: '/analytics', icon: ChartPieIcon },
+    { name: 'Gate', description: 'Check in/out', href: '/gate', icon: FingerPrintIcon },
+    { name: 'Workers', description: 'Analize workers (Only for HR!)', href: '/workers', icon: SquaresPlusIcon },
+    { name: 'Home', description: 'Go back to home page', href: '/', icon: ArrowPathIcon },
+    { name: 'Profile', description: 'Your profile data', href: '/profile', icon:  CursorArrowRaysIcon },
   ]
   const callsToAction = [
-    { name: 'How to use QR code?', href: 'https://www.youtube.com/watch?v=GRJGKS9blm8', icon: PlayCircleIcon },
+    { name: 'How to use QR code?', href: 'https://www.youtube.com/watch?v=GRJGKS9blm8',  icon: PlayCircleIcon },
     { name: 'Contact', href: '#', icon: PhoneIcon },
   ]
 
@@ -140,6 +140,7 @@ export const Header = () => {
       </div>
       </DialogPanel>
       </Dialog>
+
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
