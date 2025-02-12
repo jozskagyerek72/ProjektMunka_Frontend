@@ -9,7 +9,7 @@ export const Profile = () => {
 
     const { user, updateUser, msg, signOutUser } = useContext(UserContext)
     const [avatar, setAvatar] = useState(null)
-    const navigate = useNavigate    ()
+    const navigate = useNavigate()
 
     return (
         <div className="flex items-center justify-center h-screen">
