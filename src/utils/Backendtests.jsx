@@ -2,12 +2,14 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import { addWorker, endShift, readShifts, readWorkers, startShift } from '../utils/crudUtil'
+import { addWorker, checkShiftStatus, endShift, readShifts, readWorkers, startShift } from '../utils/crudUtil'
 import { useEffect } from 'react'
 
 import { data } from 'react-router-dom'
 
 import QRCode from 'react-qr-code'
+import { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 //import { data } from 'react-router-dom'
 
 
@@ -17,7 +19,11 @@ export const Backendtests = () => {
   //useEffect(()=>{readWorkers(setWorkers)},[workers])
   readWorkers(setWorkers)
   const [shiftID, setShiftID] = useState(null)
-
+  const {user} = useContext(UserContext)
+  
+  useState(()=>{console.log(user)
+  },[])
+  
   const [shifts,setShifts] = useState([])
   readShifts(setShifts)
 
@@ -71,8 +77,10 @@ export const Backendtests = () => {
       <h2>startshift @workerId:</h2>
       <form onSubmit={handleSubmit(onShiftStart)}>
         <input {...register("name", { required: true })} type='text' placeholder='name' />
-        <input type="submit"   />
+        <input type="button" onClick={()=>{startShift({name:"battya"}, setShiftID)}}  value="start" />
       </form>
+
+      <button onClick={()=>{endShift(shiftID); checkShiftStatus("battya")}}>end shift</button>
 
     </div>
   )

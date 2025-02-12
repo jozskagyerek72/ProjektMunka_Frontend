@@ -48,10 +48,10 @@ export const Authentication = () => {
                         <label htmlFor="password">
                             Password
                         </label>
-                        <input type="text" placeholder="******************" name='password' />
+                        <input type="password" className='text-white'  placeholder="******************" name='password' />
                     </div>
                     <div class="flex items-center justify-between">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                             {isSignedIn ? 'Sign in' : 'Sign up'}
                         </button>
                         <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#" onClick={() => navigate('/resetpassword')}>

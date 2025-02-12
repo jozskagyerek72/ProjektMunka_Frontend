@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, onSnapshot, orderBy, query, serverTimestamp, Timestamp, updateDoc } from "firebase/firestore"
+import { addDoc, collection, doc, getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, Timestamp, updateDoc, where } from "firebase/firestore"
 import { db } from "./firebaseApp"
 
 export const readWorkers = async ( setWorkers ) =>
@@ -39,14 +39,26 @@ export const endShift = async (shiftId) =>
 {
         const docRef = doc(db, "shifts", shiftId)
         let endtime = Timestamp.now()
-        let duration = Timestamp.fromMillis( endtime.toMillis() - docRef.start.toMillis() )
-        // ez igy nem mukodik meg mivel datumot returnol
+        console.log((await getDoc(docRef)).data());
+        
+        
+        let duration = ( ((endtime.toMillis()) - ( (await getDoc(docRef)).data().start.toMillis())) )/3600000
+        // mostmar mukodik, szep munka en👍
         await updateDoc(docRef, {end: endtime, duration:duration})
 }
 
-export const checkShiftStatus = () =>
+export const checkShiftStatus = async (workerId) =>
 {
-        
+        const collectionRef = collection(db, "shifts")
+        const q = query(collectionRef, orderBy("start", "desc"), where("name","==",workerId))
+        const docs = await getDocs(q)
+
+        let hasUnendedShift = false
+        docs.forEach(shift => {
+                if (shift.data().end) console.log(shift.data().end, "end")
+                
+        })
+
 }
 
 export const readShifts = ( setShifts ) =>
