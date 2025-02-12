@@ -36,7 +36,7 @@ export const Authentication = () => {
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="e-mail">
                             E-mail
                         </label>
-                        <input className="input input-bordered w-full max-w-xs" name="e-mail" type="text" placeholder="E-mail" />
+                        <input className="input input-bordered w-full max-w-xs" name="e-mail" type="email" placeholder="E-mail" />
                     </div>
 
                     {!isSignedIn &&
@@ -60,11 +60,11 @@ export const Authentication = () => {
                             Password
                         </label>
                         <input type="password" typeof='password' placeholder="******************" name='password' />
-
-
                     </div>
-                    <div class="flex items-center justify-between">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             {isSignedIn ? 'Sign in' : 'Sign up'}
                         </button>
                         <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#" onClick={() => navigate('/resetpassword')}>

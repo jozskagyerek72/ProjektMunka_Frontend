@@ -24,7 +24,10 @@ export const Profile = () => {
                     <h3>*Worker ID*</h3>
                     <p>*Job description*</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Change picture</button>
+                        <button className="btn btn-primary w-45">Change picture</button>
+                    </div>
+                    <div className="card-actions justify-end">
+                        <button className="btn btn-primary w-45">Submit</button>
                     </div>
                 </div>
             </div>
