@@ -1,9 +1,7 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useState } from 'react'
 import { addWorker, endShift, readShifts, readWorkers, startShift } from '../utils/crudUtil'
-import { useEffect } from 'react'
 
 import { data } from 'react-router-dom'
 
@@ -27,12 +25,10 @@ export const Backendtests = () => {
     addWorker(newWorkerData)
   }
 
-
   const onShiftStart = async (data) => {
     let startShiftData = { ...data }
     startShift(startShiftData, setShiftID)
   }
-
 
   return (
     <div >
@@ -62,7 +58,7 @@ export const Backendtests = () => {
 
       <h2>local shifts</h2>
       {shifts && shifts.map(shift =>
-        <h3 key={shift.start}>{new Date(shift.start.seconds * 1000).toLocaleString()} - {shift.end ? new Date(shift.end.seconds * 1000).toLocaleString() : "Na"}</h3>
+        <h3 key={shift.start}>{new Date(shift.start.seconds * 1000).toLocaleString()} - {shift.end ? new Date(shift.end.seconds * 1000).toLocaleString() : "Not Available"}</h3>
       )}
 
       <h2>startshift @workerId:</h2>

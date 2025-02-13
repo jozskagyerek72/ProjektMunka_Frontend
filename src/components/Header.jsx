@@ -23,6 +23,8 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import { FcContacts } from "react-icons/fc";
 import { NavLink, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 
 const products = [
 
@@ -39,6 +41,17 @@ const callsToAction = [
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+
+  // const { user } = useContext(UserContext)
+  // const nouser = [...products]
+  // if (!user) {
+  //   nouser = products.filter((product) => product.name == "Home")
+  // }
+
+  // console.log(nouser);
+
+
   return (
     <header className="bg-gray-800">
 
@@ -105,30 +118,30 @@ export const Header = () => {
             </PopoverPanel>
           </Popover>
 
-        <a href="#" className="text-sm/6 font-semibold text-white">
-          Features
-        </a>
-        <a href="#" className="text-sm/6 font-semibold text-white">
-          Marketplace
-        </a>
-        <a href="#" className="text-sm/6 font-semibold text-white">
-          Company
-        </a>
-      </PopoverGroup>
-      <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="/authentication/signin" className="text-sm/6 font-semibold text-white">
-          Log in <span aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-    </nav>
-    <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-      <div className="fixed inset-0 z-10" />
-      <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
-        <div className="flex items-center justify-between">
-          <a href="#" className="-m-1.5 p-1.5">
-      </a>
-      </div>
-      </DialogPanel>
+          <a href="#" className="text-sm/6 font-semibold text-white">
+            Features
+          </a>
+          <a href="#" className="text-sm/6 font-semibold text-white">
+            Marketplace
+          </a>
+          <a href="#" className="text-sm/6 font-semibold text-white">
+            Company
+          </a>
+        </PopoverGroup>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="/authentication/signin" className="text-sm/6 font-semibold text-white">
+            Log in <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </nav>
+      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+        <div className="fixed inset-0 z-10" />
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+            </a>
+          </div>
+        </DialogPanel>
       </Dialog>
 
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
