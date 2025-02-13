@@ -34,7 +34,7 @@ const products = [
 ]
 const callsToAction = [
   { name: 'How to use QR code?', href: 'https://www.youtube.com/watch?v=GRJGKS9blm8', icon: PlayCircleIcon },
-  { name: 'Contact', href: '#', icon: PhoneIcon },
+  { name: 'Contact', href: '/contact', icon: PhoneIcon },
 ]
 
 export const Header = () => {

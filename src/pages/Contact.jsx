@@ -3,24 +3,26 @@ import React from "react";
 export const Contact = () => {
   return (
     <div className="gate bg-gray-950">
-      <div className="container-contact flex flex-wrap justify-center">
+      <div className="text-center justify-center flex flex-wrap">
         <h1 className="text-3xl wlh12">Contact</h1>
-        <div className="card bg-base-100 w-96 shadow-xl">
+      </div>
+      <div className="container-contact flex flex-wrap justify-center">
+        
+        <div className="card border-4  border-white bg-base-100 w-140 h-150 shadow-xl">
           <figure>
             <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+              src="wr.png"
               alt="Shoes"
             />
           </figure>
-          <div className="card-body">
-            <h2 className="card-title">
-              Shoes!
-              <div className="badge badge-secondary">NEW</div>
+          <div className="card-body bg-gray-800">
+            <h2 className="card-title text-2xl text-white">
+              +36 11/111-111
+              <div className="badge badge-primary">Call us any time!</div>
             </h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <p className="text-2xl text-white">work.linker@worklinker.support.com</p>
             <div className="card-actions justify-end">
-              <div className="badge badge-outline">Fashion</div>
-              <div className="badge badge-outline">Products</div>
+              <div className="badge-primary badge-outline">6000 Kecskemét , Cséplőgép utca 9.</div>
             </div>
           </div>
         </div>
