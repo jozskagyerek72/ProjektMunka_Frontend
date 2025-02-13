@@ -11,6 +11,7 @@ import { WorkerDetails } from './pages/WorkerDetails'
 import { Authentication } from "./pages/Authentication"
 import { Backendtests } from './utils/Backendtests'
 import { PasswordReset } from './pages/PasswordReset'
+import { Contact } from './pages/Contact'
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: '/authentication/signin', element: <Authentication /> },
       { path: '/authentication/signup', element: <Authentication /> },
       { path: '/resetpassword', element: <PasswordReset /> },
+      { path: '/contact', element: <Contact/> },
 
       { path: '/analytics', element: <Analytics /> },
       { path: '/workers', element: <Workers /> },

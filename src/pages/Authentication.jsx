@@ -28,12 +28,12 @@ export const Authentication = () => {
     }
 
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-screen bg-gray-950">
             <div className="w-full max-w-xs flex-auto">
-                <Form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+                <Form className="bg-gray-800 shadow-md shadow-white rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
 
                     <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="e-mail">
+                        <label className="block text-white text-sm font-bold mb-2" htmlFor="e-mail">
                             E-mail
                         </label>
                         <input className="input input-bordered w-full max-w-xs" name="e-mail" type="email" placeholder="E-mail" />
@@ -50,23 +50,23 @@ export const Authentication = () => {
 
 
                     <div className="mb-6">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                        <label className="block text-white text-sm font-bold mb-2" htmlFor="password">
                             Password
                         </label>
                         <input className="input input-bordered w-full max-w-xs" name="password" type="password" placeholder="******************" />
                     </div>
 
                     <div className="flex items-center justify-between">
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        <button className="bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             {isSignedIn ? 'Sign in' : 'Sign up'}
                         </button>
-                        <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#" onClick={() => navigate('/resetpassword')}>
+                        <a className="inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-300" href="#" onClick={() => navigate('/resetpassword')}>
                             Forgot Password?
                         </a>
                     </div>
 
                 </Form>
-                <p className="text-center text-gray-500 text-xs">
+                <p className="text-center text-gray-400 text-xs">
                     &copy;2025 WorkLinker inc. All rights reserved.
                 </p>
                 {msg && <Toast {...msg} />}
