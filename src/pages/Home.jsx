@@ -17,7 +17,7 @@ export const Home = () => {
         <HomePageCards />
         <Change />
       </div>
-      <div className="video_container bg-gray-800 text-center">
+      <div className="video_container glass bg-gray-800 text-center">
         <h2 className="text-4xl text-center text-white">What are we using?</h2>
         <div className="player_wrapper flex object-contain flex-wrap m-10 p-10">
           <video controls muted>

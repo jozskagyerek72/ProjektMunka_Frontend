@@ -37,16 +37,16 @@ export const Profile = () => {
 
     return (
         <div className="bg-gray-950 flex items-center justify-center h-screen">
-            <div className="card card-side border-gray-300 border-2 bg-base-100 h-100 shadow-xl">
+            <div className="card card-side flex border-gray-300 border-2 m-10 bg-base-100 h-100 shadow-xl">
                 {avatar &&
-                    <figure className="border-3 border-black">
-                        <img
+                    <figure className="border-3 w-50 border-black">
+                        <img className="w-50"
                             src={avatar}
                             alt="Profile picture" />
                     </figure>
                 }
                 <Form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="card-body">
+                    <div className="card-body p-2">
                         <h2 className="card-title text-2xl">*Worker Name*</h2>
                         <input {...register('displayName')} type="text" />
                         <h3>*Worker ID*</h3>

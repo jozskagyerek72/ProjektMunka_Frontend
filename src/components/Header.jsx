@@ -22,7 +22,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import { FcContacts } from "react-icons/fc";
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const products = [
 
@@ -39,8 +39,6 @@ const callsToAction = [
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-
   return (
     <header className="bg-gray-800">
 
@@ -107,30 +105,30 @@ export const Header = () => {
             </PopoverPanel>
           </Popover>
 
-          <a href="#" className="text-sm/6 font-semibold text-white">
-            Features
-          </a>
-          <a href="#" className="text-sm/6 font-semibold text-white">
-            Marketplace
-          </a>
-          <a href="#" className="text-sm/6 font-semibold text-white">
-            Company
-          </a>
-        </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm/6 font-semibold text-white">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-      </nav>
-      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-        <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
-          <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-            </a>
-          </div>
-        </DialogPanel>
+        <a href="#" className="text-sm/6 font-semibold text-white">
+          Features
+        </a>
+        <a href="#" className="text-sm/6 font-semibold text-white">
+          Marketplace
+        </a>
+        <a href="#" className="text-sm/6 font-semibold text-white">
+          Company
+        </a>
+      </PopoverGroup>
+      <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="/authentication/signin" className="text-sm/6 font-semibold text-white">
+          Log in <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </nav>
+    <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+      <div className="fixed inset-0 z-10" />
+      <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+        <div className="flex items-center justify-between">
+          <a href="#" className="-m-1.5 p-1.5">
+      </a>
+      </div>
+      </DialogPanel>
       </Dialog>
 
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -192,7 +190,7 @@ export const Header = () => {
               </div>
               <div className="py-6">
                 <a
-                  href="#"
+                  href="/authentication/signin"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-gray-800"
                 >
                   Log in

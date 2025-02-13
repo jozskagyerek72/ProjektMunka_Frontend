@@ -5,6 +5,7 @@ export const Gate = () => {
   return (
     <div className="gate grid bg-gray-950  justify-center">
         <div className="write grid">
+        <h1 className="text-3xl wlh12 m-auto">Check-in</h1>
             <h2 className="m-5 text-xl text-justify text-white">
                 Scan the QR code with your mobile to check in/check out!
             </h2>

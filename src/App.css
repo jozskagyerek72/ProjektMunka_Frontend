@@ -39,18 +39,23 @@
     outline: none;
     text-align: center;
   }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .wlh12{
-    font-size: 4vw;
+    font-size: 5vw;
     text-transform: uppercase;
     font-family: 'Gambetta', serif;
-    letter-spacing: -3px;
+    letter-spacing: 5px;
     transition: 700ms ease;
     font-variation-settings: "wght" 311;
     margin-bottom: 0.8rem;
     color: PaleGoldenRod;
     outline: none;
-    text-align: center;
+    text-align: justify;
   }
   
   h1:hover {
@@ -60,7 +65,9 @@
   
   .changeP{
     font-family: 'Gambetta', serif;
-
+    background-color: rgb(90, 90, 90, 0.3);
+    border-radius: 15px;
+    padding: 10px;
   }
 
 
