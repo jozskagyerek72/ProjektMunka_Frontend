@@ -56,7 +56,6 @@ export const Profile = () => {
                                 validate: (value) => {
                                     if (!value[0]) return true
                                     const acceptedFormats = ['jpg', 'png']
-                                    console.log(value[0]);
                                     const fileExtension = value[0].name.split('.').pop().toLowerCase()
                                     if (!acceptedFormats.includes(fileExtension)) return "invalid file format"
                                     if (value[0].size > 1 * 1000 * 1024) return "maximum file size is 1MB"
