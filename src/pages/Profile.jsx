@@ -38,56 +38,45 @@ export const Profile = () => {
     }
   };
 
-  return (
-    <div className="bg-gray-950 flex items-center justify-center h-screen">
-      <div className="card card-side flex border-gray-300 border-2 m-10 bg-base-100 h-70 shadow-xl">
-        {avatar && (
-          <figure className="border-3 w-50 border-black">
-            <img className="w-70" src={avatar} alt="Profile picture" />
-          </figure>
-        )}
-        <Form
-          className="bg-gray-800 text-white"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <div className="card-body  p-2">
-            <h2 className="card-title text-2xl">*Worker Name*</h2>
-            <input {...register("displayName")} type="text" />
-            <h3>*Worker ID*</h3>
-            <p>*Job description*</p>
-            <div className="card-actions justify-end">
-              <input
-                className="file-input file-input-bordered w-full max-w-xs"
-                {...register("file", {
-                  validate: (value) => {
-                    if (!value[0]) return true;
-                    const acceptedFormats = ["jpg", "png"];
-                    console.log(value[0]);
-                    const fileExtension = value[0].name
-                      .split(".")
-                      .pop()
-                      .toLowerCase();
-                    if (!acceptedFormats.includes(fileExtension))
-                      return "invalid file format";
-                    if (value[0].size > 1 * 1000 * 1024)
-                      return "maximum file size is 1MB";
-                    return true;
-                  },
-                })}
-                type="file"
-                onChange={(e) =>
-                  setAvatar(URL.createObjectURL(e.target.files[0]))
+    return (
+        <div className="bg-gray-950 flex items-center justify-center h-screen">
+            <div className="card card-side flex border-gray-300 border-2 m-10 bg-base-100 h-100 shadow-xl">
+                {avatar &&
+                    <figure className="border-3 w-50 border-black">
+                        <img className="w-50"
+                            src={avatar}
+                            alt="Profile picture" />
+                    </figure>
                 }
-              />
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="card-body p-2">
+                        <h2 className="card-title text-2xl">*Worker Name*</h2>
+                        <input {...register('displayName')} type="text" />
+                        <h3>*Worker ID*</h3>
+                        <p>*Job description*</p>
+                        <div className="card-actions justify-end">
+                            <input {...register('file', {
+                                validate: (value) => {
+                                    if (!value[0]) return true
+                                    const acceptedFormats = ['jpg', 'png']
+                                    console.log(value[0]);
+                                    const fileExtension = value[0].name.split('.').pop().toLowerCase()
+                                    if (!acceptedFormats.includes(fileExtension)) return "invalid file format"
+                                    if (value[0].size > 1 * 1000 * 1024) return "maximum file size is 1MB"
+                                    return true
+
+                                }
+                            })} type="file"
+                                onChange={(e) => setAvatar(URL.createObjectURL(e.target.files[0]))}
+                            />
+                        </div>
+                        <div className="card-actions justify-end">
+                            <button className="btn btn-primary w-45" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </Form>
             </div>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary w-45" type="submit">
-                Submit
-              </button>
-            </div>
-          </div>
-        </Form>
-      </div>
-    </div>
-  );
-};
+        </div>
+    )
+}
+
