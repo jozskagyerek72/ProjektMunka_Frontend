@@ -46,13 +46,14 @@
   }
 
   .wlh12{
-    font-size: 5vw;
+    font-size: 3vw;
     text-transform: uppercase;
     font-family: 'Gambetta', serif;
     letter-spacing: 5px;
     transition: 700ms ease;
     font-variation-settings: "wght" 311;
     margin-bottom: 0.8rem;
+    margin-top: 0;
     color: PaleGoldenRod;
     outline: none;
     text-align: justify;
@@ -112,7 +113,7 @@
     align-items: center;
     width: 45vw;
     border: #ffffff 2px solid ;
-    margin: 3rem;
+    margin-top: 15rem;
     border-radius: 20px;
  }
 
