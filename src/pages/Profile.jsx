@@ -13,7 +13,11 @@ export const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+
+    user?.imageURL && setAvatar(extractUrlAndId(user.imageURL).url);
+
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
+
   }, [user]);
 
   const {
@@ -73,7 +77,37 @@ export const Profile = () => {
                 onChange={(e) =>
                   setAvatar(URL.createObjectURL(e.target.files[0]))
                 }
+
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="card-body p-2">
+                        <h2 className="card-title text-2xl">*Worker Name*</h2>
+                        <input {...register('displayName')} type="text" />
+                        <h3>*Worker ID*</h3>
+                        <p>*Job description*</p>
+                        <div className="card-actions justify-end">
+                            <input {...register('file', {
+                                validate: (value) => {
+                                    if (!value[0]) return true
+                                    const acceptedFormats = ['jpg', 'png']
+                                    console.log(value[0]);
+                                    const fileExtension = value[0].name.split('.').pop().toLowerCase()
+                                    if (!acceptedFormats.includes(fileExtension)) return "invalid file format"
+                                    if (value[0].size > 1 * 1000 * 1024) return "maximum file size is 1MB"
+                                    return true
+
+                                }
+                            })} type="file"
+                                onChange={(e) => setAvatar(URL.createObjectURL(e.target.files[0]))}
+                            />
+                        </div>
+                        <div className="card-actions justify-end">
+                            <button className="btn btn-primary w-45" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </Form>
+
               />
+
             </div>
             <div className="card-actions justify-end">
               <button className="btn btn-primary w-45" type="submit">

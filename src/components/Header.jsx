@@ -68,7 +68,11 @@ export const Header = () => {
   }
 
   return (
+
+    <div className="navbar fixed top-0 lower-t-index bg-gray-800 z-10 text-white shadow-sm">
+
     <div className="navbar bg-base-100 shadow-sm sticky z-10 top-0">
+
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -90,11 +94,16 @@ export const Header = () => {
           </div>
           <ul
             tabIndex={0}
+
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li className=''><a>Item 1</a></li>
+
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
               <a>Item 1</a>
             </li>
+
             <li>
               <a>Parent</a>
               <ul className="p-2">
@@ -111,7 +120,7 @@ export const Header = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a href='/' className="btn btn-ghost text-xl">WorkLinker</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -120,6 +129,14 @@ export const Header = () => {
           </li>
           <li>
             <details>
+
+              <summary>Pages</summary>
+              <ul className="p-2 bg-gray-600">
+                <li><a href='/analytics'>Analytics</a></li>
+                <li><a href='/gate'>Gate</a></li>
+                <li><a href='/workers'>Workers</a></li>
+                
+
               <summary>Parent</summary>
               <ul className="p-2">
                 <li>
@@ -128,6 +145,7 @@ export const Header = () => {
                 <li>
                   <a>Submenu 2</a>
                 </li>
+
               </ul>
             </details>
           </li>
@@ -138,11 +156,15 @@ export const Header = () => {
       </div>
       <div className="navbar-end">
         <div className="dropdown dropdown-end">
+
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle border-1 border-white avatar">
+
           <div
             tabIndex={0}
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
+
             <div className="w-10 rounded-full">
               {avatar ? (
                 <img alt="Tailwind CSS Navbar component" src={avatar} />
@@ -156,6 +178,15 @@ export const Header = () => {
           </div>
           <ul
             tabIndex={0}
+
+            className="menu menu-sm dropdown-content bg-gray-700 border-2 border-white rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li>
+              <a className="justify-between">
+                Profile settings
+              </a>
+            </li>
+            {user ? <li><a>Log out</a></li> : <li><a>Log in</a></li>}
+
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {user && (
@@ -174,6 +205,7 @@ export const Header = () => {
                 <a href="/authentication/signin">Log in</a>
               </li>
             )}
+
           </ul>
         </div>
       </div>
