@@ -1,4 +1,5 @@
 export const Footer = () => {
+
     return (
         <footer className="footer flex flex-wrap gap-10 bg-gray-800 text-white p-10 m-auto justify-center">
             <aside>
@@ -31,3 +32,7 @@ export const Footer = () => {
 
 
 }
+
+  );
+};
+
