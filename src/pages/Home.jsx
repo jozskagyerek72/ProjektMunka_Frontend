@@ -3,7 +3,6 @@
 import { HomePageCards } from "../components/HomePageCards";
 import { Change } from "../components/Change";
 
-
 export const Home = () => {
   return (
     <div className="home bg-gray-950 flex flex-wrap justify-center align-center">
@@ -32,10 +31,7 @@ export const Home = () => {
             identification.
           </p>
         </div>
-        
       </div>
-     
-      
     </div>
   );
 };
