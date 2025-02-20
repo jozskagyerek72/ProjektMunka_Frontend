@@ -25,9 +25,9 @@ export const Analytics = () => {
               <div className="stat-figure text-secondary">
                 
               </div>
-              <div className="stat-title text-white text-xl">Page Views</div>
-              <div className="stat-value text-secondary">2.6M</div>
-              <div className="stat-desc text-white text-xl">21% more than last month</div>
+              <div className="stat-title text-white text-xl">Min. work hours</div>
+              <div className="stat-value text-secondary">35hour</div>
+              <div className="stat-desc text-white text-xl">Min.work hours per week</div>
             </div>
 
             <div className="stat">
@@ -64,7 +64,6 @@ export const Analytics = () => {
               <div className="stat-title text-white text-xl">Wage after tax</div>
               <div className="stat-value">$89,400</div>
               <div className="stat-actions">
-                <button className="btn btn-sm">Withdrawal</button>
                 <button className="btn btn-sm">Deposit</button>
               </div>
             </div>

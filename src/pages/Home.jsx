@@ -5,7 +5,7 @@ import { Change } from "../components/Change";
 
 export const Home = () => {
   return (
-    <div className="home bg-gray-950 flex flex-wrap justify-center align-center text-4xl">
+    <div className="home bg-gray-950 flex flex-wrap justify-center align-center">
       <div className="container  flex flex-wrap">
         <h1 className="wlh1 p-2">WorkLinker</h1>
         <p className="wlp text-3xl mt-15 ">
@@ -15,6 +15,7 @@ export const Home = () => {
       <div className="flex flex-wrap w-full">
         <HomePageCards />
       </div>
+
       <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 justify-center w-full  p-10 gap-10">
         <Change />
         <div className="video_container h-180 m-auto p-0 bg-gray-950 glass text-center justify-center align-center">
@@ -33,6 +34,7 @@ export const Home = () => {
               identification.
             </p>
           </div>
+
         </div>
       </div>
     </div>

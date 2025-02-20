@@ -78,6 +78,7 @@ export const Profile = () => {
                 }
               />
             </div>
+
             <div className="card-actions justify-end">
               <button className="btn btn-primary w-45" type="submit">
                 Submit
@@ -89,3 +90,4 @@ export const Profile = () => {
     </div>
   );
 };
+
