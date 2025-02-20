@@ -25,7 +25,7 @@ export const Backendtests = () => {
   const {user} = useContext(UserContext)
   
   useState(()=>{console.log(user)
-  },[])
+  },[user])
   
   const [shifts,setShifts] = useState([])
   readShifts(setShifts)

@@ -15,6 +15,8 @@ export const Profile = () => {
 
     useEffect(() => {
         user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url)
+        console.log(user);
+        
     }, [user])
 
     const { register, handleSubmit, formState: { errors } } = useForm({
