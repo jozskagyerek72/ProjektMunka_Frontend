@@ -55,7 +55,7 @@ const callsToAction = [
 ];
 
 export const Header = () => {
-  const { user } = useContext(UserContext);
+  const { user, signOutUser } = useContext(UserContext);
   const [avatar, setAvatar] = useState(null);
 
   useEffect(() => {
@@ -66,6 +66,9 @@ export const Header = () => {
   if (!user) {
     pages = pages.filter((product) => product.name == "Home");
   }
+
+  console.log(user);
+  
 
   return (
 
@@ -178,7 +181,7 @@ export const Header = () => {
             )}
             {user ? (
               <li>
-                <a>Log out</a>
+                <a onClick={() => signOutUser()}>Log out</a>
               </li>
             ) : (
               <li>
