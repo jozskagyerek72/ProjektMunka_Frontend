@@ -14,32 +14,26 @@ export const Home = () => {
       </div>
       <div className="flex flex-wrap w-full">
         <HomePageCards />
-        
       </div>
       <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 justify-center w-full  p-10 gap-10">
-      <Change />
-      <div className="video_container h-180 m-auto p-0 bg-gray-950 glass text-center justify-center align-center">
-        <h2 className="text-4xl text-center text-white">What are we using?</h2>
-        <div className="player_wrapper sm:w-max flex object-contain flex-wrap m-10 p-1">
-          <video className="sm:w-max" controls muted>
-            <source src="./public/qr.mp4" type="video/mp4" />
-          </video>    
+        <Change />
+        <div className="video_container h-180 m-auto p-0 bg-gray-950 glass text-center justify-center align-center">
+          <h2 className="text-4xl text-center text-white">
+            What are we using?
+          </h2>
+          <div className="player_wrapper sm:w-max flex object-contain flex-wrap m-10 p-1">
+            <video className="sm:w-max" controls muted>
+              <source src="./public/qr.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div className="flex flex-wrap">
+            <p className="text-center text-2xl  text-white mb-10">
+              We are providing an easy enter in your workplace with a QR scanner
+              identification.
+            </p>
+          </div>
         </div>
-
-        <div className="flex flex-wrap">
-          <p className="text-center text-2xl  text-white mb-10">
-            We are providing an easy enter in your workplace with a QR scanner
-            identification.
-          </p>
-        </div>
-
-      </div>
-      
-
-
-
-      
-
       </div>
     </div>
   );

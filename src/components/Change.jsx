@@ -2,7 +2,6 @@
 
 export const Change = () => {
   return (
-
     <div className="section flex flex-wrap text-2xl text-white m-5 mb-50  mt-50 p-5">
       <h1 className="text-3xl wlh12">About us</h1>
       <p className="changeP flex flex-wrap">
@@ -26,7 +25,6 @@ export const Change = () => {
         Imprudence attachment him his for sympathize. Large above be to means.
         Dashwood do provided stronger is. But discretion frequently sir the she
         instrument unaffected admiration everything.
-
       </p>
     </div>
   );
