@@ -77,15 +77,10 @@ export const Profile = () => {
                     </div>
                 </Form>
 
-    
 
             </div>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary w-45" type="submit">
-                Submit
-              </button>
-            </div>
-          </div>
+        </div>
+);
+}
 
-  );
-};
+
