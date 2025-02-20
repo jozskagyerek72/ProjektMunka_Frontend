@@ -106,7 +106,7 @@ export const Profile = () => {
                     </div>
                 </Form>
 
-              />
+              
 
             </div>
             <div className="card-actions justify-end">
