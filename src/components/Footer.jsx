@@ -1,7 +1,7 @@
 export const Footer = () => {
-
+   
   return (
-    <footer className="footer flex flex-wrap gap-10 bg-gray-800 text-base-content p-10 m-auto justify-center">
+    <footer className="footer flex flex-wrap gap-10 text-white bg-gray-800  p-10 m-auto justify-center">
       <aside>
         <svg
           width="50"
@@ -30,4 +30,8 @@ export const Footer = () => {
     </footer>
   );
 };
+
+    
+
+
 

@@ -12,15 +12,22 @@ export const Profile = () => {
   const [avatar, setAvatar] = useState(null);
   const navigate = useNavigate();
 
-    useEffect(() => {
-        user?.imageURL && setAvatar(extractUrlAndId(user.imageURL).url)
-    }, [user])
+  useEffect(() => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
-        defaultValues: {
-            displayName: user?.displayName || '',
-        }
-    });
+    user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
+
+    user?.imageURL && setAvatar(extractUrlAndId(user.imageURL).url);
+  }, [user]);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      displayName: user?.displayName || "",
+    },
+  });
 
   if (!user) return <NotFound />;
 
@@ -34,16 +41,15 @@ export const Profile = () => {
     }
   };
 
-    return (
-        <div className="bg-gray-950 flex items-center justify-center h-screen">
-            <div className="card card-side flex border-gray-300 border-2 m-10 bg-base-100 h-100 shadow-xl">
-                {avatar &&
-                    <figure className="border-3 w-50 border-black">
-                        <img className="w-50"
-                            src={avatar}
-                            alt="Profile picture" />
-                    </figure>
-                }
+  return (
+    <div className="bg-gray-950 flex items-center justify-center h-screen">
+      <div className="card card-side flex border-gray-300 border-2 m-10 bg-base-100 h-100 shadow-xl">
+        {avatar && (
+          <figure className="border-3 w-50 border-black">
+            <img className="w-50" src={avatar} alt="Profile picture" />
+          </figure>
+        )}
+
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <div className="card-body p-2">
                         <h2 className="card-title text-2xl">*Worker Name*</h2>
@@ -70,8 +76,9 @@ export const Profile = () => {
                         </div>
                     </div>
                 </Form>
+
             </div>
         </div>
-    )
+);
 }
 
