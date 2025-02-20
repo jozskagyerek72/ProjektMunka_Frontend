@@ -16,7 +16,7 @@ export const Workers = () => {
             >
               <figure className="px-10 pt-10">
                 <img
-                  src={worker.avatarURL}
+                  src={worker.imageURL}
                   alt="Shoes"
                   className="rounded-xl"
                 />
