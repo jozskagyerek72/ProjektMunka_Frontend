@@ -12,19 +12,15 @@ export const Profile = () => {
   const [avatar, setAvatar] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    user?.imageURL && setAvatar(extractUrlAndId(user.imageURL).url);
-  }, [user]);
+    useEffect(() => {
+        user?.imageURL && setAvatar(extractUrlAndId(user.imageURL).url)
+    }, [user])
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      displayName: user?.displayName || "",
-    },
-  });
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        defaultValues: {
+            displayName: user?.displayName || '',
+        }
+    });
 
   if (!user) return <NotFound />;
 
@@ -59,7 +55,6 @@ export const Profile = () => {
                                 validate: (value) => {
                                     if (!value[0]) return true
                                     const acceptedFormats = ['jpg', 'png']
-                                    console.log(value[0]);
                                     const fileExtension = value[0].name.split('.').pop().toLowerCase()
                                     if (!acceptedFormats.includes(fileExtension)) return "invalid file format"
                                     if (value[0].size > 1 * 1000 * 1024) return "maximum file size is 1MB"
