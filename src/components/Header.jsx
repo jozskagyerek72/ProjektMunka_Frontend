@@ -72,8 +72,6 @@ export const Header = () => {
 
   return (
 
-    
-
     <div className="navbar fixed top-0 lower-t-index bg-gray-800 z-10 text-white shadow-sm">
 
       <div className="navbar-start">
