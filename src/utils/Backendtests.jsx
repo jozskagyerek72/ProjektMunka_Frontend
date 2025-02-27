@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   addWorker,
+  checkShiftStatus,
   endShift,
   readShifts,
   readWorkers,
@@ -39,6 +40,10 @@ export const Backendtests = () => {
     let startShiftData = { ...data };
     startShift(startShiftData, setShiftID);
   };
+
+  useEffect(()=> {
+    checkShiftStatus("battya");
+  },[])
 
   return (
     <div>
