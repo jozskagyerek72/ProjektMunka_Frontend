@@ -122,25 +122,28 @@ export const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a className="btn btn-ghostg">Item 1</a>
+            <a className="btn btn-ghost">HR profiles</a>
           </li>
           <li>
             <details>
 
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
+              <summary className="btn btn-ghost">Pages</summary>
+              <ul className="p-2 bg-gray-800 text-center">
+                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                  <a href="/analytics">Analytics</a>
                 </li>
-                <li>
-                  <a>Submenu 2</a>
+                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                  <a href="/gate">Gate</a>
+                </li>
+                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                  <a href="/contact">Contact</a>
                 </li>
 
               </ul>
             </details>
           </li>
-          <li>
-            <a>Item 3</a>
+          <li className="btn btn-ghost">
+            <a>Shifts</a>
           </li>
         </ul>
       </div>
@@ -167,17 +170,17 @@ export const Header = () => {
           <ul
             tabIndex={0}
 
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {user && (
               <li>
-                <a className="justify-between" href="/profile">
+                <a className="justify-between hover:bg-gray-600" href="/profile">
                   Profile settings
                 </a>
               </li>
             )}
             {user ? (
-              <li>
+              <li className="hover:bg-gray-600">
                 <a>Log out</a>
               </li>
             ) : (
