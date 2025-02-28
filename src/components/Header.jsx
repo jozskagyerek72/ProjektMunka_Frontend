@@ -54,7 +54,7 @@ const callsToAction = [
   { name: "Contact", href: "/contact", icon: PhoneIcon },
 ];
 
-export const Header = () => {
+export const Header = ({ admin }) => {
   const { user, signOutUser } = useContext(UserContext);
   const [avatar, setAvatar] = useState(null);
 
@@ -67,13 +67,10 @@ export const Header = () => {
     pages = pages.filter((product) => product.name == "Home");
   }
 
-  console.log(user);
-  
+  console.log(admin);
 
   return (
-
     <div className="navbar fixed top-0 lower-t-index bg-gray-800 z-10 text-white shadow-sm">
-
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -95,7 +92,6 @@ export const Header = () => {
           </div>
           <ul
             tabIndex={0}
-
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
@@ -118,7 +114,9 @@ export const Header = () => {
             </li>
           </ul>
         </div>
-        <a href='/' className="btn btn-ghost text-xl">WorkLinker</a>
+        <a href="/" className="btn btn-ghost text-xl">
+          WorkLinker
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -127,16 +125,20 @@ export const Header = () => {
           </li>
           <li>
             <details>
-
               <summary>Parent</summary>
               <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
+                {admin ? (
+                  <li>
+                    <a>HR menu</a>
+                  </li>
+                ) : (
+                  <li>
+                    <a>not HR menu</a>
+                  </li>
+                )}
                 <li>
                   <a>Submenu 2</a>
                 </li>
-
               </ul>
             </details>
           </li>
@@ -147,13 +149,11 @@ export const Header = () => {
       </div>
       <div className="navbar-end">
         <div className="dropdown dropdown-end">
-
           <div
             tabIndex={0}
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
-
             <div className="w-10 rounded-full">
               {avatar ? (
                 <img alt="Tailwind CSS Navbar component" src={avatar} />
@@ -167,7 +167,6 @@ export const Header = () => {
           </div>
           <ul
             tabIndex={0}
-
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {user && (
@@ -186,7 +185,6 @@ export const Header = () => {
                 <a href="/authentication/signin">Log in</a>
               </li>
             )}
-
           </ul>
         </div>
       </div>
