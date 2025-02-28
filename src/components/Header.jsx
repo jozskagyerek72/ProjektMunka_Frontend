@@ -94,23 +94,26 @@ export const Header = ({ admin }) => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Item 1</a>
+            <li className="text-white bg-gray-800">
+              <a>HR profiles</a>
             </li>
 
             <li>
-              <a>Parent</a>
+              <a>Pages</a>
               <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
+                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                  <a href="/analytics">Analytics</a>
                 </li>
-                <li>
-                  <a>Submenu 2</a>
+                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                  <a href="/gate">Gates</a>
+                </li>
+                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                  <a href="/contact">Contact</a>
                 </li>
               </ul>
             </li>
-            <li>
-              <a>Item 3</a>
+            <li className="text-white bg-gray-800">
+              <a>Shifts</a>
             </li>
           </ul>
         </div>
@@ -121,29 +124,23 @@ export const Header = ({ admin }) => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a className="btn btn-ghostg">Item 1</a>
+            <a className="btn btn-ghost">HR profiles</a>
           </li>
           <li>
             <details>
               <summary>Parent</summary>
               <ul className="p-2">
-                {admin ? (
-                  <li>
-                    <a>HR menu</a>
-                  </li>
-                ) : (
-                  <li>
-                    <a>not HR menu</a>
-                  </li>
-                )}
+                <li>
+                  <a>Submenu 1</a>
+                </li>
                 <li>
                   <a>Submenu 2</a>
                 </li>
               </ul>
             </details>
           </li>
-          <li>
-            <a>Item 3</a>
+          <li className="btn btn-ghost">
+            <a>Shifts</a>
           </li>
         </ul>
       </div>
@@ -171,15 +168,17 @@ export const Header = ({ admin }) => {
           >
             {user && (
               <li>
-                <a className="justify-between" href="/profile">
+                <a className="justify-between hover:bg-gray-600" href="/profile">
                   Profile settings
                 </a>
               </li>
             )}
             {user ? (
-              <li>
-                <a onClick={() => signOutUser()}>Log out</a>
-              </li>
+              <><li className="hover:bg-gray-600">
+                <a>Log out</a>
+              </li><li>
+                  <a onClick={() => signOutUser()}>Log out</a>
+                </li></>
             ) : (
               <li>
                 <a href="/authentication/signin">Log in</a>
