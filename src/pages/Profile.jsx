@@ -12,9 +12,12 @@ export const Profile = () => {
   const [avatar, setAvatar] = useState(null);
   const navigate = useNavigate();
 
-    useEffect(() => {
-        user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url)
-    }, [user])
+  useEffect(() => {
+
+    user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
+
+    user?.imageURL && setAvatar(extractUrlAndId(user.imageURL).url);
+  }, [user]);
 
   const {
     register,
@@ -47,36 +50,45 @@ export const Profile = () => {
           </figure>
         )}
 
-                <Form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="card-body p-2">
-                        <h2 className="card-title text-2xl">*Worker Name*</h2>
-                        <input {...register('displayName')} type="text" />
-                        <h3>*Worker ID*</h3>
-                        <p>*Job description*</p>
-                        <div className="card-actions justify-end">
-                            <input {...register('file', {
-                                validate: (value) => {
-                                    if (!value[0]) return true
-                                    const acceptedFormats = ['jpg', 'png']
-                                    const fileExtension = value[0].name.split('.').pop().toLowerCase()
-                                    if (!acceptedFormats.includes(fileExtension)) return "invalid file format"
-                                    if (value[0].size > 1 * 1000 * 1024) return "maximum file size is 1MB"
-                                    return true
-
-                                }
-                            })} type="file"
-                                onChange={(e) => setAvatar(URL.createObjectURL(e.target.files[0]))}
-                            />
-                        </div>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary w-45" type="submit">Submit</button>
-                        </div>
-                    </div>
-                </Form>
-
-
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <div className="card-body p-2">
+            <h2 className="card-title text-2xl">*Worker Name*</h2>
+            <input {...register("displayName")} type="text" />
+            <h3>*Worker ID*</h3>
+            <p>*Job description*</p>
+            <div className="card-actions justify-end">
+              <input
+                {...register("file", {
+                  validate: (value) => {
+                    if (!value[0]) return true;
+                    const acceptedFormats = ["jpg", "png"];
+                    const fileExtension = value[0].name
+                      .split(".")
+                      .pop()
+                      .toLowerCase();
+                    if (!acceptedFormats.includes(fileExtension))
+                      return "invalid file format";
+                    if (value[0].size > 1 * 1000 * 1024)
+                      return "maximum file size is 1MB";
+                    return true;
+                  },
+                })}
+                type="file"
+                onChange={(e) =>
+                  setAvatar(URL.createObjectURL(e.target.files[0]))
+                }
+              />
             </div>
-        </div>
-);
-}
+
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary w-45" type="submit">
+                Submit
+              </button>
+            </div>
+          </div>
+        </Form>
+      </div>
+    </div>
+  );
+};
 

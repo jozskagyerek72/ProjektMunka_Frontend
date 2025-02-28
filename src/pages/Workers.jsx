@@ -6,7 +6,7 @@ export const Workers = () => {
   readWorkers(setWorkers);
 
   return (
-    <div className="home justify-center flex bg-gray-950">
+    <div className="home justify-center mt-15 flex bg-gray-950">
       <div className="grid lg:grid-cols-3 lg:grid-rows-1 grid-rows-3 justify-center m-auto p-10 gap-10">
         {workers &&
           workers.map((worker) => (
@@ -16,7 +16,7 @@ export const Workers = () => {
             >
               <figure className="px-10 pt-10">
                 <img
-                  src={worker.avatarURL}
+                  src={worker.imageURL}
                   alt="Shoes"
                   className="rounded-xl"
                 />

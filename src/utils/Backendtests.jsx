@@ -1,9 +1,12 @@
-
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { useState } from 'react'
-import { addWorker, checkShiftStatus, endShift, readShifts, readWorkers, startShift } from '../utils/crudUtil'
-import { useEffect } from 'react'
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import {
+  addWorker,
+  endShift,
+  readShifts,
+  readWorkers,
+  startShift,
+} from "../utils/crudUtil";
 
 import { data } from "react-router-dom";
 
@@ -36,6 +39,10 @@ export const Backendtests = () => {
     let startShiftData = { ...data };
     startShift(startShiftData, setShiftID);
   };
+
+  useEffect(()=> {
+    checkShiftStatus("battya");
+  },[])
 
   return (
     <div>

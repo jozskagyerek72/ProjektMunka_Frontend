@@ -1,6 +1,21 @@
 //import React from 'react'
 
+import { useContext } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { UserContext } from "../context/UserContext";
+import { extractUrlAndId } from "../utils/utilities";
+
 export const Analytics = () => {
+
+  const { user } = useContext(UserContext)
+  const [avatar, setAvatar] = useState(null);
+
+  useEffect(() => {
+    user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
+    !user && setAvatar(null);
+  }, [user, user?.photoURL]);
+
   return (
     <div className="gate bg-gray-950">
 
@@ -25,16 +40,16 @@ export const Analytics = () => {
               <div className="stat-figure text-secondary">
                 
               </div>
-              <div className="stat-title text-white text-xl">Page Views</div>
-              <div className="stat-value text-secondary">2.6M</div>
-              <div className="stat-desc text-white text-xl">21% more than last month</div>
+              <div className="stat-title text-white text-xl">Min. work hours</div>
+              <div className="stat-value text-secondary">35hour</div>
+              <div className="stat-desc text-white text-xl">Min.work hours per week</div>
             </div>
 
             <div className="stat">
               <div className="stat-figure text-secondary">
                 <div className="avatar online">
                   <div className="w-16 rounded-full">
-                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    <img src={avatar} />
                   </div>
                 </div>
               </div>
@@ -64,7 +79,6 @@ export const Analytics = () => {
               <div className="stat-title text-white text-xl">Wage after tax</div>
               <div className="stat-value">$89,400</div>
               <div className="stat-actions">
-                <button className="btn btn-sm">Withdrawal</button>
                 <button className="btn btn-sm">Deposit</button>
               </div>
             </div>

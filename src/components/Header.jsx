@@ -55,7 +55,7 @@ const callsToAction = [
 ];
 
 export const Header = () => {
-  const { user } = useContext(UserContext);
+  const { user, signOutUser } = useContext(UserContext);
   const [avatar, setAvatar] = useState(null);
 
   useEffect(() => {
@@ -67,9 +67,10 @@ export const Header = () => {
     pages = pages.filter((product) => product.name == "Home");
   }
 
-  return (
+  console.log(user);
+  
 
-    
+  return (
 
     <div className="navbar fixed top-0 lower-t-index bg-gray-800 z-10 text-white shadow-sm">
 
@@ -122,7 +123,7 @@ export const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <a className="btn btn-ghostg">Item 1</a>
           </li>
           <li>
             <details>
@@ -178,7 +179,7 @@ export const Header = () => {
             )}
             {user ? (
               <li>
-                <a>Log out</a>
+                <a onClick={() => signOutUser()}>Log out</a>
               </li>
             ) : (
               <li>
