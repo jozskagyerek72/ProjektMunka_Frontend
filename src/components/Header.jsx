@@ -55,7 +55,7 @@ const callsToAction = [
 ];
 
 export const Header = () => {
-  const { user } = useContext(UserContext);
+  const { user, signOutUser } = useContext(UserContext);
   const [avatar, setAvatar] = useState(null);
 
   useEffect(() => {
@@ -67,9 +67,10 @@ export const Header = () => {
     pages = pages.filter((product) => product.name == "Home");
   }
 
-  return (
+  console.log(user);
+  
 
-    
+  return (
 
     <div className="navbar fixed top-0 lower-t-index bg-gray-800 z-10 text-white shadow-sm">
 
@@ -183,8 +184,12 @@ export const Header = () => {
               </li>
             )}
             {user ? (
+
               <li className="hover:bg-gray-600">
                 <a>Log out</a>
+              <li>
+                <a onClick={() => signOutUser()}>Log out</a>
+
               </li>
             ) : (
               <li>

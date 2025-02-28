@@ -2,6 +2,7 @@ import {
   addDoc,
   collection,
   doc,
+  getDocs,
   onSnapshot,
   orderBy,
   query,
@@ -69,7 +70,27 @@ export const endShift = async (shiftId) => {
   await updateDoc(docRef, { end: endtime, duration: duration });
 };
 
-export const checkShiftStatus = () => {};
+export const checkShiftStatus = async (workerId) => {
+  const collectionRef = collection(db, "shifts");
+  const q = query(
+    collectionRef,
+    where("name", "==", workerId),
+    where("end", "==", null)
+  );
+  const docs = await getDocs(q)
+
+  let hasUndendedShift = false
+  docs.forEach((shift) => {
+    if (docs.empty) {
+      hasUndendedShift = false;
+    }
+    else {
+      hasUndendedShift = true;
+    }
+  });
+  console.log(hasUndendedShift);
+};
+
 
 export const readShifts = (setShifts) => {
   const collectionRef = collection(db, "shifts");
