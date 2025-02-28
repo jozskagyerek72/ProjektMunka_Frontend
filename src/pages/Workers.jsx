@@ -1,9 +1,11 @@
 import React from "react";
 import { readWorkers } from "../utils/crudUtil";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 export const Workers = () => {
   const [workers, setWorkers] = useState([]);
   readWorkers(setWorkers);
+  const navigate = useNavigate();
 
   return (
     <div className="home justify-center mt-15 flex bg-gray-950">
@@ -55,9 +57,9 @@ export const Workers = () => {
                     {worker.field}
                     <br />
                   </td>
-                  <td>Purple</td>
+                  <td>{worker.status}</td>
                   <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    <button onClick={()=>navigate("/workerdetails/"+worker.id)} className="btn btn-ghost btn-xs">details</button>
                   </th>
                 </tr>
               ))}

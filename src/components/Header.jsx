@@ -95,25 +95,28 @@ export const Header = () => {
           <ul
             tabIndex={0}
 
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-700 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Item 1</a>
+            <li className="text-white bg-gray-800">
+              <a>HR profiles</a>
             </li>
 
             <li>
-              <a>Parent</a>
+              <a>Pages</a>
               <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
+                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                  <a href="/analytics">Analytics</a>
                 </li>
-                <li>
-                  <a>Submenu 2</a>
+                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                  <a href="/gate">Gates</a>
+                </li>
+                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                  <a href="/contact">Contact</a>
                 </li>
               </ul>
             </li>
-            <li>
-              <a>Item 3</a>
+            <li className="text-white bg-gray-800">
+              <a>Shifts</a>
             </li>
           </ul>
         </div>
