@@ -26,6 +26,20 @@ export const readWorkers = async (setWorkers) => {
   });
   return unsubscribe;
 };
+export const readSingleWorker = async (id, setWorker) => {
+  /*const querySnapshot = await getDocs(collection(db, "workers"))
+        let workers = []
+        querySnapshot.forEach((doc)=>  { workers.push({...doc.data(), id:doc.id}) })
+        return workers*/
+
+  
+  const q = doc(db, "workers", id)
+  const unsubscribe = onSnapshot(q, (snapshot) => {
+    setWorker(({ ...snapshot.data(), id: snapshot.id }));
+    return unsubscribe;
+  });
+};
+
 
 export const addWorker = async (formdata) => {
   const collectionRef = collection(db, "workers");
