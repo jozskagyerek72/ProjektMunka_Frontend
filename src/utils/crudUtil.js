@@ -1,17 +1,5 @@
-import {
-  addDoc,
-  collection,
-  doc,
-  getDocs,
-  onSnapshot,
-  orderBy,
-  query,
-  serverTimestamp,
-  Timestamp,
-  updateDoc,
-  where,
-} from "firebase/firestore";
-import { db } from "./firebaseApp";
+import { addDoc, collection, doc, onSnapshot, orderBy, query, serverTimestamp, Timestamp, updateDoc } from "firebase/firestore"
+import { db } from "./firebaseApp"
 
 export const readWorkers = async (setWorkers) => {
   /*const querySnapshot = await getDocs(collection(db, "workers"))
@@ -61,35 +49,15 @@ export const startShift = async (formdata, setState) => {
 };
 
 export const endShift = async (shiftId) => {
-  const docRef = doc(db, "shifts", shiftId);
-  let endtime = Timestamp.now();
-  let duration = Timestamp.fromMillis(
-    endtime.toMillis() - docRef.start.toMillis()
-  );
-  // ez igy nem mukodik meg mivel datumot returnol
-  await updateDoc(docRef, { end: endtime, duration: duration });
-};
+        const docRef = doc(db, "shifts", shiftId)
+        let endtime = Timestamp.now()
+        let duration = Timestamp.fromMillis(endtime.toMillis() - docRef.start.toMillis())
+        // ez igy nem mukodik meg mivel datumot returnol
+        await updateDoc(docRef, { end: endtime, duration: duration })
+}
 
-export const checkShiftStatus = async (workerId) => {
-  const collectionRef = collection(db, "shifts");
-  const q = query(
-    collectionRef,
-    where("name", "==", workerId),
-    where("end", "==", null)
-  );
-  const docs = await getDocs(q)
-
-  let hasUndendedShift = false
-  docs.forEach((shift) => {
-    if (docs.empty) {
-      hasUndendedShift = false;
-    }
-    else {
-      hasUndendedShift = true;
-    }
-  });
-  console.log(hasUndendedShift);
-};
+export const checkShiftStatus = () => 
+}
 
 export const checkAdmin = async (hrEmail) => {
   const collectionRef = collection(db, "admins");
@@ -105,6 +73,7 @@ export const checkAdmin = async (hrEmail) => {
   return hrExists
   
 }
+
 
 
 export const readShifts = (setShifts) => {

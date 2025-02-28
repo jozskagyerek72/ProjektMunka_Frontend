@@ -1,8 +1,22 @@
 import React, { useState } from "react";
 import { readWorkers } from "../utils/crudUtil";
+import QRCode from "react-qr-code";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+import { useEffect } from "react";
 export const Gate = () => {
   const [workers, setWorkers] = useState([]);
+  const [useremail, setUserEmail] = useState()
+  const { user } = useContext(UserContext);
   readWorkers(setWorkers);
+  useEffect(()=>{
+    //console.log(user?.email);
+    
+    user?.email && setUserEmail(user.email)
+    //console.log(useremail);
+    
+  },[user])
+  
 
   return (
     <div className="gate grid bg-gray-950  justify-center">
@@ -18,11 +32,12 @@ export const Gate = () => {
           <div className="display flex text-center">
             <div className="flex text-center flex-wrap ">
               <h2 className="text-2xl text-black  m-15">Worker Name</h2>
-              <img
+              {/*<img
                 src="./websiteQR.png"
                 className="w-70 h-70 ml-1"
                 alt="YourQR"
-              />
+              />*/}
+              {user&& <QRCode value={useremail+""}/>}
               <h3 className="text-center font-bold  text-black float-end m-5">
                 Job description
               </h3>

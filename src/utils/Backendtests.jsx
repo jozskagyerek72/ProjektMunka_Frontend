@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   addWorker,
-  checkShiftStatus,
   endShift,
   readShifts,
   readWorkers,
@@ -11,17 +10,17 @@ import {
 
 import { data } from "react-router-dom";
 
-import QRCode from "react-qr-code";
+import QRCode from 'react-qr-code'
 //import { data } from 'react-router-dom'
 
 export const Backendtests = () => {
   const [workers, setWorkers] = useState([]);
   //useEffect(()=>{readWorkers(setWorkers)},[workers])
-  readWorkers(setWorkers);
-  const [shiftID, setShiftID] = useState(null);
+  readWorkers(setWorkers)
+  const [shiftID, setShiftID] = useState(null)
 
-  const [shifts, setShifts] = useState([]);
-  readShifts(setShifts);
+  const [shifts,setShifts] = useState([])
+  readShifts(setShifts)
 
   const {
     register,
@@ -52,7 +51,7 @@ export const Backendtests = () => {
         {workers &&
           workers.map((worker) => (
             <div key={worker.id}>
-              <p style={{ color: "white" }}>
+              <p style={{ color: "white" , backgroundColor:"black"}}>
                 {" "}
                 {worker.id} : {worker.name} : {worker.field} :{" "}
                 {worker.hourlypay}
@@ -106,13 +105,10 @@ export const Backendtests = () => {
 
       <h2>startshift @workerId:</h2>
       <form onSubmit={handleSubmit(onShiftStart)}>
-        <input
-          {...register("name", { required: true })}
-          type="text"
-          placeholder="name"
-        />
-        <input type="submit" />
+        <input {...register("name", { required: true })} type='text' placeholder='name' />
+        <input type="submit"   />
       </form>
+        <button onClick={()=>checkShiftStatus("battya")}>niga</button>
     </div>
   );
 };

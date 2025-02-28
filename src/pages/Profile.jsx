@@ -13,6 +13,7 @@ export const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
   }, [user]);
 

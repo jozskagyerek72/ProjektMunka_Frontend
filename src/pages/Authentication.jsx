@@ -72,20 +72,12 @@ export const Authentication = ({setAdmin}) => {
             </div>
           )}
 
-          <div className="mb-6">
-            <label
-              className="block text-white text-sm font-bold mb-2"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <input
-              className="input input-bordered w-full max-w-xs"
-              name="password"
-              type="password"
-              placeholder="******************"
-            />
-          </div>
+                    <div className="mb-6">
+                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                            Password
+                        </label>
+                        <input className="input input-bordered w-full max-w-xs" name="password" type="password" placeholder="******************" />
+                    </div>
 
           <div className="flex items-center justify-between">
             <button className="bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
