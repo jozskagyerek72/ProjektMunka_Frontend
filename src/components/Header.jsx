@@ -69,9 +69,9 @@ export const Header = () => {
 
   return (
 
-    <div className="navbar fixed top-0 lower-t-index bg-gray-800 z-10 text-white shadow-sm">
+    
 
-    <div className="navbar bg-base-100 shadow-sm sticky z-10 top-0">
+    <div className="navbar fixed top-0 lower-t-index bg-gray-800 z-10 text-white shadow-sm">
 
       <div className="navbar-start">
         <div className="dropdown">
@@ -94,9 +94,6 @@ export const Header = () => {
           </div>
           <ul
             tabIndex={0}
-
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li className=''><a>Item 1</a></li>
 
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
@@ -130,13 +127,6 @@ export const Header = () => {
           <li>
             <details>
 
-              <summary>Pages</summary>
-              <ul className="p-2 bg-gray-600">
-                <li><a href='/analytics'>Analytics</a></li>
-                <li><a href='/gate'>Gate</a></li>
-                <li><a href='/workers'>Workers</a></li>
-                
-
               <summary>Parent</summary>
               <ul className="p-2">
                 <li>
@@ -157,8 +147,6 @@ export const Header = () => {
       <div className="navbar-end">
         <div className="dropdown dropdown-end">
 
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle border-1 border-white avatar">
-
           <div
             tabIndex={0}
             role="button"
@@ -178,14 +166,6 @@ export const Header = () => {
           </div>
           <ul
             tabIndex={0}
-
-            className="menu menu-sm dropdown-content bg-gray-700 border-2 border-white rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li>
-              <a className="justify-between">
-                Profile settings
-              </a>
-            </li>
-            {user ? <li><a>Log out</a></li> : <li><a>Log in</a></li>}
 
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >

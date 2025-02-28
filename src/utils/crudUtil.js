@@ -52,7 +52,8 @@ export const checkShiftStatus = async (workerId) =>
 
         let hasUnendedShift = false
         docs.forEach(shift => {
-                if (shift.data().end) console.log(shift.data().end, "end")
+                /*if (shift.data().end)*/
+                console.log(shift.data())
                 
         })
 

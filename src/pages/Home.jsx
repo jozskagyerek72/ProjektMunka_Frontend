@@ -5,7 +5,7 @@ import { Change } from "../components/Change";
 
 export const Home = () => {
   return (
-    <div className="home bg-gray-950 flex flex-wrap justify-center align-center">
+    <div className="home bg-gray-950 flex flex-wrap justify-center align-center text-4xl">
       <div className="container  flex flex-wrap">
         <h1 className="wlh1 p-2">WorkLinker</h1>
         <p className="wlp text-3xl mt-15 ">
@@ -39,7 +39,6 @@ export const Home = () => {
 
 
       
-
 
       </div>
     </div>

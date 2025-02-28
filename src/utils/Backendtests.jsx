@@ -2,7 +2,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import { addWorker, endShift, readShifts, readWorkers, startShift } from '../utils/crudUtil'
+import { addWorker, checkShiftStatus, endShift, readShifts, readWorkers, startShift } from '../utils/crudUtil'
 import { useEffect } from 'react'
 
 import { data } from "react-router-dom";
@@ -44,7 +44,7 @@ export const Backendtests = () => {
         {workers &&
           workers.map((worker) => (
             <div key={worker.id}>
-              <p style={{ color: "white" }}>
+              <p style={{ color: "white" , backgroundColor:"black"}}>
                 {" "}
                 {worker.id} : {worker.name} : {worker.field} :{" "}
                 {worker.hourlypay}
@@ -101,7 +101,7 @@ export const Backendtests = () => {
         <input {...register("name", { required: true })} type='text' placeholder='name' />
         <input type="submit"   />
       </form>
-
+        <button onClick={()=>checkShiftStatus("battya")}>niga</button>
     </div>
   );
 };
