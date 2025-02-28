@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-import { toast, Toaster } from "sonner";
 import { Form } from "react-router-dom";
 import { Toast } from "../components/Toast";
+import { checkAdmin } from "../utils/crudUtil";
+import { useState } from "react";
 
-export const Authentication = () => {
+export const Authentication = ({setAdmin}) => {
   const { user, signInUser, msg, setMsg, signUpUser } = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -16,11 +17,12 @@ export const Authentication = () => {
     setMsg(null);
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault;
     const data = new FormData(event.currentTarget);
     if (isSignedIn) {
       signInUser(data.get("e-mail"), data.get("password"));
+      (await checkAdmin(data.get("e-mail"))) ? setAdmin(true) : setAdmin(false);
     } else {
       signUpUser(
         data.get("e-mail"),
@@ -49,6 +51,7 @@ export const Authentication = () => {
               name="e-mail"
               type="email"
               placeholder="E-mail"
+              id="email"
             />
           </div>
 

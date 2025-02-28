@@ -15,8 +15,6 @@ export const Profile = () => {
   useEffect(() => {
 
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
-
-    user?.imageURL && setAvatar(extractUrlAndId(user.imageURL).url);
   }, [user]);
 
   const {
@@ -91,4 +89,3 @@ export const Profile = () => {
     </div>
   );
 };
-

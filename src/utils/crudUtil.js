@@ -14,6 +14,20 @@ export const readWorkers = async (setWorkers) => {
   });
   return unsubscribe;
 };
+export const readSingleWorker = async (id, setWorker) => {
+  /*const querySnapshot = await getDocs(collection(db, "workers"))
+        let workers = []
+        querySnapshot.forEach((doc)=>  { workers.push({...doc.data(), id:doc.id}) })
+        return workers*/
+
+  
+  const q = doc(db, "workers", id)
+  const unsubscribe = onSnapshot(q, (snapshot) => {
+    setWorker(({ ...snapshot.data(), id: snapshot.id }));
+    return unsubscribe;
+  });
+};
+
 
 export const addWorker = async (formdata) => {
   const collectionRef = collection(db, "workers");
@@ -42,9 +56,25 @@ export const endShift = async (shiftId) => {
         await updateDoc(docRef, { end: endtime, duration: duration })
 }
 
-export const checkShiftStatus = () => {
-
+export const checkShiftStatus = () => 
 }
+
+export const checkAdmin = async (hrEmail) => {
+  const collectionRef = collection(db, "admins");
+  const q = query(collectionRef, where("email", "==", hrEmail));
+
+  const docs = await getDocs(q)
+
+  let hrExists = false
+  docs.forEach((doc)=> {
+    if(doc.data() == null) hrExists = false;
+    else hrExists = true;
+  })
+  return hrExists
+  
+}
+
+
 
 export const readShifts = (setShifts) => {
   const collectionRef = collection(db, "shifts");
