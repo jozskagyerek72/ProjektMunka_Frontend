@@ -91,6 +91,21 @@ export const checkShiftStatus = async (workerId) => {
   console.log(hasUndendedShift);
 };
 
+export const checkAdmin = async (hrEmail) => {
+  const collectionRef = collection(db, "admins");
+  const q = query(collectionRef, where("email", "==", hrEmail));
+
+  const docs = await getDocs(q)
+
+  let hrExists = false
+  docs.forEach((doc)=> {
+    if(doc.data() == null) hrExists = false;
+    else hrExists = true;
+  })
+  return hrExists
+  
+}
+
 
 export const readShifts = (setShifts) => {
   const collectionRef = collection(db, "shifts");

@@ -12,50 +12,57 @@ import { Authentication } from "./pages/Authentication";
 import { Backendtests } from "./utils/Backendtests";
 import { PasswordReset } from "./pages/PasswordReset";
 import { Contact } from "./pages/Contact";
-
-const router = createBrowserRouter(
-  [
-    {
-      element: (
-        <div>
-          <Header />
-          <Outlet />
-          <Footer />
-        </div>
-      ),
-      children: [
-        { path: "/", element: <Home /> },
-        { path: "/profile", element: <Profile /> },
-        { path: "/authentication/signin", element: <Authentication /> },
-        { path: "/authentication/signup", element: <Authentication /> },
-        { path: "/resetpassword", element: <PasswordReset /> },
-        { path: "/contact", element: <Contact /> },
-
-        { path: "/analytics", element: <Analytics /> },
-        { path: "/workers", element: <Workers /> },
-        { path: "/gate", element: <Gate /> },
-        { path: "/workerdetails/:id", element: <WorkerDetails /> },
-
-        { path: "/tests", element: <Backendtests /> },
-      ],
-    },
-  ],
-  {
-    future: {
-      v7_relativeSplatPath: true,
-
-      v7_normalizeFormMethod: true,
-
-      v7_fetcherPersist: true,
-
-      v7_partialHydration: true,
-
-      v7_skipActionErrorRevalidation: true,
-    },
-  }
-);
+import { useState } from "react";
 
 function App() {
+
+  const [admin, setAdmin] = useState(false);
+
+  const router = createBrowserRouter(
+    [
+      {
+        element: (
+          <div>
+            <Header admin={admin} />
+            <Outlet />
+            <Footer />
+          </div>
+        ),
+        children: [
+          { path: "/", element: <Home /> },
+          { path: "/profile", element: <Profile /> },
+          {
+            path: "/authentication/signin",
+            element: <Authentication setAdmin={setAdmin} />,
+          },
+          { path: "/authentication/signup", element: <Authentication /> },
+          { path: "/resetpassword", element: <PasswordReset /> },
+          { path: "/contact", element: <Contact /> },
+
+          { path: "/analytics", element: <Analytics /> },
+          { path: "/workers", element: <Workers /> },
+          { path: "/gate", element: <Gate /> },
+          { path: "/workerdetails", element: <WorkerDetails /> },
+
+          { path: "/tests", element: <Backendtests /> },
+        ],
+      },
+    ],
+    {
+      future: {
+        v7_relativeSplatPath: true,
+
+        v7_normalizeFormMethod: true,
+
+        v7_fetcherPersist: true,
+
+        v7_partialHydration: true,
+
+        v7_skipActionErrorRevalidation: true,
+      },
+    }
+  );
+
   return (
     <RouterProvider router={router} future={{ v7_startTransition: true }} />
   );

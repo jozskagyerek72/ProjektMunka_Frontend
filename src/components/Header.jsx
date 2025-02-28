@@ -54,7 +54,7 @@ const callsToAction = [
   { name: "Contact", href: "/contact", icon: PhoneIcon },
 ];
 
-export const Header = () => {
+export const Header = ({ admin }) => {
   const { user, signOutUser } = useContext(UserContext);
   const [avatar, setAvatar] = useState(null);
 
@@ -67,13 +67,10 @@ export const Header = () => {
     pages = pages.filter((product) => product.name == "Home");
   }
 
-  console.log(user);
-  
+  console.log(admin);
 
   return (
-
     <div className="navbar fixed top-0 lower-t-index bg-gray-800 z-10 text-white shadow-sm">
-
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -95,8 +92,7 @@ export const Header = () => {
           </div>
           <ul
             tabIndex={0}
-
-            className="menu menu-sm dropdown-content bg-base-700 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li className="text-white bg-gray-800">
               <a>HR profiles</a>
@@ -121,7 +117,9 @@ export const Header = () => {
             </li>
           </ul>
         </div>
-        <a href='/' className="btn btn-ghost text-xl">WorkLinker</a>
+        <a href="/" className="btn btn-ghost text-xl">
+          WorkLinker
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -130,19 +128,14 @@ export const Header = () => {
           </li>
           <li>
             <details>
-
-              <summary className="btn btn-ghost">Pages</summary>
-              <ul className="p-2 bg-gray-800 text-center">
-                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                  <a href="/analytics">Analytics</a>
+              <summary>Parent</summary>
+              <ul className="p-2">
+                <li>
+                  <a>Submenu 1</a>
                 </li>
-                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                  <a href="/gate">Gate</a>
+                <li>
+                  <a>Submenu 2</a>
                 </li>
-                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                  <a href="/contact">Contact</a>
-                </li>
-
               </ul>
             </details>
           </li>
@@ -153,13 +146,11 @@ export const Header = () => {
       </div>
       <div className="navbar-end">
         <div className="dropdown dropdown-end">
-
           <div
             tabIndex={0}
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
-
             <div className="w-10 rounded-full">
               {avatar ? (
                 <img alt="Tailwind CSS Navbar component" src={avatar} />
@@ -173,8 +164,7 @@ export const Header = () => {
           </div>
           <ul
             tabIndex={0}
-
-            className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {user && (
               <li>
@@ -184,19 +174,16 @@ export const Header = () => {
               </li>
             )}
             {user ? (
-
-              <li className="hover:bg-gray-600">
+              <><li className="hover:bg-gray-600">
                 <a>Log out</a>
-              <li>
-                <a onClick={() => signOutUser()}>Log out</a>
-
-              </li>
+              </li><li>
+                  <a onClick={() => signOutUser()}>Log out</a>
+                </li></>
             ) : (
               <li>
                 <a href="/authentication/signin">Log in</a>
               </li>
             )}
-
           </ul>
         </div>
       </div>
