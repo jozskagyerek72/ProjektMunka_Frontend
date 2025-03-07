@@ -75,7 +75,7 @@ export const getWorkerPayment = async (workerID) =>
   const q = query(cRef, where("name", "==", workerID))
   const workerShifts = await getDocs(q)
   
-
+}
 
 
 export const checkAdmin = async (hrEmail) => {
