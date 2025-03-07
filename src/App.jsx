@@ -42,7 +42,7 @@ function App() {
           { path: "/analytics", element: <Analytics /> },
           { path: "/workers", element: <Workers /> },
           { path: "/gate", element: <Gate /> },
-          { path: "/workerdetails", element: <WorkerDetails /> },
+          { path: "/workerdetails/:id", element: <WorkerDetails /> },
 
           { path: "/tests", element: <Backendtests /> },
         ],
