@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, onSnapshot, orderBy, query, serverTimestamp, Timestamp, updateDoc } from "firebase/firestore"
+import { addDoc, collection, doc, getDocs, onSnapshot, orderBy, query, serverTimestamp, Timestamp, updateDoc, where } from "firebase/firestore"
 import { db } from "./firebaseApp"
 
 export const readWorkers = async (setWorkers) => {
@@ -42,7 +42,26 @@ export const endShift = async (shiftId) => {
         await updateDoc(docRef, { end: endtime, duration: duration })
 }
 
-export const checkShiftStatus = () => {
+export const checkShiftStatus = () => {}
+
+export const changeWorkerActiveStatus = async (workerID) =>
+{
+  const worker = doc(db, "workers", workerID)
+  if (worker.status == "active") 
+  {
+    await updateDoc(worker, {status: "not active"})
+  } else 
+  {
+    await updateDoc(worker, {status: "active"})
+  }
+}
+
+export const getWorkerPayment = async (workerID) =>
+{
+  const cRef = collection(db, "shifts")
+  const q = query(cRef, where("name", "==", workerID))
+  const workerShifts = await getDocs(q)
+  
 
 }
 
