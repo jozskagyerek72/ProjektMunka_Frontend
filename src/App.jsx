@@ -15,8 +15,8 @@ import { Contact } from "./pages/Contact";
 import { useState } from "react";
 
 function App() {
-
   const [admin, setAdmin] = useState(false);
+  const [role, setRole ] = useState("")
 
   const router = createBrowserRouter(
     [
@@ -29,11 +29,11 @@ function App() {
           </div>
         ),
         children: [
-          { path: "/", element: <Home /> },
+          { path: "/", element: <Home setRole={setRole}/> },
           { path: "/profile", element: <Profile /> },
           {
             path: "/authentication/signin",
-            element: <Authentication setAdmin={setAdmin} />,
+            element: <Authentication setAdmin={setAdmin} role={role}/>,
           },
           { path: "/authentication/signup", element: <Authentication /> },
           { path: "/resetpassword", element: <PasswordReset /> },
@@ -42,7 +42,7 @@ function App() {
           { path: "/analytics", element: <Analytics /> },
           { path: "/workers", element: <Workers /> },
           { path: "/gate", element: <Gate /> },
-          { path: "/workerdetails", element: <WorkerDetails /> },
+          { path: "/workerdetails/:id", element: <WorkerDetails /> },
 
           { path: "/tests", element: <Backendtests /> },
         ],
