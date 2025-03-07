@@ -12,6 +12,7 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { useEffect } from "react";
 import { extractUrlAndId } from "../utils/utilities";
+import { useNavigate } from "react-router-dom";
 
 let pages = [
   {
@@ -54,9 +55,10 @@ const callsToAction = [
   { name: "Contact", href: "/contact", icon: PhoneIcon },
 ];
 
-export const Header = ({ admin }) => {
-  const { user, signOutUser } = useContext(UserContext);
+export const Header = ({ setRole }) => {
+  const { user, signOutUser, admin } = useContext(UserContext);
   const [avatar, setAvatar] = useState(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
@@ -101,15 +103,23 @@ export const Header = ({ admin }) => {
             <li>
               <a>Pages</a>
               <ul className="p-2">
-                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                  <a href="/analytics">Analytics</a>
-                </li>
-                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                  <a href="/gate">Gates</a>
-                </li>
-                <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                  <a href="/contact">Contact</a>
-                </li>
+                {admin ? (
+                  <>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                      <a href="/analytics">Analytics</a>
+                    </li>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                      <a href="/gate">Gates</a>
+                    </li>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                      <a href="/contact">Contact</a>
+                    </li>
+                  </>
+                ) : (
+                  <li>
+                    <a href="/contact">Contact</a>
+                  </li>
+                )}
               </ul>
             </li>
             <li className="text-white bg-gray-800">
@@ -128,15 +138,23 @@ export const Header = ({ admin }) => {
           </li>
           <li>
             <details>
-              <summary>Parent</summary>
+              <summary>Menus</summary>
               <ul className="p-2">
                 {admin ? (
-                  <li>
-                    <a>HR menu</a>
-                  </li>
+                  <>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                      <a href="/analytics">Analytics</a>
+                    </li>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                      <a href="/gate">Gates</a>
+                    </li>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                      <a href="/contact">Contact</a>
+                    </li>
+                  </>
                 ) : (
                   <li>
-                    <a>not HR menu</a>
+                    <a href="/contact">Contact</a>
                   </li>
                 )}
               </ul>
@@ -182,12 +200,26 @@ export const Header = ({ admin }) => {
             {user ? (
               <>
                 <li className="hover:bg-gray-600">
-                  <a onClick={() => signOutUser()}>Log out</a>
+                  <a
+                    onClick={() => {
+                      signOutUser();
+                      navigate("/");
+                    }}
+                  >
+                    Log out
+                  </a>
                 </li>
               </>
             ) : (
               <li>
-                <a href="/authentication/signin/worker">Log in</a>
+                <a
+                  onClick={() => {
+                    setRole("Sign in as a worker");
+                    navigate("/authentication/signin");
+                  }}
+                >
+                  Log in
+                </a>
               </li>
             )}
           </ul>

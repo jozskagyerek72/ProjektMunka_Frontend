@@ -5,8 +5,8 @@ import { Form } from "react-router-dom";
 import { Toast } from "../components/Toast";
 import { checkAdmin } from "../utils/crudUtil";
 
-export const Authentication = ({setAdmin, role}) => {
-  const { user, signInUser, msg, setMsg, signUpUser } = useContext(UserContext);
+export const Authentication = ({role}) => {
+  const { user, signInUser, msg, setMsg, signUpUser, setAdmin } = useContext(UserContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,7 +21,7 @@ export const Authentication = ({setAdmin, role}) => {
     const data = new FormData(event.currentTarget);
     if (isSignedIn) {
       signInUser(data.get("e-mail"), data.get("password"));
-      (await checkAdmin(data.get("e-mail"))) ? setAdmin(true) : setAdmin(false);
+      
       console.log(data.get("e-mail"));
       
     } else {
