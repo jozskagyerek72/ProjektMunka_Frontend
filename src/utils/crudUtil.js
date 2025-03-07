@@ -56,7 +56,7 @@ export const endShift = async (shiftId) => {
         await updateDoc(docRef, { end: endtime, duration: duration })
 }
 
-export const checkShiftStatus = () => 
+export const checkShiftStatus = () =>{ 
 }
 
 export const checkAdmin = async (hrEmail) => {
