@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import {
   addWorker,
   endShift,
+  getWorkerPayment,
   readShifts,
   readWorkers,
   startShift,
@@ -14,7 +15,7 @@ import QRCode from 'react-qr-code'
 //import { data } from 'react-router-dom'
 
 export const Backendtests = () => {
-  const [workers, setWorkers] = useState([]);
+  /*const [workers, setWorkers] = useState([]);
   //useEffect(()=>{readWorkers(setWorkers)},[workers])
   readWorkers(setWorkers)
   const [shiftID, setShiftID] = useState(null)
@@ -42,10 +43,12 @@ export const Backendtests = () => {
 
   useEffect(()=> {
     checkShiftStatus("battya");
-  },[])
+  },[])*/
+  getWorkerPayment("gillichbalint@gmail.com")
 
   return (
     <div>
+      {/*
       <div>
         <h2>workers:</h2>
         {workers &&
@@ -108,7 +111,8 @@ export const Backendtests = () => {
         <input {...register("name", { required: true })} type='text' placeholder='name' />
         <input type="submit"   />
       </form>
-        <button onClick={()=>checkShiftStatus("battya")}>niga</button>
+        <button onClick={()=>checkShiftStatus("battya")}>niga</button>*/}
+        
     </div>
   );
 };
