@@ -24,27 +24,28 @@ export const WorkerDetails = () => {
           <div key={worker.id} className="hero-content bg-gray-700 border-1 border-gray-500 shadow-lg shadow-white flex-col lg:flex-row">
             <img
               src={worker.imageURL}
-              className="max-w-sm rounded-lg shadow-2xl"
+              className="max-w-sm rounded-lg w-100 shadow-2xl"
             />
-            <div>
+            <div className="grid lg:grid-cols-2 lg:grid-rows-2 grid-rows-1 gap-5">
               <h2 className="text-4xl text-white font-bold">
                 {worker && worker.name}
               </h2>
-              <div className="badge m-4 badge-primary font-bold hover:border-white border-1">
-              {worker && worker.status}
+              <div className="badge m-1  w-full badge-success font-bold hover:border-white border-1">
+              -{worker && worker.status}
               </div>
-              <div className="badge m-4 badge-primary font-bold hover:border-white border-1">
-              {worker && worker.field}
+              <div className="badge m-1 w-full  badge-success font-bold hover:border-white border-1">
+              -{worker && worker.field}
               </div>
-              <div className="badge badge-primary font-bold hover:border-white border-1 ">
+              <div className="badge badge-success w-full m-1  font-bold hover:border-white border-1 ">
                 Hourlypay: {worker&& worker.hourlypay}Ft
               </div>
-              <div className="badge m-4 badge-primary font-bold hover:border-white border-1 ">
+              <div className="badge m-1 badge-success w-full  font-bold hover:border-white border-1 ">
                 Contact: {worker&& worker.email}
               </div>
+              <div className="m-auto">
+              <button className="btn btn-xs sm:btn-sm md:btn-md btn-primary hover:border-2 w-40  hover:border-white lg:btn-md xl:btn-md">Status</button>
             </div>
-            <div className="row">
-              <button className="btn btn-xs sm:btn-sm md:btn-md btn-primary hover:border-2 hover:border-white lg:btn-md xl:btn-md">Status</button>
+            
             </div>
             
           </div>
