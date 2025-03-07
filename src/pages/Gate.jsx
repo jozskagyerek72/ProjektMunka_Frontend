@@ -12,7 +12,7 @@ export const Gate = () => {
   useEffect(()=>{
     //console.log(user?.email);
     
-    user?.email && setUserEmail(user.email)
+    user?.email && setUserEmail(user.id)
     //console.log(useremail);
     
   },[user])
