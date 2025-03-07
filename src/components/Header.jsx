@@ -130,12 +130,15 @@ export const Header = ({ admin }) => {
             <details>
               <summary>Parent</summary>
               <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
+                {admin ? (
+                  <li>
+                    <a>HR menu</a>
+                  </li>
+                ) : (
+                  <li>
+                    <a>not HR menu</a>
+                  </li>
+                )}
               </ul>
             </details>
           </li>
@@ -168,20 +171,23 @@ export const Header = ({ admin }) => {
           >
             {user && (
               <li>
-                <a className="justify-between hover:bg-gray-600" href="/profile">
+                <a
+                  className="justify-between hover:bg-gray-600"
+                  href="/profile"
+                >
                   Profile settings
                 </a>
               </li>
             )}
             {user ? (
-              <><li className="hover:bg-gray-600">
-                <a>Log out</a>
-              </li><li>
+              <>
+                <li className="hover:bg-gray-600">
                   <a onClick={() => signOutUser()}>Log out</a>
-                </li></>
+                </li>
+              </>
             ) : (
               <li>
-                <a href="/authentication/signin">Log in</a>
+                <a href="/authentication/signin/worker">Log in</a>
               </li>
             )}
           </ul>
