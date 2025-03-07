@@ -3,7 +3,7 @@
 import { HomePageCards } from "../components/HomePageCards";
 import { Change } from "../components/Change";
 
-export const Home = () => {
+export const Home = ({setRole}) => {
   return (
     <div className="home bg-gray-950 flex flex-wrap justify-center align-center">
       <div className="container  flex flex-wrap">
@@ -13,7 +13,7 @@ export const Home = () => {
         </p>
       </div>
       <div className="flex flex-wrap w-full">
-        <HomePageCards />
+        <HomePageCards setRole={setRole}/>
       </div>
 
       <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 justify-center w-full  p-10 gap-10">

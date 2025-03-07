@@ -16,31 +16,41 @@ export const WorkerDetails = () => {
   return (
     <div className="home bg-gray-950">
       <div className="text-center justify-center flex flex-wrap">
-        <h1 className="text-3xl m-17 wlh12">Worker details</h1>
+        <h1 className="text-3xl mt-17 wlh12">Worker details</h1>
       </div>
 
       {worker && (
         <div className="hero bg-gray-950 min-h-screen">
           <div key={worker.id} className="hero-content bg-gray-700 border-1 border-gray-500 shadow-lg shadow-white flex-col lg:flex-row">
             <img
-              src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-              className="max-w-sm rounded-lg shadow-2xl"
+              src={worker.imageURL}
+              className="max-w-sm rounded-lg w-100 shadow-2xl"
             />
-            <div>
+            <div className="grid lg:grid-cols-2 lg:grid-rows-2 grid-rows-1 gap-5">
               <h2 className="text-4xl text-white font-bold">
                 {worker && worker.name}
               </h2>
-              <div className="badge m-4 badge-primary font-bold border-white border-1">
-              {worker && worker.status}
+              <div className="badge m-1  w-full badge-success font-bold hover:border-white border-1">
+              -{worker && worker.status}
               </div>
-              <div className="badge m-4 badge-primary font-bold border-white border-1">
-              {worker && worker.field}
+              <div className="badge m-1 w-full  badge-success font-bold hover:border-white border-1">
+              -{worker && worker.field}
               </div>
-              <div className="badge badge-primary font-bold border-white border-1 ">
-                Wage: 2,000,000Ft
+              <div className="badge badge-success w-full m-1  font-bold hover:border-white border-1 ">
+                Hourlypay: {worker&& worker.hourlypay}Ft
               </div>
+              <div className="badge m-1 badge-success w-full  font-bold hover:border-white border-1 ">
+                Contact: {worker&& worker.email}
+              </div>
+              <div className="m-auto">
+              <button className="btn btn-xs sm:btn-sm md:btn-md btn-primary hover:border-2 w-40  hover:border-white lg:btn-md xl:btn-md">Status</button>
             </div>
+            
+            </div>
+            
           </div>
+          
+          
         </div>
       )}
     </div>

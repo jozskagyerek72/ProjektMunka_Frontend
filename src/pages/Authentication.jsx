@@ -1,12 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { Form } from "react-router-dom";
 import { Toast } from "../components/Toast";
 import { checkAdmin } from "../utils/crudUtil";
-import { useState } from "react";
 
-export const Authentication = ({setAdmin}) => {
+export const Authentication = ({setAdmin, role}) => {
   const { user, signInUser, msg, setMsg, signUpUser } = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -23,6 +22,8 @@ export const Authentication = ({setAdmin}) => {
     if (isSignedIn) {
       signInUser(data.get("e-mail"), data.get("password"));
       (await checkAdmin(data.get("e-mail"))) ? setAdmin(true) : setAdmin(false);
+      console.log(data.get("e-mail"));
+      
     } else {
       signUpUser(
         data.get("e-mail"),
@@ -39,6 +40,7 @@ export const Authentication = ({setAdmin}) => {
           className="bg-gray-800 shadow-md shadow-white rounded px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
+          <h1>{role}</h1>
           <div className="mb-4">
             <label
               className="block text-white text-sm font-bold mb-2"
@@ -67,7 +69,7 @@ export const Authentication = ({setAdmin}) => {
                 className="input input-bordered w-full max-w-xs"
                 name="displayName"
                 type="text"
-                placeholder="displayName"
+                placeholder="your name"
               />
             </div>
           )}

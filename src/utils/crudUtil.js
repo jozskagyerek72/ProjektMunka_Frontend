@@ -1,4 +1,6 @@
+
 import { addDoc, collection, doc, getDocs, onSnapshot, orderBy, query, serverTimestamp, Timestamp, updateDoc, where } from "firebase/firestore"
+
 import { db } from "./firebaseApp"
 
 export const readWorkers = async (setWorkers) => {
@@ -57,6 +59,7 @@ export const endShift = async (shiftId) => {
 }
 
 
+
 export const changeWorkerActiveStatus = async (workerID) =>
 {
   const worker = doc(db, "workers", workerID)
@@ -78,6 +81,7 @@ export const getWorkerPayment = async (workerID) =>
 }
 
 
+
 export const checkAdmin = async (hrEmail) => {
   const collectionRef = collection(db, "admins");
   const q = query(collectionRef, where("email", "==", hrEmail));
@@ -90,10 +94,7 @@ export const checkAdmin = async (hrEmail) => {
     else hrExists = true;
   })
   return hrExists
-  
 }
-
-
 
 export const readShifts = (setShifts) => {
   const collectionRef = collection(db, "shifts");
