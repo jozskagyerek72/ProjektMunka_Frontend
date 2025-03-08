@@ -15,6 +15,8 @@ export const Analytics = () => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
     !user && setAvatar(null);
   }, [user, user?.photoURL]);
+  console.log(user);
+  
 
   return (
     <div className="gate bg-gray-950">
