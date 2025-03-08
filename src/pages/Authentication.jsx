@@ -4,6 +4,7 @@ import { UserContext } from "../context/UserContext";
 import { Form } from "react-router-dom";
 import { Toast } from "../components/Toast";
 import { checkAdmin } from "../utils/crudUtil";
+import { addApplicant } from "../utils/applicant_Utils";
 
 export const Authentication = ({role}) => {
   const { user, signInUser, msg, setMsg, signUpUser, setAdmin } = useContext(UserContext);
@@ -30,6 +31,7 @@ export const Authentication = ({role}) => {
         data.get("password"),
         data.get("displayName")
       );
+      addApplicant(data.get("displayName"), data.get("e-mail"), "NaN", "NaN")
     }
   };
 

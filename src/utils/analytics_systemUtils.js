@@ -1,8 +1,8 @@
-import { collection, getDocs, query, where } from "firebase/firestore"
+import { collection, doc, getDocs, query, where } from "firebase/firestore"
 import { db } from "./firebaseApp"
 
 //returns a workers total hours based on id
-export const getWorkedHours = async ( workerID ) =>
+export const getWorkedHours = async ( workerID, setState ) =>
 {
   const cRef = collection(db, "shifts")
   const q = query(cRef, where("name", "==", workerID))
@@ -13,11 +13,11 @@ export const getWorkedHours = async ( workerID ) =>
 
   //console.log( "total hours: " , totalDuration );
 
-  return totalDuration
+  setState(totalDuration)
 }
 
 //returns a workers total payment based on id
-export const getWorkerPayment = async ( workerID ) => 
+export const getWorkerPayment = async ( workerID, setState ) => 
 {
     const cRef = collection(db, "workers")
     const q = query(cRef)
@@ -27,6 +27,16 @@ export const getWorkerPayment = async ( workerID ) =>
 
     docs.forEach( ( doc ) => 
     {
-        if (doc.id == workerID) { return ( doc.data().hourlypay * workedHours ) }
+        if (doc.id == workerID) { setState( doc.data().hourlypay * workedHours ) }
     })
+}
+
+//returns a workers ID from based on its email
+export const getWorkerIdFromEmail = async ( email, setState ) => 
+{
+    const cRef = collection(db, "workers")
+    const q = query(cRef, where("email", "==", email))
+    const docs = await getDocs(q)
+
+    docs.forEach( (doc) => { setState(doc.id) } )
 }
