@@ -14,6 +14,7 @@ import { data } from "react-router-dom";
 
 import QRCode from 'react-qr-code'
 import { getWorkedHours, getWorkerPayment } from "./analytics_systemUtils";
+import { getAuth } from "firebase/auth";
 //import { data } from 'react-router-dom'
 
 export const Backendtests = () => {
@@ -50,9 +51,8 @@ export const Backendtests = () => {
   
   useEffect(()=>{ setpayment(getWorkerPayment("WFZUQ5L3G7TbbTHoWRIc")) },[])
   
- 
   
-
+ 
   return (
     <div>
      
