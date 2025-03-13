@@ -13,6 +13,7 @@ import { Backendtests } from "./utils/Backendtests";
 import { PasswordReset } from "./pages/PasswordReset";
 import { Contact } from "./pages/Contact";
 import { useState } from "react";
+import { Shifts } from "./pages/Shifts";
 
 function App() {
   const [admin, setAdmin] = useState(false);
@@ -45,6 +46,7 @@ function App() {
           { path: "/workerdetails/:id", element: <WorkerDetails /> },
 
           { path: "/tests", element: <Backendtests /> },
+          { path: "/shifts", element: <Shifts /> },
         ],
       },
     ],
