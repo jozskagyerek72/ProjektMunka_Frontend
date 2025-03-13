@@ -72,16 +72,11 @@ export const changeWorkerActiveStatus = async (workerID) =>
   }
 }
 
-export const getWorkerPayment = async (workerID) => // nincs kesz
+export const getWorkerPayment = async (workerID) =>
 {
   const cRef = collection(db, "shifts")
   const q = query(cRef, where("name", "==", workerID))
   const workerShifts = await getDocs(q)
-  
-}
-
-export const getLastFinishedShift = async (workerID) =>
-{
   
 }
 

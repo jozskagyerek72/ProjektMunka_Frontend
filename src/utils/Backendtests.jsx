@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import {
   addWorker,
   endShift,
-  getWorkerPayment,
+  
+  
   readShifts,
   readWorkers,
   startShift,
@@ -12,6 +13,8 @@ import {
 import { data } from "react-router-dom";
 
 import QRCode from 'react-qr-code'
+import { getWorkedHours, getWorkerPayment } from "./analytics_systemUtils";
+import { getAuth } from "firebase/auth";
 //import { data } from 'react-router-dom'
 
 export const Backendtests = () => {
@@ -44,10 +47,15 @@ export const Backendtests = () => {
   useEffect(()=> {
     checkShiftStatus("battya");
   },[])*/
-  getWorkerPayment("gillichbalint@gmail.com")
-
+  const [payment, setpayment] = useState(null)
+  
+  useEffect(()=>{ setpayment(getWorkerPayment("WFZUQ5L3G7TbbTHoWRIc")) },[])
+  
+  
+ 
   return (
     <div>
+     
       {/*
       <div>
         <h2>workers:</h2>
