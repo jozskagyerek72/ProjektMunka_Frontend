@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { useState, createContext, useEffect } from "react";
 import { auth } from "../utils/firebaseApp";
+import { checkAdmin } from "../utils/crudUtil";
 
 export const UserContext = createContext()
 
@@ -9,10 +10,12 @@ export const UserProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [msg, setMsg] = useState(null)
+    const [admin, setAdmin] = useState(false)
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
+        const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+            setUser(currentUser);
+            (await checkAdmin(currentUser.email)) ? setAdmin(true) : setAdmin(false);
         })
         return () => unsubscribe()
     }, [])
@@ -67,7 +70,7 @@ export const UserProvider = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{ user, signOutUser, msg, setMsg, signInUser, signUpUser, resetPassword, updateUser }}>
+        <UserContext.Provider value={{ user, signOutUser, msg, setMsg, signInUser, signUpUser, resetPassword, updateUser, admin, setAdmin }}>
             {children}
         </UserContext.Provider>
     )

@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import {
   addWorker,
   endShift,
+  
+  
   readShifts,
   readWorkers,
   startShift,
@@ -11,10 +13,12 @@ import {
 import { data } from "react-router-dom";
 
 import QRCode from 'react-qr-code'
+import { getWorkedHours, getWorkerPayment } from "./analytics_systemUtils";
+import { getAuth } from "firebase/auth";
 //import { data } from 'react-router-dom'
 
 export const Backendtests = () => {
-  const [workers, setWorkers] = useState([]);
+  /*const [workers, setWorkers] = useState([]);
   //useEffect(()=>{readWorkers(setWorkers)},[workers])
   readWorkers(setWorkers)
   const [shiftID, setShiftID] = useState(null)
@@ -42,10 +46,17 @@ export const Backendtests = () => {
 
   useEffect(()=> {
     checkShiftStatus("battya");
-  },[])
-
+  },[])*/
+  const [payment, setpayment] = useState(null)
+  
+  useEffect(()=>{ setpayment(getWorkerPayment("WFZUQ5L3G7TbbTHoWRIc")) },[])
+  
+  
+ 
   return (
     <div>
+     
+      {/*
       <div>
         <h2>workers:</h2>
         {workers &&
@@ -108,7 +119,8 @@ export const Backendtests = () => {
         <input {...register("name", { required: true })} type='text' placeholder='name' />
         <input type="submit"   />
       </form>
-        <button onClick={()=>checkShiftStatus("battya")}>niga</button>
+        <button onClick={()=>checkShiftStatus("battya")}>niga</button>*/}
+        
     </div>
   );
 };

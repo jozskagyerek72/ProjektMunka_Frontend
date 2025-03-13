@@ -16,7 +16,6 @@ import { useState } from "react";
 import { Shifts } from "./pages/Shifts";
 
 function App() {
-  const [admin, setAdmin] = useState(false);
   const [role, setRole ] = useState("")
 
   const router = createBrowserRouter(
@@ -24,7 +23,7 @@ function App() {
       {
         element: (
           <div>
-            <Header admin={admin} />
+            <Header setRole={setRole}/>
             <Outlet />
             <Footer />
           </div>
@@ -34,7 +33,7 @@ function App() {
           { path: "/profile", element: <Profile /> },
           {
             path: "/authentication/signin",
-            element: <Authentication setAdmin={setAdmin} role={role}/>,
+            element: <Authentication role={role}/>,
           },
           { path: "/authentication/signup", element: <Authentication /> },
           { path: "/resetpassword", element: <PasswordReset /> },
