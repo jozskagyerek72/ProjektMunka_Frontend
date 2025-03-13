@@ -42,7 +42,7 @@ export const HomePageCards = ({setRole}) => {
           <h2 className="card-title text-4xl">Apply</h2>
           <p className="cardtext text-xl">Apply for a job.</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary" onClick={()=>navigate("/authentication/signup")}>Apply</button>
+            <button className="btn btn-primary" onClick={()=>navigate("/apply")}>Apply</button>
           </div>
         </div>
       </div>
