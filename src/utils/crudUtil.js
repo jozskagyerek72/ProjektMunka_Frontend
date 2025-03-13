@@ -72,10 +72,6 @@ export const changeWorkerActiveStatus = async (workerID) =>
   }
 }
 
-
-
-
-
 export const checkAdmin = async (hrEmail) => {
   const collectionRef = collection(db, "admins");
   const q = query(collectionRef, where("email", "==", hrEmail));
