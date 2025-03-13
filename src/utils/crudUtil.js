@@ -92,7 +92,7 @@ export const checkAdmin = async (hrEmail) => {
 
 export const readShifts = (setShifts) => {
   const collectionRef = collection(db, "shifts");
-  const q = query(collectionRef, orderBy("workername", "asc"));
+  const q = query(collectionRef, orderBy("name", "asc"));
   const unsubscribe = onSnapshot(q, (snapshot) => {
     setShifts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   });
