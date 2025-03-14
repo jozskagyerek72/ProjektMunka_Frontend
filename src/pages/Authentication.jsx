@@ -29,7 +29,8 @@ export const Authentication = ({ role }) => {
         data.get("password"),
         data.get("displayName")
       );
-      addApplicant(data.get("displayName"), data.get("e-mail"), "NaN", "NaN");
+      addApplicant(data.get("displayName"), data.get("e-mail"), "NaN")
+
     }
   };
 
