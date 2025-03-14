@@ -40,3 +40,8 @@ export const getWorkerIdFromEmail = async ( email ) =>
 
     docs.forEach( (doc) => { return(doc.id) } )
 }
+
+export const getWorkerActiveStatus = async ( email ) =>
+{
+    
+}

@@ -27,6 +27,7 @@ export const Analytics = () => {
     //setTotalDuration(await getWorkedHours)
 
     //console.log(await getWorkedHours("WFZUQ5L3G7TbbTHoWRIc"));
+    console.log(user?.email);
     
     console.log(await getWorkerIdFromEmail(user?.email));
   
