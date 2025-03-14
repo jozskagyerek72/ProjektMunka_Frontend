@@ -82,6 +82,7 @@ export const getWorkerPayment = async (workerID) =>
 
 
 
+
 export const checkAdmin = async (hrEmail) => {
   const collectionRef = collection(db, "admins");
   const q = query(collectionRef, where("email", "==", hrEmail));
@@ -98,9 +99,19 @@ export const checkAdmin = async (hrEmail) => {
 
 export const readShifts = (setShifts) => {
   const collectionRef = collection(db, "shifts");
-  const q = query(collectionRef, orderBy("workername", "asc"));
+  const q = query(collectionRef, orderBy("name", "asc"));
   const unsubscribe = onSnapshot(q, (snapshot) => {
     setShifts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   });
   return unsubscribe;
 };
+
+export const readHRWorkers = (setData) =>
+{
+  const collectionRef = collection(db, "admins");
+  const q = query(collectionRef, orderBy("name", "asc"));
+  const unsubscribe = onSnapshot(q, (snapshot) => {
+    setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  });
+  return unsubscribe;
+}

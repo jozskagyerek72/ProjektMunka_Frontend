@@ -1,11 +1,10 @@
 //import React from 'react'
-
 import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { extractUrlAndId } from "../utils/utilities";
-import { getWorkerIdFromEmail, getWorkedHours, getWorkerPayment } from "../utils/analytics_systemUtils.js";
+import { getWorkedHours, getWorkerIdFromEmail } from "../utils/analytics_systemUtils";
 
 export const Analytics = () => {
 
@@ -20,16 +19,26 @@ export const Analytics = () => {
 
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
-    !user && setAvatar(null);
+    !user && setAvatar(null)
   }, [user, user?.photoURL]);
   console.log(user?.email);
    
+  (async () => {
+    //setTotalDuration(await getWorkedHours)
+
+    //console.log(await getWorkedHours("WFZUQ5L3G7TbbTHoWRIc"));
+    
+    console.log(await getWorkerIdFromEmail(user?.email));
+  
+  })();
+
   /*
   useState(()=>{
     getWorkerIdFromEmail(user?.email, setWorkerId)
     getWorkedHours(workerID, setWorkedHours)
     getWorkerPayment(workerID, setPayment)
   },[])*/
+  
 
   return (
     <div className="gate bg-gray-950">
@@ -47,8 +56,8 @@ export const Analytics = () => {
               <div className="stat-figure text-primary">
               </div>
               <div className="stat-title text-white text-xl">Total work hours</div>
-              <div className="stat-value text-primary">26 hour</div>
-              <div className="stat-desc text-white text-xl">21% more than last month</div>
+              <div className="stat-value text-primary">fuck you hours</div>
+              <div className="stat-desc text-white text-xl">nigga</div>
             </div>
 
             <div className="stat">
