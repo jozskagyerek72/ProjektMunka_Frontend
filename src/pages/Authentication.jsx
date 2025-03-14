@@ -5,7 +5,7 @@ import { Form } from "react-router-dom";
 import { Toast } from "../components/Toast";
 import { addApplicant } from "../utils/applicant_Utils";
 
-export const Authentication = ({role}) => {
+export const Authentication = ({ role }) => {
   const { user, signInUser, msg, setMsg, signUpUser } = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -21,21 +21,20 @@ export const Authentication = ({role}) => {
     const data = new FormData(event.currentTarget);
     if (isSignedIn) {
       signInUser(data.get("e-mail"), data.get("password"));
-      
+
       console.log(data.get("e-mail"));
-      
     } else {
       signUpUser(
         data.get("e-mail"),
         data.get("password"),
         data.get("displayName")
       );
-      addApplicant(data.get("displayName"), data.get("e-mail"), "NaN", "NaN")
+      addApplicant(data.get("displayName"), data.get("e-mail"), "NaN", "NaN");
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-950">
+    <div className="flex justify-center items-center h-screen bg-gray-950 text-center">
       <div className="w-full max-w-xs flex-auto">
         <Form
           className="bg-gray-800 shadow-md shadow-white rounded px-8 pt-6 pb-8 mb-4"
@@ -75,25 +74,35 @@ export const Authentication = ({role}) => {
             </div>
           )}
 
-                    <div className="mb-6">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                            Password
-                        </label>
-                        <input className="input input-bordered w-full max-w-xs" name="password" type="password" placeholder="******************" />
-                    </div>
-
-          <div className="flex items-center justify-between">
-            <button className="bg-purple-700 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-              {isSignedIn ? "Sign in" : "Sign up"}
-            </button>
-            <a
-              className="inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-300"
-              href="#"
-              onClick={() => navigate("/resetpassword")}
+          <div className="mb-6">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="password"
             >
-              Forgot Password?
+              Password
+            </label>
+            <input
+              className="input input-bordered w-full max-w-xs"
+              name="password"
+              type="password"
+              placeholder="******************"
+            />
+          </div>
+
+          <div class="group mt-5">
+            <a
+              class="text-base font-normal text-[#5a28cc] no-underline group-hover:underline"
+              href="/resetpassword"
+            >
+              Forgot password?
             </a>
           </div>
+          <button
+            class="mt-2 cursor-pointer rounded border-2 border-solid border-[#5a28cc] bg-[#5a28cc] px-8 py-2 text-base font-medium text-white hover:bg-neutral-100 hover:text-[#5a28cc] hover:transition-all hover:duration-500 hover:ease-in-out"
+            type="submit"
+          >
+            Sign in
+          </button>
         </Form>
         <p className="text-center text-gray-400 text-xs">
           &copy;2025 WorkLinker inc. All rights reserved.
