@@ -14,7 +14,8 @@ import { PasswordReset } from "./pages/PasswordReset";
 import { Contact } from "./pages/Contact";
 import { useState } from "react";
 import { Shifts } from "./pages/Shifts";
-import Apply from "./pages/Apply";
+import {Apply} from "./pages/Apply";
+import { HRcontacts } from "./pages/HRcontacts";
 
 function App() {
   const [role, setRole ] = useState("")
@@ -48,6 +49,7 @@ function App() {
 
           { path: "/tests", element: <Backendtests /> },
           { path: "/shifts", element: <Shifts /> },
+          { path: "/HRcontact", element: <HRcontacts /> },
         ],
       },
     ],

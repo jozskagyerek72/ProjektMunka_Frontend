@@ -9,12 +9,11 @@ export const Shifts = () => {
 
   return (
     <div className="gate bg-gray-950">
+      
       <div className="text-center justify-center flex flex-wrap">
         <h1 className="text-3xl mt-17 wlh12">Shifts</h1>
-
-       
-
       </div>
+
       <div className="grid lg:grid-cols-3 lg:grid-rows-2 grid-rows-3 shiftrow">
         {shifts && shifts.map((shift)=>
         <div className="card bg-gray-700 border-white hover:border-2 hover:shadow-md shadow-white m-30 text-primary-content w-96">

@@ -98,7 +98,9 @@ export const Header = ({ setRole }) => {
           >
             <li className="text-white bg-gray-800">
               <a>HR profiles</a>
+
             </li>
+           
 
             <li>
               <a className="bg-gray-800 hover:bg-gray-700 m-1">Pages</a>
