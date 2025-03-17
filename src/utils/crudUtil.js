@@ -1,5 +1,5 @@
 
-import { addDoc, collection, doc, getDocs, onSnapshot, orderBy, query, serverTimestamp, Timestamp, updateDoc, where } from "firebase/firestore"
+import { addDoc, collection, doc, getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, Timestamp, updateDoc, where } from "firebase/firestore"
 
 import { db } from "./firebaseApp"
 
@@ -62,14 +62,20 @@ export const endShift = async (shiftId) => {
 
 export const changeWorkerActiveStatus = async (workerID) =>
 {
-  const worker = doc(db, "workers", workerID)
-  if (worker.status == "active") 
+  const workerRef = doc(db, "workers", workerID)
+  const worker = await getDoc(workerRef)
+  
+  
+  if ( worker.exists() )
   {
-    await updateDoc(worker, {status: "not active"})
-  } else 
-  {
-    await updateDoc(worker, {status: "active"})
-  }
+    if (worker.data().status == "active") 
+    {
+      await updateDoc(workerRef, {status: "not active"})
+    } else 
+    {
+      await updateDoc(workerRef, {status: "active"})
+    }
+  } else { console.log("error fetching worker data") }
 }
 
 export const getWorkerPayment = async (workerID) =>

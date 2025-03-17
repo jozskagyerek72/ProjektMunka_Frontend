@@ -2,7 +2,7 @@ import { collection, doc, getDocs, query, where } from "firebase/firestore"
 import { db } from "./firebaseApp"
 
 //returns a workers total hours based on id
-export const getWorkedHours = async ( workerID, setState ) =>
+export const getWorkedHours = async ( workerEmail ) =>
 {
   const cRef = collection(db, "shifts")
   let workerID = await getWorkerIdFromEmail(workerEmail)
