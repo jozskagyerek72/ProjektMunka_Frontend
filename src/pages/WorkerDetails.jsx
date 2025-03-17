@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { readSingleWorker} from "../utils/crudUtil";
+import { changeWorkerActiveStatus, readSingleWorker} from "../utils/crudUtil";
 
 export const WorkerDetails = () => {
   const { id } = useParams();
@@ -12,6 +12,12 @@ export const WorkerDetails = () => {
   useEffect(() => {
     readSingleWorker(id, setWorker);
   }, []);
+
+  const handleWorkerStatusChange = () =>
+  {
+    changeWorkerActiveStatus(worker.id)
+    //ide valami fele toast popup kéne ezután
+  }
 
   return (
     <div className="home bg-gray-950">
@@ -43,7 +49,9 @@ export const WorkerDetails = () => {
                 Contact: {worker&& worker.email}
               </div>
               <div className="m-auto">
-              <button className="btn btn-xs sm:btn-sm md:btn-md btn-primary hover:border-2 w-40  hover:border-white lg:btn-md xl:btn-md">Status</button>
+              <button onClick={handleWorkerStatusChange} className="btn btn-xs sm:btn-sm md:btn-md btn-primary hover:border-2 w-40  hover:border-white lg:btn-md xl:btn-md">
+                {worker.status=="active"?"Deactivate worker":"Activate Worker"}
+              </button>
             </div>
             
             </div>

@@ -14,7 +14,7 @@ export const Contact = () => {
           <div className="card-body bg-gray-800">
             <h2 className="card-title text-2xl text-white">
               +36 11/111-111
-              <div className="badge badge-primary">Call us any time!</div>
+              <div className="badge badge-primary">Call us any time! (we won't pick up though)</div>
             </h2>
             <p className="text-2xl text-white">
               work.linker@worklinker.support.com
