@@ -94,15 +94,15 @@ export const Header = ({ setRole }) => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-gray-600 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li className="text-white bg-gray-800">
               <a>HR profiles</a>
             </li>
 
             <li>
-              <a>Pages</a>
-              <ul className="p-2">
+              <a className="bg-gray-800 hover:bg-gray-700 m-1">Pages</a>
+              <ul className="p-2 bg-gray-600">
                 {admin ? (
                   <>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
@@ -138,17 +138,17 @@ export const Header = ({ setRole }) => {
           </li>
           <li>
             <details>
-              <summary>Menus</summary>
-              <ul className="p-2">
+              <summary className="btn btn-ghost">Pages</summary>
+              <ul className="p-2 bg-gray-600">
                 {admin ? (
                   <>
-                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                    <li className="text-white text-center m-1 bg-gray-800 hover:bg-gray-950 rounded-md">
                       <a href="/analytics">Analytics</a>
                     </li>
-                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                      <a href="/gate">Gates</a>
+                    <li className="text-white m-1 text-center bg-gray-800 hover:bg-gray-950 rounded-md">
+                      <a href="/gate"><p className="text-center">Gates</p></a>
                     </li>
-                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                    <li className="text-white m-1 text-center bg-gray-800 hover:bg-gray-950 rounded-md">
                       <a href="/contact">Contact</a>
                     </li>
                   </>
@@ -185,7 +185,7 @@ export const Header = ({ setRole }) => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-gray-700 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {user && (
               <li>

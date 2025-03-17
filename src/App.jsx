@@ -13,6 +13,8 @@ import { Backendtests } from "./utils/Backendtests";
 import { PasswordReset } from "./pages/PasswordReset";
 import { Contact } from "./pages/Contact";
 import { useState } from "react";
+import { Shifts } from "./pages/Shifts";
+import Apply from "./pages/Apply";
 
 function App() {
   const [role, setRole ] = useState("")
@@ -35,6 +37,7 @@ function App() {
             element: <Authentication role={role}/>,
           },
           { path: "/authentication/signup", element: <Authentication /> },
+          { path: "/apply", element: <Apply/> },
           { path: "/resetpassword", element: <PasswordReset /> },
           { path: "/contact", element: <Contact /> },
 
@@ -44,6 +47,7 @@ function App() {
           { path: "/workerdetails/:id", element: <WorkerDetails /> },
 
           { path: "/tests", element: <Backendtests /> },
+          { path: "/shifts", element: <Shifts /> },
         ],
       },
     ],

@@ -57,9 +57,9 @@ export const Workers = () => {
                     {worker.field}
                     <br />
                   </td>
-                  <td>{worker.status}</td>
+                  <td><p className="bg-green-700 text-center p-1 border-2 rounded-md font-bold border-white">{worker.status}</p></td>
                   <th>
-                    <button onClick={()=>navigate("/workerdetails/"+worker.id)} className="btn btn-ghost btn-xs">details</button>
+                    <button onClick={()=>navigate("/workerdetails/"+worker.id)} className="btn btn-ghost btn-md">details</button>
                   </th>
                 </tr>
               ))}

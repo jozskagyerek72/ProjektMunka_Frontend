@@ -1,8 +1,8 @@
 import { collection, doc, getDocs, query, where } from "firebase/firestore"
 import { db } from "./firebaseApp"
 
-//returns a workers total hours based on email
-export async function getWorkedHours ( workerEmail, setState ) 
+//returns a workers total hours based on id
+export const getWorkedHours = async ( workerID, setState ) =>
 {
   const cRef = collection(db, "shifts")
   let workerID = await getWorkerIdFromEmail(workerEmail)
@@ -16,7 +16,7 @@ export async function getWorkedHours ( workerEmail, setState )
 
   //console.log( "total hours: " , totalDuration );
 
-  setState(totalDuration)
+  return totalDuration
 }
 
 //returns a workers total payment based on email
@@ -43,5 +43,5 @@ export const getWorkerIdFromEmail = async ( email ) =>
     const q = query(cRef, where("email", "==", email))
     const docs = await getDocs(q)
 
-    docs.forEach( (doc) => { return doc.id } )
+    docs.forEach( (doc) => { setState(doc.id) } )
 }
