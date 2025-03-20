@@ -125,7 +125,7 @@ export const Header = ({ setRole }) => {
               </ul>
             </li>
             <li className="text-white bg-gray-800">
-              <a>Shifts</a>
+              <a onClick={()=>navigate("/shifts")}>Shifts</a>
             </li>
           </ul>
         </div>
@@ -163,7 +163,7 @@ export const Header = ({ setRole }) => {
             </details>
           </li>
           <li className="btn btn-ghost">
-            <a>Shifts</a>
+            <a onClick={()=>navigate("/shifts")}>Shifts</a>
           </li>
         </ul>
       </div>
