@@ -4,12 +4,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { extractUrlAndId } from "../utils/utilities";
-import { getWorkedHours, getWorkerIdFromEmail } from "../utils/analytics_systemUtils";
+import { getWorkedHours, getWorkerIdFromEmail, getWorkerPayment } from "../utils/analytics_systemUtils";
 
 export const Analytics = () => {
 
   const { user } = useContext(UserContext)
   const [avatar, setAvatar] = useState(null);
+  const [workedHours, setWorkedHours] = useState(null);
+  const [payment, setPayment] = useState(null);
 
   /*
   const [workerID, setWorkerId] = useState(null)
@@ -22,15 +24,24 @@ export const Analytics = () => {
     !user && setAvatar(null)
   }, [user, user?.photoURL]);
   console.log(user?.email);
-   
-  (async () => {
-    //setTotalDuration(await getWorkedHours)
 
-    //console.log(await getWorkedHours("WFZUQ5L3G7TbbTHoWRIc"));
-    
-    console.log(await getWorkerIdFromEmail(user?.email));
+  useEffect(() => {
+      (async () => {
+        if (!user) return
+
+        try {
+          //console.log(await getWorkerIdFromEmail(await user?.email));
+          setWorkedHours(
+            await getWorkedHours(await getWorkerIdFromEmail(await user?.email))
+          );
+          getWorkerPayment(await getWorkerIdFromEmail(await user?.email), setPayment);
+        } catch (error) {
+          console.error(error);
+        }
+      })();
+    }, [user])
+   
   
-  })();
 
   /*
   useState(()=>{
@@ -56,7 +67,7 @@ export const Analytics = () => {
               <div className="stat-figure text-primary">
               </div>
               <div className="stat-title text-white text-xl">Total work hours</div>
-              <div className="stat-value text-primary">fuck you hours</div>
+              <div className="stat-value text-primary">{workedHours}</div>
               <div className="stat-desc text-white text-xl">nigga</div>
             </div>
 
@@ -93,7 +104,7 @@ export const Analytics = () => {
           <div className="stats bg-primary text-primary-content">
             <div className="stat">
               <div className="stat-title text-white text-xl">Wage</div>
-              <div className="stat-value">$89,400</div>
+              <div className="stat-value">{payment}</div>
               <div className="stat-actions">
                 <button className="btn btn-sm btn-success">Add funds</button>
               </div>
@@ -101,7 +112,7 @@ export const Analytics = () => {
 
             <div className="stat">
               <div className="stat-title text-white text-xl">Wage after tax</div>
-              <div className="stat-value">$89,400</div>
+              <div className="stat-value">$0</div>
               <div className="stat-actions">
                 <button className="btn btn-sm">Deposit</button>
               </div>
