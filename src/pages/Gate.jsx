@@ -37,7 +37,7 @@ export const Gate = () => {
                 className="w-70 h-70 ml-1"
                 alt="YourQR"
               />*/}
-              {user&& <QRCode value={useremail+""}/>}
+              {user&& <QRCode className="m-4" value={useremail+""}/>}
               <h3 className="text-center font-bold  text-black float-end m-5">
                 Job description
               </h3>

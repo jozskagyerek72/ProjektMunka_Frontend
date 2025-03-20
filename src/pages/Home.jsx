@@ -16,7 +16,7 @@ export const Home = ({setRole}) => {
         <HomePageCards setRole={setRole}/>
       </div>
 
-      <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 m-50 justify-center w-full  p-10 gap-10">
+      <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 mr-10 justify-center w-full  p-10 gap-10">
         <Change />
         <div className="video_container h-180 m-auto p-0 bg-gray-950 glass text-center justify-center align-center">
           <h2 className="text-4xl text-center text-white">
