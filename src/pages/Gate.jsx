@@ -11,8 +11,9 @@ export const Gate = () => {
   readWorkers(setWorkers);
   useEffect(()=>{
     //console.log(user?.email);
+   
     
-    user?.email && setUserEmail(user.email)
+    user?.email&& setUserEmail(user?.email)
     //console.log(useremail);
     
   },[user])
