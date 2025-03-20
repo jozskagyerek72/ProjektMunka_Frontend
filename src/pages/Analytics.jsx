@@ -11,14 +11,13 @@ export const Analytics = () => {
   const { user } = useContext(UserContext)
   const [avatar, setAvatar] = useState(null);
 
-  /*
-  const [workerID, setWorkerId] = useState(null)
   const [workedHours, setWorkedHours] = useState(null)
   const [payment, setPayment] = useState(null)
-  */
+  
 
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
+
     !user && setAvatar(null)
   }, [user, user?.photoURL]);
   console.log(user?.email);
@@ -40,6 +39,7 @@ export const Analytics = () => {
     getWorkerPayment(workerID, setPayment)
   },[])*/
   
+
 
   return (
     <div className="gate bg-gray-950">

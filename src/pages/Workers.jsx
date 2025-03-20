@@ -31,7 +31,7 @@ export const Workers = () => {
             {/* row 1 */}
             {workers &&
               workers.map((worker) => (
-                <tr className="border-2 bg-gray-800 text-white border-white rounded-md">
+                <tr key={worker.id} className="border-2 bg-gray-800 text-white border-white rounded-md">
                   <th>
                     <label>
                       <input type="checkbox" className="checkbox border-1 border-white text-white" />
@@ -57,7 +57,8 @@ export const Workers = () => {
                     {worker.field}
                     <br />
                   </td>
-                  <td><p className="bg-green-700 text-center p-1 border-2 rounded-md font-bold border-white">{worker.status}</p></td>
+                  <td>{worker.status=="active"?<p className="bg-green-700 text-center p-1 border-2 rounded-md font-bold border-white">{worker.status}</p>:<p className="bg-red-700 text-center p-1 border-2 rounded-md font-bold border-white">{worker.status}</p>}
+                    </td>
                   <th>
                     <button onClick={()=>navigate("/workerdetails/"+worker.id)} className="btn btn-ghost btn-md">details</button>
                   </th>
