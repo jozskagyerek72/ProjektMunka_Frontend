@@ -12,9 +12,6 @@ export const Analytics = () => {
   const [avatar, setAvatar] = useState(null);
   const [workedHours, setWorkedHours] = useState(null);
   const [payment, setPayment] = useState(null);
-
-  const [workedHours, setWorkedHours] = useState(null)
-  const [payment, setPayment] = useState(null)
   
 
   useEffect(() => {

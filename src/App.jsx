@@ -49,7 +49,7 @@ function App() {
 
           { path: "/tests", element: <Backendtests /> },
           { path: "/shifts", element: <Shifts /> },
-          { path: "/HRcontact", element: <HRcontacts /> },
+          { path: "/hrcontact", element: <HRcontacts /> },
         ],
       },
     ],

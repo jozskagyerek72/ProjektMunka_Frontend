@@ -14,10 +14,11 @@ export const Shifts = () => {
         <h1 className="text-3xl mt-17 wlh12">Shifts</h1>
       </div>
 
-      <div className="grid lg:grid-cols-3 lg:grid-rows-2 grid-rows-3 shiftrow">
+      <div className="grid lg:grid-cols-3 lg:grid-rows-5 grid-rows-5 shiftrow">
         {shifts && shifts.map((shift)=>
         <div className="card bg-gray-700 border-white hover:border-2 hover:shadow-md shadow-white m-30 text-primary-content w-96">
           <div className="card-body">
+         
             <h2 className="card-title">{shift.name}</h2>
             <p>
              {shift.start && new Date(shift.start.seconds *1000).toLocaleString()}
