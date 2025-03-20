@@ -96,7 +96,7 @@ export const Authentication = ({ role }) => {
           <div class="group mt-5">
             <a
               class="text-base font-normal text-[#5a28cc] no-underline group-hover:underline"
-              href="/resetpassword"
+              onClick={()=>navigate('/resetpassword')}
             >
               Forgot password?
             </a>
