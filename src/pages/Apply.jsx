@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form } from 'react-router-dom'
 
-export default function Apply() {
+export const Apply = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-950">
     <div className="w-full max-w-xs flex-auto">

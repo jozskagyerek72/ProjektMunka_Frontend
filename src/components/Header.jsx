@@ -97,8 +97,10 @@ export const Header = ({ setRole }) => {
             className="menu menu-sm dropdown-content bg-gray-600 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li className="text-white bg-gray-800">
-              <a>HR profiles</a>
+              <a onClick={()=>navigate("/hrcontact")}>HR profiles</a>
+
             </li>
+           
 
             <li>
               <a className="bg-gray-800 hover:bg-gray-700 m-1">Pages</a>
@@ -123,7 +125,7 @@ export const Header = ({ setRole }) => {
               </ul>
             </li>
             <li className="text-white bg-gray-800">
-              <a>Shifts</a>
+              <a onClick={()=>navigate("/shifts")}>Shifts</a>
             </li>
           </ul>
         </div>
@@ -134,7 +136,7 @@ export const Header = ({ setRole }) => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a className="btn btn-ghost">HR profiles</a>
+            <a  onClick={()=>navigate("/hrcontact")} className="btn btn-ghost">HR profiles</a>
           </li>
           <li>
             <details>
@@ -161,7 +163,7 @@ export const Header = ({ setRole }) => {
             </details>
           </li>
           <li className="btn btn-ghost">
-            <a>Shifts</a>
+            <a onClick={()=>navigate("/shifts")}>Shifts</a>
           </li>
         </ul>
       </div>
