@@ -40,8 +40,12 @@ export async function getWorkerPayment ( workerEmail, setState )
 export const getWorkerIdFromEmail = async ( email ) => 
 {
     const cRef = collection(db, "workers")
+    console.log(email);
     const q = query(cRef, where("email", "==", email))
     const docs = await getDocs(q)
 
-    docs.forEach( (doc) => { setState(doc.id) } )
+    let docId
+    docs.forEach( (doc) => docId = doc.id)
+    return docId
+
 }
