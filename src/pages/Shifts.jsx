@@ -16,7 +16,7 @@ export const Shifts = () => {
 
       <div className="grid lg:grid-cols-3 lg:grid-rows-5 grid-rows-5 shiftrow">
         {shifts && shifts.map((shift)=>
-        <div className="card bg-gray-700 border-white hover:border-2 hover:shadow-md shadow-white m-30 text-primary-content w-96">
+        <div className="card bg-gray-700 border-white hover:border-2 hover:shadow-md shadow-white m-30 text-primary-content w-96" key={shift.id}>
           <div className="card-body">
          
             <h2 className="card-title">{shift.name}</h2>
