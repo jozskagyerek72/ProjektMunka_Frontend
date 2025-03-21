@@ -1,21 +1,23 @@
 import React, { useState } from "react";
-import { readWorkers } from "../utils/crudUtil";
+import { readSingleWorker, readWorkers } from "../utils/crudUtil";
 import QRCode from "react-qr-code";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { useEffect } from "react";
+import { getWorkerIdFromEmail } from "../utils/analytics_systemUtils";
 export const Gate = () => {
-  const [workers, setWorkers] = useState([]);
-  const [useremail, setUserEmail] = useState()
+  const [worker, setWorker] = useState(null);
+  const [useremail, setUserEmail] = useState(null)
   const { user } = useContext(UserContext);
-  readWorkers(setWorkers);
-  useEffect(()=>{
-    //console.log(user?.email);
-   
-    
-    user?.email&& setUserEmail(user?.email)
-    //console.log(useremail);
-    
+ 
+  useEffect( ()=>{
+      const load = async ()=>
+      {
+        user?.email&& await setUserEmail(user?.email)
+        readSingleWorker(await getWorkerIdFromEmail(user?.email), setWorker)
+      }
+      load()
+      
   },[user])
   
 
@@ -32,15 +34,15 @@ export const Gate = () => {
           <div className="camera rounded-2xl bg-black h-5 w-5 "></div>
           <div className="display flex text-center">
             <div className="flex text-center flex-wrap ">
-              <h2 className="text-2xl text-black  m-15">Worker Name</h2>
+              <h2 className="text-2xl text-black  m-15">{worker&& worker.name}</h2>
               {/*<img
                 src="./websiteQR.png"
                 className="w-70 h-70 ml-1"
                 alt="YourQR"
               />*/}
-              {user&& <QRCode className="m-4" value={useremail+""}/>}
+              {worker&& <QRCode className="m-4" value={worker.id}/>}
               <h3 className="text-center font-bold  text-black float-end m-5">
-                Job description
+                {worker&& worker.field}
               </h3>
             </div>
           </div>
