@@ -2,6 +2,8 @@
 import { addDoc, collection, doc, getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, Timestamp, updateDoc, where } from "firebase/firestore"
 
 import { db } from "./firebaseApp"
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 export const readWorkers = async (setWorkers) => {
   /*const querySnapshot = await getDocs(collection(db, "workers"))
@@ -17,19 +19,13 @@ export const readWorkers = async (setWorkers) => {
   return unsubscribe;
 };
 export const readSingleWorker = async (id, setWorker) => {
-  /*const querySnapshot = await getDocs(collection(db, "workers"))
-        let workers = []
-        querySnapshot.forEach((doc)=>  { workers.push({...doc.data(), id:doc.id}) })
-        return workers*/
 
-  
   const q = doc(db, "workers", id)
   const unsubscribe = onSnapshot(q, (snapshot) => {
     setWorker(({ ...snapshot.data(), id: snapshot.id }));
     return unsubscribe;
   });
 };
-
 
 export const addWorker = async (formdata) => {
   const collectionRef = collection(db, "workers");
@@ -58,10 +54,9 @@ export const endShift = async (shiftId) => {
         await updateDoc(docRef, { end: endtime, duration: duration })
 }
 
-
-
 export const changeWorkerActiveStatus = async (workerID) =>
 {
+  const { msg, setMsg} = useContext(UserContext)
   const workerRef = doc(db, "workers", workerID)
   const worker = await getDoc(workerRef)
   
@@ -71,6 +66,7 @@ export const changeWorkerActiveStatus = async (workerID) =>
     if (worker.data().status == "active") 
     {
       await updateDoc(workerRef, {status: "not active"})
+      
     } else 
     {
       await updateDoc(workerRef, {status: "active"})
@@ -85,9 +81,6 @@ export const getWorkerPayment = async (workerID) =>
   const workerShifts = await getDocs(q)
   
 }
-
-
-
 
 export const checkAdmin = async (hrEmail) => {
   const collectionRef = collection(db, "admins");
