@@ -13,20 +13,15 @@ export const Analytics = () => {
   const [workedHours, setWorkedHours] = useState(null);
   const [payment, setPayment] = useState(null);
 
-  
-
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
 
     !user && setAvatar(null)
   }, [user, user?.photoURL]);
-  console.log(user?.email);
-
 
   useEffect(() => {
       (async () => {
         if (!user) return
-
         try {
           //console.log(await getWorkerIdFromEmail(await user?.email));
           setWorkedHours(
@@ -38,20 +33,7 @@ export const Analytics = () => {
         }
       })();
     }, [user])
- 
-    workedHours&& console.log(workedHours.toFixed(2));
     
-  
-
-  /*
-  useState(()=>{
-    getWorkerIdFromEmail(user?.email, setWorkerId)
-    getWorkedHours(workerID, setWorkedHours)  
-    getWorkerPayment(workerID, setPayment)
-  },[])*/
-  
-
-
   return (
     <div className="gate bg-gray-950">
 
@@ -60,7 +42,6 @@ export const Analytics = () => {
         </div>
         
         <div className="stat-container justify-center flex flex-wrap gap-10">
-        
         
         <div className="statistics text-white justify-center bg-gray-700 rounded-xl flex flex-wrap">
           <div className="stats shadow">
@@ -77,7 +58,7 @@ export const Analytics = () => {
                 
               </div>
               <div className="stat-title text-white text-xl">Min. work hours</div>
-              <div className="stat-value text-secondary">35hour</div>
+              <div className="stat-value text-secondary">35hour</div> 
               <div className="stat-desc text-white text-xl">Min.work hours per week</div>
             </div>
 
@@ -96,12 +77,7 @@ export const Analytics = () => {
           </div>
         </div>
 
-
         <div className="balance flex-wrap flex">
-
-
-
-
           <div className="stats bg-primary text-primary-content">
             <div className="stat">
               <div className="stat-title text-white text-xl">The sum of your wage</div>
@@ -115,9 +91,6 @@ export const Analytics = () => {
               <div className="stat-desc text-white text-xl">you are loser!</div>
             </div>
           </div>
-
-
-
         </div>
       </div>
 
