@@ -69,7 +69,7 @@ export const Analytics = () => {
               <div className="stat-figure text-primary">
               </div>
               <div className="stat-title text-white text-xl">You have worked</div>
-              <div className="stat-value text-primary">{workedHours.toFixed(2)} hours</div>
+              <div className="stat-value text-primary">{workedHours&& workedHours.toFixed(2)} hours</div>
               <div className="stat-desc text-white text-xl">so far</div>
             </div>
 
@@ -106,7 +106,7 @@ export const Analytics = () => {
           <div className="stats bg-primary text-primary-content">
             <div className="stat">
               <div className="stat-title text-white text-xl">The sum of your wage</div>
-              <div className="stat-value">{payment.toFixed(2)} HUF</div>
+              <div className="stat-value">{payment&& payment.toFixed(2)} HUF</div>
               <div className="stat-desc text-white text-xl">you are winner!</div>
             </div>
 
