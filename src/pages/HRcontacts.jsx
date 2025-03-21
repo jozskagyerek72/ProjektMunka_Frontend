@@ -14,7 +14,7 @@ export const HRcontacts = () => {
 
       <div className="grid lg:grid-cols-3 lg:grid-rows-2 grid-rows-3 hrcont">
       {hrContacts && hrContacts.map((hr)=>
-              <div className="card bg-base-100 w-96 m-30 shadow-sm">
+              <div className="card bg-base-100 w-96 m-30 shadow-sm" key={hr.id}>
               <figure className="px-10 pt-10">
                 <img
                   src={hr.imgUrl}

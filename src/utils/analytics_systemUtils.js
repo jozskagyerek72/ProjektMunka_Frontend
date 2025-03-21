@@ -11,8 +11,6 @@ export const getWorkedHours = async ( workerID ) =>
  
   workerShifts.forEach( ( doc ) => { totalDuration += doc.data().duration })
 
-  //console.log( "total hours: " , totalDuration );
-
   return totalDuration
 }
 

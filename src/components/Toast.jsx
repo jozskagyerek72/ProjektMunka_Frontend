@@ -19,12 +19,9 @@ export const Toast = ({
   useEffect(() => {
     if (err) {
       toast.error(err, { position: "top-left" });
-    } else if (signin || signup) {
+    } else if (signin || signup || resetpassword || signout) {
       toast.success(signin || signup, { position: "top-center" });
       setTimeout(() => navigate("/"), 1000);
-    } else if (resetpassword || signout) {
-      toast.success(resetpassword || signout, { position: "top-center" });
-      setTimeout(() => navigate("/authentication/signin"), 1000);
     } else if (update) {
       toast.success(update, { position: "top-center" });
     }

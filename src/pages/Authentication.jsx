@@ -30,10 +30,7 @@ export const Authentication = ({ role }) => {
         data.get("displayName")
       );
 
-
       addApplicant(data.get("displayName"), data.get("e-mail"), "NaN")
-
-
     }
   };
 
