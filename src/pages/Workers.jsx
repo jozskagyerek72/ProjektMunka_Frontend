@@ -18,7 +18,7 @@ export const Workers = () => {
             <tr className="border-2 bg-gray-800 text-white border-white">
               <th className="bg-gray-800 text-white">
                 <label>
-                  <input type="checkbox" className="checkbox" />
+                  
                 </label>
               </th>
               <th>Name</th>
@@ -34,7 +34,7 @@ export const Workers = () => {
                 <tr key={worker.id} className="border-2 bg-gray-800 text-white border-white rounded-md">
                   <th>
                     <label>
-                      <input type="checkbox" className="checkbox border-1 border-white text-white" />
+                      
                     </label>
                   </th>
                   <td>
@@ -42,8 +42,8 @@ export const Workers = () => {
                       <div className="avatar">
                         <div className="mask mask-squircle h-12 w-12">
                           <img
-                            src={worker.imageURL}
-                            alt="Avatar Tailwind CSS Component"
+                            src={worker.imageURL?worker.imageURL:'public/blankpeople.jpg'}
+                            alt={worker.id}
                           />
                         </div>
                       </div>

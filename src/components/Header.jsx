@@ -114,6 +114,9 @@ export const Header = ({ setRole }) => {
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
                       <a onClick={()=>navigate('/contact')}>Contact</a>
                     </li>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                        <a onClick={()=>navigate('/workers')}>Workers</a>
+                    </li>
                   </>
                 ) : (
                   <li>
@@ -150,6 +153,9 @@ export const Header = ({ setRole }) => {
                     </li>
                     <li className="text-white m-1 text-center bg-gray-800 hover:bg-gray-950 rounded-md">
                       <a onClick={()=> navigate('/contact')}>Contact</a>
+                    </li>
+                    <li className="text-white m-1 text-center bg-gray-800 hover:bg-gray-950 rounded-md">
+                      <a onClick={()=> navigate('/workers')}>Workers</a>
                     </li>
                   </>
                 ) : (

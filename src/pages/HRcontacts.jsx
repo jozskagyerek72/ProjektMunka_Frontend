@@ -12,7 +12,7 @@ export const HRcontacts = () => {
         <h1 className="text-3xl mt-17 wlh12">HR contact</h1>
       </div>
 
-      <div className="grid lg:grid-cols-3 lg:grid-rows-2 grid-rows-3 hrcont">
+      <div className="grid lg:grid-cols-3 lg:grid-rows-1 grid-rows-1 hrcont">
       {hrContacts && hrContacts.map((hr)=>
               <div className="card bg-base-100 w-96 m-30 shadow-sm">
               <figure className="px-10 pt-10">

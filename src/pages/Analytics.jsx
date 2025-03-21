@@ -68,7 +68,7 @@ export const Analytics = () => {
               <div className="stat-figure text-primary">
               </div>
               <div className="stat-title text-white text-xl">You have worked</div>
-              <div className="stat-value text-primary">{workedHours&& workedHours.toFixed(2)} hours</div>
+              <div className="stat-value text-success">{workedHours&& workedHours.toFixed(2)} hours</div>
               <div className="stat-desc text-white text-xl">so far</div>
             </div>
 

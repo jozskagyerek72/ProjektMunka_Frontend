@@ -29,7 +29,7 @@ export const WorkerDetails = () => {
         <div className="hero bg-gray-950 min-h-screen">
           <div key={worker.id} className="hero-content bg-gray-700 border-1 border-gray-500 shadow-lg shadow-white flex-col lg:flex-row">
             <img
-              src={worker.imageURL}
+              src={worker && worker.imageURL ? worker.imageURL : './public/blankpeople.jpg'}
               className="max-w-sm rounded-lg w-100 shadow-2xl"
             />
             <div className="grid lg:grid-cols-2 lg:grid-rows-2 grid-rows-1 gap-5">
