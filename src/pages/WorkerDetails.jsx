@@ -4,14 +4,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { changeWorkerActiveStatus, readSingleWorker} from "../utils/crudUtil";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
-import { Toast } from "../components/Toast";
 
 export const WorkerDetails = () => {
   const { id } = useParams();
   const [worker, setWorker] = useState(null);
-  const { toastMessage, msg } = useContext(UserContext);
 
   useEffect(() => {
     readSingleWorker(id, setWorker);
@@ -23,6 +19,7 @@ export const WorkerDetails = () => {
     //ide valami fele toast popup kéne ezután
     
   }
+  
 
   return (
     <div className="home bg-gray-950">
@@ -70,7 +67,6 @@ export const WorkerDetails = () => {
           </div>
         </div>
       )}
-      {msg && <Toast {...msg} />}
     </div>
   );
 };
