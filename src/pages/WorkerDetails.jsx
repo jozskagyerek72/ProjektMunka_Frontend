@@ -4,10 +4,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { changeWorkerActiveStatus, readSingleWorker} from "../utils/crudUtil";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+import { Toast } from "../components/Toast";
 
 export const WorkerDetails = () => {
   const { id } = useParams();
   const [worker, setWorker] = useState(null);
+  const { toastMessage, msg } = useContext(UserContext);
 
   useEffect(() => {
     readSingleWorker(id, setWorker);
@@ -17,6 +21,7 @@ export const WorkerDetails = () => {
   {
     changeWorkerActiveStatus(worker.id)
     //ide valami fele toast popup kéne ezután
+    
   }
 
   return (
@@ -27,7 +32,10 @@ export const WorkerDetails = () => {
 
       {worker && (
         <div className="hero bg-gray-950 min-h-screen">
-          <div key={worker.id} className="hero-content bg-gray-700 border-1 border-gray-500 shadow-lg shadow-white flex-col lg:flex-row">
+          <div
+            key={worker.id}
+            className="hero-content bg-gray-700 border-1 border-gray-500 shadow-lg shadow-white flex-col lg:flex-row"
+          >
             <img
               src={worker.imageURL}
               className="max-w-sm rounded-lg w-100 shadow-2xl"
@@ -37,30 +45,32 @@ export const WorkerDetails = () => {
                 {worker && worker.name}
               </h2>
               <div className="badge m-1  w-full badge-success font-bold hover:border-white border-1">
-              -{worker && worker.status}
+                -{worker && worker.status}
               </div>
               <div className="badge m-1 w-full  badge-success font-bold hover:border-white border-1">
-              -{worker && worker.field}
+                -{worker && worker.field}
               </div>
               <div className="badge badge-success w-full m-1  font-bold hover:border-white border-1 ">
-                Hourlypay: {worker&& worker.hourlypay}Ft
+                Hourlypay: {worker && worker.hourlypay}Ft
               </div>
               <div className="badge m-1 badge-success w-full  font-bold hover:border-white border-1 ">
-                Contact: {worker&& worker.email}
+                Contact: {worker && worker.email}
               </div>
               <div className="m-auto">
-              <button onClick={handleWorkerStatusChange} className="btn btn-xs sm:btn-sm md:btn-md btn-primary hover:border-2 w-40  hover:border-white lg:btn-md xl:btn-md">
-                {worker.status=="active"?"Deactivate worker":"Activate Worker"}
-              </button>
+                <button
+                  onClick={handleWorkerStatusChange}
+                  className="btn btn-xs sm:btn-sm md:btn-md btn-primary hover:border-2 w-40  hover:border-white lg:btn-md xl:btn-md"
+                >
+                  {worker.status == "active"
+                    ? "Deactivate worker"
+                    : "Activate Worker"}
+                </button>
+              </div>
             </div>
-            
-            </div>
-            
           </div>
-          
-          
         </div>
       )}
+      {msg && <Toast {...msg} />}
     </div>
   );
 };
