@@ -12,6 +12,7 @@ export const Analytics = () => {
   const [avatar, setAvatar] = useState(null);
   const [workedHours, setWorkedHours] = useState(null);
   const [payment, setPayment] = useState(null);
+
   
 
   useEffect(() => {
@@ -37,14 +38,15 @@ export const Analytics = () => {
         }
       })();
     }, [user])
-   
-
+ 
+    workedHours&& console.log(workedHours.toFixed(2));
+    
   
 
   /*
   useState(()=>{
     getWorkerIdFromEmail(user?.email, setWorkerId)
-    getWorkedHours(workerID, setWorkedHours)
+    getWorkedHours(workerID, setWorkedHours)  
     getWorkerPayment(workerID, setPayment)
   },[])*/
   
@@ -65,9 +67,9 @@ export const Analytics = () => {
             <div className="stat">
               <div className="stat-figure text-primary">
               </div>
-              <div className="stat-title text-white text-xl">Total work hours</div>
-              <div className="stat-value text-primary">{workedHours}</div>
-              <div className="stat-desc text-white text-xl">nigga</div>
+              <div className="stat-title text-white text-xl">You have worked</div>
+              <div className="stat-value text-primary">{workedHours&& workedHours.toFixed(2)} hours</div>
+              <div className="stat-desc text-white text-xl">so far</div>
             </div>
 
             <div className="stat">
@@ -102,19 +104,15 @@ export const Analytics = () => {
 
           <div className="stats bg-primary text-primary-content">
             <div className="stat">
-              <div className="stat-title text-white text-xl">Wage</div>
-              <div className="stat-value">{payment}</div>
-              <div className="stat-actions">
-                <button className="btn btn-sm btn-success">Add funds</button>
-              </div>
+              <div className="stat-title text-white text-xl">The sum of your wage</div>
+              <div className="stat-value">{payment&& payment.toFixed(2)} HUF</div>
+              <div className="stat-desc text-white text-xl">you are winner!</div>
             </div>
 
             <div className="stat">
               <div className="stat-title text-white text-xl">Wage after tax</div>
-              <div className="stat-value">$0</div>
-              <div className="stat-actions">
-                <button className="btn btn-sm">Deposit</button>
-              </div>
+              <div className="stat-value">0 HUF</div>
+              <div className="stat-desc text-white text-xl">you are loser!</div>
             </div>
           </div>
 
