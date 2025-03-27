@@ -15,13 +15,10 @@ export const Shifts = () => {
       </div>
       
     
-      <div className="grid lg:grid-cols-3 m-20 gap-45 lg:grid-rows-5 grid-rows-5 shiftrow">
+      <div className="grid lg:grid-cols-4 ml-10 pb-10 gap-10 justify-center align-middle  grid-rows-5 shiftrow">
         {shifts && shifts.map((shift)=>
-        <div className="bg-gray-500 w-60 h-60 rounded-xl">
-          <div className="bg-white left-50 w-10 h-10 rounded">
-
-          </div>
-              <div className="card bg-gray-700 border-white hover:border-2 hover:shadow-md shadow-white m-30 text-primary-content w-96">
+              <div className="card bg-gray-700 justify-center align-center border-white hover:border-2 hover:shadow-md shadow-white  text-primary-content w-80">
+                {shift.end ? <div className="light w-18 text-white font-bold h-7 p-1 text-center bg-red-500 rounded-xl">Finished</div> : <div className="light w-15 h-7 p-1 text-center text-white font-bold bg-green-400 rounded-xl">Active</div>}
           <div className="card-body">
          
             <h2 className="card-title">{shift.name}</h2>
@@ -39,7 +36,6 @@ export const Shifts = () => {
             <div className="card-actions justify-end">
             </div>
           </div>
-        </div>
         </div>
     
     )}
