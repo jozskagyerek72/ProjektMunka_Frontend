@@ -20,11 +20,11 @@ export const Home = ({setRole}) => {
         <HomePageCards setRole={setRole} />
       </div>
 
-      <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 mr-10 justify-center w-full  p-10 gap-10">
+      <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 mr-10 justify-center w-full p-10 gap-10">
         <Change />
         <div className="video_container h-180 m-auto p-0 bg-gray-950 glass text-center justify-center align-center">
-          <h2 className="text-4xl text-center text-white">
-            What are we using?
+          <h2 className="text-4xl text-center text-white pt-10">
+            How can I enter?
           </h2>
           <div className="player_wrapper sm:w-max flex object-contain flex-wrap m-10 p-1">
             <video className="sm:w-max" controls muted>
@@ -34,8 +34,7 @@ export const Home = ({setRole}) => {
 
           <div className="flex flex-wrap">
             <p className="text-center text-2xl  text-white mb-10">
-              We are providing an accessible point of entry in your workplace
-              with a QR scanner identification.
+              By using QR authentication, we provide an easy-to-use entry into your workplace.
             </p>
           </div>
         </div>
