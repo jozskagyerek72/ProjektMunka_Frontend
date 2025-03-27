@@ -23,7 +23,7 @@ export const Home = ({setRole}) => {
             What are we using?
           </h2>
           <div className="player_wrapper sm:w-max flex object-contain flex-wrap m-10 p-1">
-            <video className="sm:w-max" controls muted>
+            <video className="sm:w-max" controls={false} muted loop autoPlay>
               <source src="./public/qr.mp4" type="video/mp4" />
             </video>
           </div>
