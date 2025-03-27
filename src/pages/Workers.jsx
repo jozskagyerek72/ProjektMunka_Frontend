@@ -66,15 +66,7 @@ export const Workers = () => {
               ))}
           </tbody>
           {/* foot */}
-          <tfoot className="rounded-md bg-gray-800 text-white">
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Status</th>
-              <th></th>
-            </tr>
-          </tfoot>
+          
         </table>
       </div>
     </div>
