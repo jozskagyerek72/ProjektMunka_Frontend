@@ -2,18 +2,22 @@
 
 import { HomePageCards } from "../components/HomePageCards";
 import { Change } from "../components/Change";
+import { useNavigate } from "react-router-dom";
 
 export const Home = ({setRole}) => {
+
+  const navigate = useNavigate()
+
   return (
     <div className="home bg-gray-950 flex flex-wrap justify-center align-center">
       <div className="container  flex flex-wrap">
         <h1 className="wlh1 p-2">WorkLinker</h1>
         <p className="wlp text-3xl mt-15 ">
-          Building Teams, Nurturing Growth, Inspiring Success.
+          <a onClick={()=>navigate('/hrcontact')}>Building teams - Nurturing growth - Inspiring success.</a>
         </p>
       </div>
       <div className="flex flex-wrap w-full">
-        <HomePageCards setRole={setRole}/>
+        <HomePageCards setRole={setRole} />
       </div>
 
       <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 mr-10 justify-center w-full  p-10 gap-10">
@@ -30,11 +34,10 @@ export const Home = ({setRole}) => {
 
           <div className="flex flex-wrap">
             <p className="text-center text-2xl  text-white mb-10">
-              We are providing an easy enter in your workplace with a QR scanner
-              identification.
+              We are providing an accessible point of entry in your workplace
+              with a QR scanner identification.
             </p>
           </div>
-
         </div>
       </div>
     </div>
