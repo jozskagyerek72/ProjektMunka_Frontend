@@ -13,6 +13,7 @@ export const Analytics = () => {
   const [workedHours, setWorkedHours] = useState(null);
   const [payment, setPayment] = useState(null);
 
+
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
 
