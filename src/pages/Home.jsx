@@ -10,9 +10,9 @@ export const Home = ({setRole}) => {
 
   return (
     <div className="home bg-gray-950 flex flex-wrap justify-center align-center">
-      <div className="container  flex flex-wrap">
+      <div className="container flex flex-wrap">
         <h1 className="wlh1 p-2">WorkLinker</h1>
-        <p className="wlp text-3xl mt-15 ">
+        <p className="wlp text-3xl">
           <a onClick={()=>navigate('/hrcontact')}>Building teams - Nurturing growth - Inspiring success.</a>
         </p>
       </div>
@@ -20,7 +20,7 @@ export const Home = ({setRole}) => {
         <HomePageCards setRole={setRole} />
       </div>
 
-      <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 mr-10 justify-center w-full p-10 gap-10">
+      <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 mr-10 justify-center w-full gap-10 pl-1.5 pr-1.5">
         <Change />
         <div className="video_container h-180 m-auto p-0 bg-gray-950 glass text-center justify-center align-center">
           <h2 className="text-4xl text-center text-white pt-10">
