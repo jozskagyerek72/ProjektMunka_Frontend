@@ -20,9 +20,9 @@ export const Home = ({setRole}) => {
         <HomePageCards setRole={setRole} />
       </div>
 
-      <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 mr-10 justify-center w-full gap-10 pl-1.5 pr-1.5">
+      <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 justify-center items-center w-full pl-1.5 pr-1.5 gap-2.5">
         <Change />
-        <div className="flex flex-wrap mt-60 rounded-2xl justify-center items-center h-180 m-auto p-0 bg-gray-950 glass text-center">
+        <div className="flex flex-wrap rounded-2xl justify-center items-center bg-gray-950 glass text-center">
           <h2 className="text-4xl text-center text-white pt-10">
             How can I enter?
           </h2>
@@ -33,7 +33,7 @@ export const Home = ({setRole}) => {
           </div>
 
           <div className="flex flex-wrap">
-            <p className="text-center text-2xl  text-white mb-10">
+            <p className="text-center text-2xltext-white mb-10">
               By using QR authentication, we provide an easy-to-use entry into your workplace.
             </p>
           </div>
