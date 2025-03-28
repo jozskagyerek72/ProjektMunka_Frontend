@@ -34,14 +34,15 @@ export const Authentication = ({ role }) => {
     }
   };
 
+
   return (
     <div className="flex justify-center items-center h-screen bg-gray-950 text-center">
       <div className="w-full max-w-xs flex-auto">
         <Form
-          className="bg-gray-800 shadow-md shadow-white rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-gray-800 shadow-md shadow-white rounded-2xl px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
-          <h1>{role}</h1>
+          <h1 className="font-bold mb-2 text-white">{role}</h1>
           <div className="mb-4">
             <label
               className="block text-white text-sm font-bold mb-2"
@@ -61,7 +62,7 @@ export const Authentication = ({ role }) => {
           {!isSignedIn && (
             <div className="mb-4">
               <label
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className="block text-white text-sm font-bold mb-2"
                 htmlFor="displayName"
               >
                 Name
@@ -77,7 +78,7 @@ export const Authentication = ({ role }) => {
 
           <div className="mb-6">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-white text-sm font-bold mb-2"
               htmlFor="password"
             >
               Password
@@ -105,7 +106,7 @@ export const Authentication = ({ role }) => {
             Sign in
           </button>
         </Form>
-        <p className="text-center text-gray-400 text-xs">
+        <p className="text-center text-gray-400 text-xs" onClick={()=>navigate('/hrcontact')}>
           &copy;2025 WorkLinker inc. All rights reserved.
         </p>
         {msg && <Toast {...msg} />}

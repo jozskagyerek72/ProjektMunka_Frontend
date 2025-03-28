@@ -39,6 +39,10 @@ h1:hover {
   background-color: rgb(90, 90, 90, 0.3);
 }
 
+.gambetta {
+  font-family: 'Gambetta', serif;
+}
+
 .wlp {
   line-height: 150%;
   text-align: center;
@@ -64,6 +68,7 @@ h1:hover {
 .wlp:hover {
   --_p: 100%;
 }
+
 
 @media screen and (min-width: 481px) {
   .mobile {

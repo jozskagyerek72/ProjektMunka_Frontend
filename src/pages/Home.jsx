@@ -23,7 +23,7 @@ export const Home = ({setRole}) => {
       <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 justify-center items-center w-full pl-1.5 pr-1.5 gap-2.5">
         <Change />
         <div className="flex flex-wrap rounded-2xl justify-center items-center bg-gray-950 glass text-center">
-          <h2 className="text-4xl text-center text-white pt-10">
+          <h2 className="text-4xl text-center text-white pt-10 gambetta">
             How can I enter?
           </h2>
           <div className="player_wrapper sm:w-max flex object-contain flex-wrap m-10 p-1">
@@ -33,7 +33,7 @@ export const Home = ({setRole}) => {
           </div>
 
           <div className="flex flex-wrap">
-            <p className="text-center text-2xltext-white mb-10">
+            <p className="text-center text-xl text-white mb-10 gambetta">
               By using QR authentication, we provide an easy-to-use entry into your workplace.
             </p>
           </div>
