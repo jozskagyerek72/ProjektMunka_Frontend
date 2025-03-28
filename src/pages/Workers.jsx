@@ -16,11 +16,6 @@ export const Workers = () => {
           {/* head */}
           <thead>
             <tr className="border-2 bg-gray-800 text-white border-white">
-              <th className="bg-gray-800 text-white">
-                <label>
-                  
-                </label>
-              </th>
               <th>Name</th>
               <th>Job</th>
               <th>Status</th>
@@ -32,11 +27,7 @@ export const Workers = () => {
             {workers &&
               workers.map((worker) => (
                 <tr key={worker.id} className="border-2 bg-gray-800 text-white border-white rounded-md">
-                  <th>
-                    <label>
-                      
-                    </label>
-                  </th>
+                  
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
@@ -56,10 +47,10 @@ export const Workers = () => {
                     {worker.field}
                     <br />
                   </td>
-                  <td>{worker.status=="active"?<p className="bg-green-700 text-center p-1 border-2 rounded-md font-bold border-white">{worker.status}</p>:<p className="bg-red-700 text-center p-1 border-2 rounded-md font-bold border-white">{worker.status}</p>}
+                  <td>{worker.status=="active"?<p className="bg-green-700 text-center p-1 border-1 rounded-xl font-bold border-white">{worker.status}</p>:<p className="bg-red-700 text-center p-1 border-1 rounded-xl font-bold border-white">{worker.status}</p>}
                     </td>
                   <th>
-                    <button onClick={()=>navigate("/workerdetails/"+worker.id)} className="btn btn-ghost btn-md">details</button>
+                    <button onClick={()=>navigate("/workerdetails/"+worker.id)} className="btn btn-ghost btn-sm">details</button>
                   </th>
                 </tr>
               ))}

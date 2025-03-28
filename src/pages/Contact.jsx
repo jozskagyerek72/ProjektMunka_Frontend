@@ -9,7 +9,7 @@ export const Contact = () => {
       <div className="container-contact flex flex-wrap justify-center">
         <div className="card border-4  border-white bg-base-100 w-150 h-150 shadow-xl">
           <figure>
-            <img src="wr.png" alt="Shoes"  />
+            <img src="WL(good).png" alt="Shoes"  />
           </figure>
           <div className="card-body bg-gray-800">
             <h2 className="card-title text-2xl text-white">
