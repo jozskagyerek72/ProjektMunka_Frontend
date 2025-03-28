@@ -9,8 +9,12 @@ export const getWorkedHours = async ( workerID ) =>
   const workerShifts = await getDocs(q)
   let totalDuration = 0
  
-  workerShifts.forEach( ( doc ) => { totalDuration += doc.data().duration })
+  workerShifts.forEach( ( doc ) => { 
+    {doc.data().duration ? totalDuration += doc.data().duration : totalDuration += 0} 
+})
 
+  console.log("type of total duration:", typeof totalDuration);
+  console.log(totalDuration);
   return totalDuration
 }
 
@@ -25,7 +29,7 @@ export const getWorkerPayment = async ( workerID, setState ) =>
 
     docs.forEach( ( doc ) => 
     {
-        if (doc.id == workerID) { setState( doc.data().hourlypay * workedHours ) }
+        if (doc.id == workerID) { setState( doc.data().hourlypay * workedHours )}
     })
 }
 
