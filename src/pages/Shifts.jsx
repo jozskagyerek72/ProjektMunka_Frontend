@@ -8,7 +8,7 @@ export const Shifts = () => {
 
 
   return (
-    <div className="gate bg-gray-950">
+    <div className="min-h-dvh items-center bg-gray-950">
       
       <div className="text-center justify-center flex flex-wrap">
         <h1 className="text-3xl mt-17 wlh12">Shifts</h1>

@@ -8,7 +8,7 @@ export const Workers = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="home justify-center mt-15 flex bg-gray-950">
+    <div className="min-h-dvh justify-center mt-15 flex bg-gray-950">
       {/* concept2 */}
 
       <div className="overflow-x-auto mt-10 rounded-md">

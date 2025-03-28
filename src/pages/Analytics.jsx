@@ -35,7 +35,7 @@ export const Analytics = () => {
     }, [user])
     
   return (
-    <div className="gate bg-gray-950">
+    <div className="min-h-dvh bg-gray-950">
 
         <div className="flex flex-wrap justify-center mt-15">
           <h1 className="text-3xl m-20 wlh12">Analytics</h1>

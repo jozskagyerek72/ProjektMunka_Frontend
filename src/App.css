@@ -3,19 +3,6 @@
 @plugin "daisyui";
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-.home {
-  min-height: 100vh;
-}
-
-.img {
-  opacity: 40%;
-  height: 400px;
-  width: 100%;
-}
-.shiftsrow {
-  margin: 0 auto;
-}
-
 .wlh1 {
   font-size: 10vw;
   text-transform: uppercase;
@@ -78,18 +65,9 @@ h1:hover {
   --_p: 100%;
 }
 
-.video-container {
-  width: 45vw;
-  border: #ffffff 2px solid;
-}
 @media screen and (min-width: 481px) {
   .mobile {
     display: none;
   }
 }
 
-.centered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}

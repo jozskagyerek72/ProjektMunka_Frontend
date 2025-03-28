@@ -9,7 +9,7 @@ export const Home = ({setRole}) => {
   const navigate = useNavigate()
 
   return (
-    <div className="home bg-gray-950 flex flex-wrap justify-center items-center">
+    <div className="min-h-dvh bg-gray-950 flex flex-wrap justify-center items-center">
       <div className="container flex flex-wrap flex-col justify-center items-center min-h-dvh w-full">
         <h1 className="wlh1 p-2">WorkLinker</h1>
         <p className="wlp text-3xl">
