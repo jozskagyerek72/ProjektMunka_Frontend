@@ -8,10 +8,15 @@ export const Workers = () => {
   const navigate = useNavigate();
 
   return (
+    
     <div className="min-h-dvh justify-center mt-15 flex bg-gray-950">
+    
       {/* concept2 */}
 
       <div className="overflow-x-auto mt-10 rounded-md">
+      <div className="text-center justify-center flex flex-wrap">
+        <h1 className="text-3xl mt-17 wlh12">Workers</h1>
+      </div>
         <table className="table bg-gray-500 border-2 border-white rounded-md">
           {/* head */}
           <thead>
