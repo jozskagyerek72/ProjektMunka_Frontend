@@ -9,7 +9,7 @@ export const HRcontacts = () => {
   return (
     <div className="min-h-dvh bg-gray-950">
       <div className="text-center justify-center flex flex-wrap">
-        <h1 className="text-3xl mt-17 wlh12">Our team</h1>
+        <h1 className="text-3xl mt-17 wlh12 font-bold">Our team</h1>
       </div>
 
       <div className="grid lg:grid-cols-3 justify-center  grid-rows-1 hrcont">

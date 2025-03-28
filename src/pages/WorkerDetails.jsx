@@ -24,7 +24,7 @@ export const WorkerDetails = () => {
   return (
     <div className="min-h-dvh bg-gray-950">
       <div className="text-center justify-center flex flex-wrap">
-        <h1 className="text-3xl mt-17 wlh12">Worker details</h1>
+        <h1 className="text-3xl mt-17 wlh12 font-bold">Worker details</h1>
       </div>
 
       {worker && (
