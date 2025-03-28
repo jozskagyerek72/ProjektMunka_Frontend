@@ -114,3 +114,14 @@ export const readHRWorkers = (setData) =>
   });
   return unsubscribe;
 }
+
+export const updateWorkerPhoto = async ( workerID, photoUrl ) =>
+{
+  const workerRef = doc(db, "workers", workerID)
+  const worker = await getDoc(workerRef)
+
+  if ( worker.exists() )
+  {
+    await updateDoc(workerRef, {imageURL: photoUrl})
+  } else { console.log("error fetching data") }
+}
