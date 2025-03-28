@@ -24,7 +24,7 @@ export const Gate = () => {
   return (
     <div className="min-h-dvh items-center grid bg-gray-950 justify-center">
       <div className="grid mt-15">
-        <h1 className="text-3xl wlh12 m-20">Check-in</h1>
+        <h1 className="text-3xl wlh12 m-20 font-bold">Check-in</h1>
         <h2 className="m-auto text-xl text-justify text-white">
           Scan the QR code with your mobile to check in/check out!
         </h2>

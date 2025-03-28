@@ -11,7 +11,7 @@ export const Shifts = () => {
     <div className="min-h-dvh items-center bg-gray-950">
       
       <div className="text-center justify-center flex flex-wrap">
-        <h1 className="text-3xl mt-17 wlh12">Shifts</h1>
+        <h1 className="text-3xl mt-17 wlh12 font-bold">Shifts</h1>
       </div>
       
     

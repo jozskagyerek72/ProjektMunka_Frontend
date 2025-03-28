@@ -4,7 +4,7 @@ export const Contact = () => {
   return (
     <div className="min-h-dvh bg-gray-950">
       <div className="text-center justify-center flex flex-wrap mt-10">
-        <h1 className="text-3xl m-17 wlh12">Contact us</h1>
+        <h1 className="text-3xl m-17 wlh12 font-bold">Contact us</h1>
       </div>
       <div className="container-contact flex flex-wrap justify-center">
         <div className="card border-4  border-white bg-base-100 w-150 h-150 shadow-xl">
