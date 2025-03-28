@@ -6,6 +6,8 @@ import { extractUrlAndId } from "../utils/utilities";
 import { NotFound } from "./NotFound";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { getWorkerIdFromEmail } from "../utils/analytics_systemUtils";
+import { updateWorkerPhoto } from "../utils/crudUtil";
 
 export const Profile = () => {
   const { user, updateUser, msg, signOutUser } = useContext(UserContext);
@@ -33,6 +35,9 @@ export const Profile = () => {
     try {
       const file = data?.file ? data?.file[0] : null;
       const { url, id } = file ? await uploadImage(file) : null;
+      console.log(user?.email);
+      const workerid = await getWorkerIdFromEmail( user?.email )
+      await updateWorkerPhoto(workerid, url)
       updateUser(data.displayName, url + "/" + id);
     } catch (error) {
       console.log(error);
