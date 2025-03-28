@@ -22,13 +22,13 @@ export const WorkerDetails = () => {
   
 
   return (
-    <div className="home bg-gray-950">
+    <div className="min-h-dvh bg-gray-950">
       <div className="text-center justify-center flex flex-wrap">
         <h1 className="text-3xl mt-17 wlh12">Worker details</h1>
       </div>
 
       {worker && (
-        <div className="hero bg-gray-950 min-h-screen">
+        <div className="hero bg-gray-950 min-h-dvh">
           <div
             key={worker.id}
             className="hero-content bg-gray-700 border-1 border-gray-500 shadow-lg shadow-white flex-col lg:flex-row"

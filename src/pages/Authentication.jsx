@@ -90,16 +90,16 @@ export const Authentication = ({ role }) => {
             />
           </div>
 
-          <div class="group mt-5">
+          <div className="group mt-5">
             <a
-              class="text-base font-normal text-[#5a28cc] no-underline group-hover:underline"
+              className="text-base font-normal text-[#5a28cc] no-underline group-hover:underline"
               onClick={()=>navigate('/resetpassword')}
             >
               Forgot password?
             </a>
           </div>
           <button
-            class="mt-2 cursor-pointer rounded border-2 border-solid border-[#5a28cc] bg-[#5a28cc] px-8 py-2 text-base font-medium text-white hover:bg-neutral-100 hover:text-[#5a28cc] hover:transition-all hover:duration-500 hover:ease-in-out"
+            className="mt-2 cursor-pointer rounded border-2 border-solid border-[#5a28cc] bg-[#5a28cc] px-8 py-2 text-base font-medium text-white hover:bg-neutral-100 hover:text-[#5a28cc] hover:transition-all hover:duration-500 hover:ease-in-out"
             type="submit"
           >
             Sign in

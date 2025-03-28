@@ -7,7 +7,7 @@ export const HRcontacts = () => {
     readHRWorkers(setHrContacts)
 
   return (
-    <div className="home bg-gray-950">
+    <div className="min-h-dvh bg-gray-950">
       <div className="text-center justify-center flex flex-wrap">
         <h1 className="text-3xl mt-17 wlh12">Our team</h1>
       </div>

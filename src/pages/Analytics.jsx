@@ -24,7 +24,6 @@ export const Analytics = () => {
       (async () => {
         if (!user) return
         try {
-          //console.log(await getWorkerIdFromEmail(await user?.email));
           setWorkedHours(
             await getWorkedHours(await getWorkerIdFromEmail(await user?.email))
           );
@@ -36,7 +35,7 @@ export const Analytics = () => {
     }, [user])
     
   return (
-    <div className="gate bg-gray-950">
+    <div className="min-h-dvh bg-gray-950">
 
         <div className="flex flex-wrap justify-center mt-15">
           <h1 className="text-3xl m-20 wlh12">Analytics</h1>
@@ -81,15 +80,9 @@ export const Analytics = () => {
         <div className="balance flex-wrap flex">
           <div className="stats bg-primary text-primary-content">
             <div className="stat">
-              <div className="stat-title text-white text-xl">The sum of your wage</div>
+              <div className="stat-title text-white text-xl">The sum of your wage is</div>
               <div className="stat-value">{payment&& payment.toFixed(2)} HUF</div>
-              <div className="stat-desc text-white text-xl">you are winner!</div>
-            </div>
-
-            <div className="stat">
-              <div className="stat-title text-white text-xl">Wage after tax</div>
-              <div className="stat-value">0 HUF</div>
-              <div className="stat-desc text-white text-xl">you are loser!</div>
+              <div className="stat-desc text-white text-xl">this sum is before tax</div>
             </div>
           </div>
         </div>

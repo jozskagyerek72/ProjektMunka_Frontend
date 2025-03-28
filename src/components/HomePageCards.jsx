@@ -6,7 +6,7 @@ export const HomePageCards = ({setRole}) => {
   const navigate = useNavigate()
 
   return (
-    <div className="grid lg:grid-cols-3 lg:grid-rows-1 grid-rows-3 justify-center m-auto p-10 gap-10">
+    <div className="grid lg:grid-cols-3 lg:grid-rows-1 grid-rows-3 justify-center p-10 gap-10">
       <div className="card bg-base-100 image-full border-white border-2  shadow-gray-700 shadow-xs">
         <figure>
           <img src="./Hra.jpg" alt="Hr" />
