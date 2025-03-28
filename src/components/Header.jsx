@@ -94,15 +94,9 @@ export const Header = ({ setRole }) => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-gray-600 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            {admin ? (
-              <li className="text-white bg-gray-800">
-                <a onClick={() => navigate("/workers")}>Workers</a>
-              </li>
-            ) : (
-              <li className="text-white bg-gray-800">
-                <a onClick={() => navigate("/hrcontact")}>HR profiles</a>
-              </li>
-            )}
+            <li className="text-white bg-gray-800">
+              <a onClick={() => navigate("/hrcontact")}>About us  </a>
+            </li>
             <li>
               <a className="bg-gray-800 hover:bg-gray-700 m-1">Pages</a>
               <ul className="p-2 bg-gray-600">
@@ -118,7 +112,7 @@ export const Header = ({ setRole }) => {
                       <a onClick={() => navigate("/contact")}>Contact us</a>
                     </li>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                        <a onClick={()=>navigate('/workers')}>Workers</a>
+                      <a onClick={() => navigate("/workers")}>Workers</a>
                     </li>
                   </>
                 ) : (
@@ -134,7 +128,7 @@ export const Header = ({ setRole }) => {
               </ul>
             </li>
             <li className="btn btn-ghost">
-              <a onClick={()=>navigate("/shifts")}>Shifts</a>
+              <a onClick={() => navigate("/shifts")}>Shifts</a>
             </li>
           </ul>
         </div>
@@ -146,7 +140,7 @@ export const Header = ({ setRole }) => {
         <ul className="menu menu-horizontal px-1">
           <li>
             <a onClick={() => navigate("/hrcontact")} className="btn btn-ghost">
-              HR profiles
+              About us  
             </a>
           </li>
           <li>
@@ -167,7 +161,7 @@ export const Header = ({ setRole }) => {
                       <a onClick={() => navigate("/contact")}>Contact</a>
                     </li>
                     <li className="text-white m-1 text-center bg-gray-800 hover:bg-gray-950 rounded-md">
-                      <a onClick={()=> navigate('/workers')}>Workers</a>
+                      <a onClick={() => navigate("/workers")}>Workers</a>
                     </li>
                   </>
                 ) : (
@@ -178,7 +172,12 @@ export const Header = ({ setRole }) => {
               </ul>
             </details>
           </li>
-          <summary className="btn btn-ghost" onClick={()=>navigate('/shifts')}>Shifts</summary>
+          <summary
+            className="btn btn-ghost"
+            onClick={() => navigate("/shifts")}
+          >
+            Shifts
+          </summary>
         </ul>
       </div>
       <div className="navbar-end">
