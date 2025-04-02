@@ -56,7 +56,6 @@ export const endShift = async (shiftId) => {
 
 export const changeWorkerActiveStatus = async (workerID) =>
 {
-  const { msg, setMsg} = useContext(UserContext)
   const workerRef = doc(db, "workers", workerID)
   const worker = await getDoc(workerRef)
   
