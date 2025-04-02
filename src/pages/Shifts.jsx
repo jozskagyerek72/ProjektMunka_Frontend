@@ -21,7 +21,7 @@ export const Shifts = () => {
                 {shift.end ? <div className="light w-18 text-white font-bold h-7 p-1 text-center bg-red-500 rounded-xl">Finished</div> : <div className="light w-15 h-7 p-1 text-center text-white font-bold bg-green-400 rounded-xl">Active</div>}
           <div className="card-body">
          
-            <h2 className="card-title">{shift.name}</h2>
+            <h2 className="card-title">{shift.name +" "+ shift.workerId}</h2>
             <p>
              {shift.start && new Date(shift.start.seconds *1000).toLocaleString()}
             </p>
