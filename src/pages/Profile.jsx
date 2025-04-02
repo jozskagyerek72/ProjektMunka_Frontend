@@ -147,6 +147,5 @@ export const Profile = () => {
       </div>
     </div>
 
-    // Separate validation function for better readability
   );
 };

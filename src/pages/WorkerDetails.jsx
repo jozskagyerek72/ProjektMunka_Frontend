@@ -21,7 +21,7 @@ export const WorkerDetails = () => {
 
        const updatedWorker = {
          ...worker,
-         status: worker.status === "active" ? "inactive" : "active",
+         status: worker.status === "active" ? "not active" : "active",
        };
        setWorker(updatedWorker);
 

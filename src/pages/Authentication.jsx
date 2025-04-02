@@ -19,19 +19,27 @@ export const Authentication = ({ role }) => {
   const handleSubmit = async (event) => {
     event.preventDefault;
     const data = new FormData(event.currentTarget);
-    if (isSignedIn) {
-      signInUser(data.get("e-mail"), data.get("password"));
 
-      console.log(data.get("e-mail"));
-    } else {
-      signUpUser(
-        data.get("e-mail"),
-        data.get("password"),
-        data.get("displayName")
-      );
+    if (data.get("password").length < 6) {
+      if (isSignedIn) {
+        signInUser(data.get("e-mail"), data.get("password"));
 
-      addApplicant(data.get("displayName"), data.get("e-mail"), "NaN")
+        console.log(data.get("e-mail"));
+      } else {
+        signUpUser(
+          data.get("e-mail"),
+          data.get("password"),
+          data.get("displayName")
+        );
+
+        addApplicant(data.get("displayName"), data.get("e-mail"), "NaN");
+      }
     }
+    else {
+      
+    }
+    
+    
   };
 
 

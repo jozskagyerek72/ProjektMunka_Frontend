@@ -95,7 +95,7 @@ export const Header = ({ setRole }) => {
             className="menu menu-sm dropdown-content bg-gray-600 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li className="text-white bg-gray-800">
-              <a onClick={() => navigate("/hrcontact")}>About us  </a>
+              <a onClick={() => navigate("/hrcontact")}>About us </a>
             </li>
             <li>
               <a className="bg-gray-800 hover:bg-gray-700 m-1">Pages</a>
@@ -140,7 +140,7 @@ export const Header = ({ setRole }) => {
         <ul className="menu menu-horizontal px-1">
           <li>
             <a onClick={() => navigate("/hrcontact")} className="btn btn-ghost">
-              About us  
+              About us
             </a>
           </li>
           <li>
@@ -192,8 +192,8 @@ export const Header = ({ setRole }) => {
                 <img alt="Tailwind CSS Navbar component" src={avatar} />
               ) : (
                 <img
-                  alt="Tailwind CSS Navbar component"
-                  src="./blankpeople.jpg"
+                  alt="Tailwind CSS Header component"
+                  src="../public/blankpeople.jpg"
                 />
               )}
             </div>
