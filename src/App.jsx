@@ -16,6 +16,8 @@ import { useState } from "react";
 import { Shifts } from "./pages/Shifts";
 import {Apply} from "./pages/Apply";
 import { HRcontacts } from "./pages/HRcontacts";
+import { Toast } from "./components/Toast";
+import { Toaster } from "sonner";
 
 function App() {
   const [role, setRole ] = useState("")
@@ -54,7 +56,7 @@ function App() {
       },
     ],
     {
-      future: {
+      future: { 
         v7_relativeSplatPath: true,
 
         v7_normalizeFormMethod: true,
@@ -69,7 +71,10 @@ function App() {
   );
 
   return (
-    <RouterProvider router={router} future={{ v7_startTransition: true }} />
+    <>
+      <RouterProvider router={router} future={{ v7_startTransition: true }} />
+      <Toaster position="top-center"/>
+    </>
   );
 }
 
