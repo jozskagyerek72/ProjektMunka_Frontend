@@ -35,7 +35,7 @@ export const Gate = () => {
           <div className="display flex text-center">
             <div className="flex text-center flex-wrap justify-center">
               <h2 className="text-2xl text-black m-15">{worker&& worker.name}</h2>
-              {worker&& <QRCode className="m-4" value={worker.id}/>}
+              {worker&& <QRCode className="m-4" value={worker.id+";"+worker.name}/>}
               <h3 className="text-center font-bold  text-black float-end m-5">
                 {worker&& worker.field}
               </h3>
