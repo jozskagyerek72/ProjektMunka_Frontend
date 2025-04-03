@@ -202,8 +202,8 @@ export const Header = ({ setRole }) => {
                 <img alt="Tailwind CSS Navbar component" src={avatar} />
               ) : (
                 <img
-                  alt="Tailwind CSS Navbar component"
-                  src="./blankpeople.jpg"
+                  alt="Tailwind CSS Header component"
+                  src="../public/blankpeople.jpg"
                 />
               )}
             </div>
@@ -228,7 +228,7 @@ export const Header = ({ setRole }) => {
                   <a
                     onClick={() => {
                       signOutUser();
-                      navigate("/");
+                      setTimeout(() => navigate("/"), 1500);
                     }}
                   >
                     Log out
@@ -240,10 +240,10 @@ export const Header = ({ setRole }) => {
                 <a
                   onClick={() => {
                     setRole("Sign in as a worker");
-                    navigate("/authentication/signin");
+                    navigate("/signin");
                   }}
                 >
-                  Log in
+                  Sign in
                 </a>
               </li>
             )}

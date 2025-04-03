@@ -10,20 +10,18 @@ import { getWorkerIdFromEmail } from "../utils/analytics_systemUtils";
 import { updateWorkerPhoto } from "../utils/crudUtil";
 
 export const Profile = () => {
-  const { user, updateUser, msg, signOutUser } = useContext(UserContext);
+  const { user, updateUser } = useContext(UserContext);
   const [avatar, setAvatar] = useState(null);
   const [workerId, setWorkerId] = useState("");
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
     (async () => {
-      
       setWorkerId(await(getWorkerIdFromEmail(user?.email)));
     })
   }, [user]);
   
-
   const {
     register,
     handleSubmit,
@@ -40,10 +38,10 @@ export const Profile = () => {
     try {
       const file = data?.file ? data?.file[0] : null;
       const { url, id } = file ? await uploadImage(file) : null;
-      console.log(user?.email);
       const workerid = await getWorkerIdFromEmail(user?.email);
       await updateWorkerPhoto(workerid, url);
       updateUser(data.displayName, url + "/" + id);
+      setTimeout(() => navigate("/"), 1500);
     } catch (error) {
       console.log(error);
     }
@@ -70,10 +68,18 @@ export const Profile = () => {
     <div className="bg-gray-950 min-h-screen flex items-center justify-center p-4">
       <div className="card card-side bg-base-100 border-2 border-gray-300 shadow-xl max-w-3xl">
         {/* Avatar section */}
-        {avatar && (
+        {avatar ? (
           <figure className="w-48 border-2 border-black flex-shrink-0">
             <img
               src={avatar}
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
+          </figure>
+        ) : (
+          <figure className="w-48 border-2 border-black flex-shrink-0">
+            <img
+              src="../public/blankpeople.jpg"
               alt="Profile"
               className="w-full h-full object-cover"
             />
@@ -146,7 +152,5 @@ export const Profile = () => {
         </div>
       </div>
     </div>
-
-    // Separate validation function for better readability
   );
 };

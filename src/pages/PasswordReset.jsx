@@ -1,19 +1,18 @@
 import React from "react";
 import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
-import { Toast } from "../components/Toast";
 import { Form, useNavigate } from "react-router-dom";
 
 export const PasswordReset = () => {
-  const { msg, resetPassword } = useContext(UserContext);
+  const { resetPassword } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     resetPassword(data.get("e-mail"));
+    setTimeout(() => navigate("/"), 1500);
   };
-
-  const navigate = useNavigate()
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-950">
@@ -24,10 +23,10 @@ export const PasswordReset = () => {
         >
           <div className="mb-4">
             <label
-              className="block text-white text-sm font-bold mb-2 text-center"
+              className="block font-bold mb-6 text-white text-xl text-center"
               htmlFor="e-mail"
             >
-              E-mail
+              Enter your e-mail
             </label>
             <input
               className="input input-bordered w-full max-w-xs"
@@ -38,15 +37,20 @@ export const PasswordReset = () => {
           </div>
 
           <div className="flex items-center justify-center">
-            <button className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-              Send password reset e-mail
+            <button
+              className="w-full cursor-pointer rounded-lg border-2 border-solid border-[#5a28cc] bg-[#5a28cc] px-8 py-3 text-base font-medium text-white hover:bg-neutral-100 hover:text-[#5a28cc] transition-all duration-300"
+              type="submit"
+            >
+              Reset password
             </button>
           </div>
         </Form>
-        <p className="text-center text-gray-500 text-xs" onClick={()=>navigate('/hrcontact')}>
+        <p
+          className="text-center text-gray-500 text-xs"
+          onClick={() => navigate("/hrcontact")}
+        >
           &copy;2025 WorkLinker inc. All rights reserved.
         </p>
-        {msg && <Toast {...msg} />}
       </div>
     </div>
   );
