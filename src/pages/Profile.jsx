@@ -21,6 +21,9 @@ export const Profile = () => {
       setWorkerId(await(getWorkerIdFromEmail(user?.email)));
     })
   }, [user]);
+
+  console.log(workerId);
+  
   
   const {
     register,
@@ -109,6 +112,7 @@ export const Profile = () => {
                 <h3 className="font-medium">
                   Worker ID:{" "}
                   <span className="font-normal">{workerId && workerId}</span>
+                  
                 </h3>
                 <p className="text-gray-600">
                   Job Title:{" "}

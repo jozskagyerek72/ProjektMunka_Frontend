@@ -1,59 +1,10 @@
 import { React } from "react";
 import { useState } from "react";
-import {
-  ArrowPathIcon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-} from "@heroicons/react/24/outline";
-import { PhoneIcon, PlayCircleIcon } from "@heroicons/react/20/solid";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { useEffect } from "react";
 import { extractUrlAndId } from "../utils/utilities";
 import { useNavigate } from "react-router-dom";
-
-let pages = [
-  {
-    name: "Analytics",
-    description: "See your own analytics",
-    href: "/analytics",
-    icon: ChartPieIcon,
-  },
-  {
-    name: "Gate",
-    description: "Check in/out",
-    href: "/gate",
-    icon: FingerPrintIcon,
-  },
-  {
-    name: "Workers",
-    description: "Analyze workers (Only for HR!)",
-    href: "/workers",
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: "Home",
-    description: "Go back to home page",
-    href: "/",
-    icon: ArrowPathIcon,
-  },
-  {
-    name: "Profile",
-    description: "Your profile data",
-    href: "/profile",
-    icon: CursorArrowRaysIcon,
-  },
-];
-const callsToAction = [
-  {
-    name: "How to use QR code?",
-    href: "https://www.youtube.com/watch?v=GRJGKS9blm8",
-    icon: PlayCircleIcon,
-  },
-  { name: "Contact", href: "/contact", icon: PhoneIcon },
-];
 
 export const Header = ({ setRole }) => {
   const { user, signOutUser, admin } = useContext(UserContext);
@@ -64,10 +15,6 @@ export const Header = ({ setRole }) => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
     !user && setAvatar(null);
   }, [user, user?.photoURL]);
-
-  if (!user) {
-    pages = pages.filter((product) => product.name == "Home");
-  }
 
   return (
     <div className="navbar fixed top-0 lower-t-index bg-gray-800 z-10 text-white shadow-sm">
@@ -90,6 +37,7 @@ export const Header = ({ setRole }) => {
               />{" "}
             </svg>
           </div>
+          {/* Mobile view */}
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-gray-600 rounded-box z-1 mt-3 w-52 p-2 shadow"
@@ -100,37 +48,34 @@ export const Header = ({ setRole }) => {
             <li>
               <a className="bg-gray-800 hover:bg-gray-700 m-1">Pages</a>
               <ul className="p-2 bg-gray-600">
-                {admin ? (
+                {admin || user ? (
                   <>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                      <a onClick={() => navigate("/analytics")}>Analytics</a>
+                      <a onClick={() => navigate("/contact")} >Contact us</a>
                     </li>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                      <a onClick={() => navigate("/contact")}>Contact us</a>
+                      <a onClick={() => navigate("/analytics")}>Analytics</a>
                     </li>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
                       <a onClick={() => navigate("/workers")}>Workers</a>
                     </li>
-                  </>
-                ) : (
-                  <>
-                    <li>
-                      <a onClick={() => navigate("/contact")}>Contact us</a>
-                    </li>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
                       <a onClick={() => navigate("/gate")}>Worker gates</a>
                     </li>
-                    <li>
-                      <a onClick={() => navigate("/apply")}>Apply at us</a>
+                  </>
+                ) : (
+                  <>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                      <a onClick={() => navigate("/contact")}>Contact us</a>
                     </li>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                      <a onClick={() => navigate("/analytics")}>Analytics</a>
+                      <a onClick={()=>{setRole("Apply to us"); navigate("/apply")}}>Apply at us</a>
                     </li>
                   </>
                 )}
               </ul>
             </li>
-            <li className="btn btn-ghost">
+            <li className="btn rounded-full">
               <a onClick={() => navigate("/shifts")}>Shifts</a>
             </li>
           </ul>
@@ -139,6 +84,7 @@ export const Header = ({ setRole }) => {
           WorkLinker
         </a>
       </div>
+      {/* Desktop view */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
@@ -150,32 +96,28 @@ export const Header = ({ setRole }) => {
             <details>
               <summary className="btn btn-ghost">Pages</summary>
               <ul className="p-2 bg-gray-600">
-                {admin ? (
+                {admin || user ? (
                   <>
-             
-
-                    <li className="text-white m-1 text-center bg-gray-800 hover:bg-gray-950 rounded-md">
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
                       <a onClick={() => navigate("/contact")}>Contact</a>
                     </li>
-                    <li className="text-white m-1 text-center bg-gray-800 hover:bg-gray-950 rounded-md">
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
+                      <a onClick={() => navigate("/analytics")}>Analytics</a>
+                    </li>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
                       <a onClick={() => navigate("/workers")}>Workers</a>
                     </li>
-                    <li className="text-white text-center m-1 bg-gray-800 hover:bg-gray-950 rounded-md">
-                      <a onClick={() => navigate("/analytics")}>Analytics</a>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
+                      <a onClick={() => navigate("/gate")}>Gates</a>
                     </li>
                   </>
                 ) : (
                   <>
-                    <li>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
                       <a onClick={() => navigate("/contact")}>Contact</a>
                     </li>
-                    <li className="text-white m-1 text-center bg-gray-800 hover:bg-gray-950 rounded-md">
-                      <a onClick={() => navigate("/gate")}>
-                        <p className="text-center">Gates</p>
-                      </a>
-                    </li>
-                    <li className="text-white text-center m-1 bg-gray-800 hover:bg-gray-950 rounded-md">
-                      <a onClick={() => navigate("/analytics")}>Analytics</a>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
+                      <a onClick={()=>{setRole("Apply to us"); navigate("/apply")}}>Apply</a>
                     </li>
                   </>
                 )}

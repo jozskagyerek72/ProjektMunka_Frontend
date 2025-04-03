@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import { readSingleWorker, readWorkers } from "../utils/crudUtil";
+import React, { useState, useEffect, useContext } from "react";
+import { readSingleWorker } from "../utils/crudUtil";
 import QRCode from "react-qr-code";
-import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
-import { useEffect } from "react";
 import { getWorkerIdFromEmail } from "../utils/analytics_systemUtils";
 export const Gate = () => {
   const [worker, setWorker] = useState(null);
@@ -17,15 +15,14 @@ export const Gate = () => {
         readSingleWorker(await getWorkerIdFromEmail(user?.email), setWorker)
       }
       load()
-      
   },[user])
   
 
   return (
-    <div className="min-h-dvh items-center grid bg-gray-950 justify-center">
-      <div className="grid mt-15">
-        <h1 className="text-3xl wlh12 m-20 font-bold">Check-in</h1>
-        <h2 className="m-auto text-xl text-justify text-white">
+    <div className="min-h-dvh items-center bg-gray-950 flex flex-col justify-center gap-10">
+      <div className="flex justify-center items-center flex-col flex-wrap">
+        <h1 className="text-3xl wlh12 m-20 font-bold text-center">Check-in</h1>
+        <h2 className="m-auto text-xs md:text-xl text-justify text-white">
           Scan the QR code with your mobile to check in/check out!
         </h2>
       </div>
