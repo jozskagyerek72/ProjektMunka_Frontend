@@ -2,6 +2,8 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEm
 import { useState, createContext, useEffect } from "react";
 import { auth } from "../utils/firebaseApp";
 import { checkAdmin } from "../utils/crudUtil";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext()
 
@@ -21,17 +23,15 @@ export const UserProvider = ({ children }) => {
 
     const signOutUser = async () => {
         await signOut(auth)
-        setMsg({})
-        setMsg({ signout: 'Signed out successfully!' })
+        toast.success("Signed out successfully!");
     }
 
     const signInUser = async (email, password) => {
         try {
             await signInWithEmailAndPassword(auth, email, password)
-            setMsg({})
-            setMsg({ signin: 'Signed in successfully!' })
+            toast.success("Signed in successfully!");
         } catch (error) {
-            setMsg({ err: error.message })
+            toast.error(error.message)
         }
     }
 
@@ -39,20 +39,18 @@ export const UserProvider = ({ children }) => {
         try {
             await createUserWithEmailAndPassword(auth, email, password)
             await updateProfile(auth.currentUser, { displayName })
-            setMsg({})
-            setMsg({ signup: 'Applied successfully!'})
+            toast.success("Applied successfully!");
         } catch (error) {
-            setMsg({ err: error.message })
+            toast.error(error.message)
         }
     }
 
     const resetPassword = async (email) => {
         try {
             await sendPasswordResetEmail(auth, email)
-            setMsg({})
-            setMsg({ resetpassword: 'Password reset e-mail sent successfully! ' })
+            toast.success("Password reset e-mail sent successfully!");
         } catch (error) {
-            setMsg({ err: error.message })
+            toast.error(error.message)
         }
     }
 
@@ -61,10 +59,9 @@ export const UserProvider = ({ children }) => {
             if (displayName && photoURL) await updateProfile(auth.currentUser, { displayName, photoURL })
             else if (displayName) await updateProfile(auth.currentUser, { displayName })
             else if (photoURL) await updateProfile(auth.currentUser, { photoURL })
-            setMsg({})
-            setMsg({ update: 'Profile successfully updated! ' })
+            toast.success("Profile successfully updated!");
         } catch (error) {
-            setMsg({ err: error.message })
+            toast.error(error.message)
         }
     }
 

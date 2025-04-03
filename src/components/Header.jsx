@@ -218,7 +218,7 @@ export const Header = ({ setRole }) => {
                   <a
                     onClick={() => {
                       signOutUser();
-                      navigate("/");
+                      setTimeout(() => navigate("/"), 1500);
                     }}
                   >
                     Log out
@@ -230,10 +230,10 @@ export const Header = ({ setRole }) => {
                 <a
                   onClick={() => {
                     setRole("Sign in as a worker");
-                    navigate("/authentication/signin");
+                    navigate("/signin");
                   }}
                 >
-                  Log in
+                  Sign in
                 </a>
               </li>
             )}

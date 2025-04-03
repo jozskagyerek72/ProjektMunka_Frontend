@@ -17,7 +17,7 @@ export const HomePageCards = ({setRole}) => {
           <div className="card-actions justify-end">
             <button className="btn btn-primary" onClick={
               ()=> {setRole("Sign in as a HR worker"); 
-                navigate('authentication/signin')}
+                navigate('/signin')}
               }>Sign in</button>
           </div>
         </div>
@@ -30,7 +30,7 @@ export const HomePageCards = ({setRole}) => {
           <h2 className="card-title text-4xl ">Sign in as a worker</h2>
           <p className="cardtext text-xl">Examine your statistics.</p>
           <div className="card-actions justify-end">
-              <button className="btn btn-primary" onClick={()=> {setRole("Sign in as a worker"); navigate('authentication/signin')}}>Sign in</button>
+              <button className="btn btn-primary" onClick={()=> {setRole("Sign in as a worker"); navigate('/signin')}}>Sign in</button>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@ export const HomePageCards = ({setRole}) => {
           <h2 className="card-title text-4xl">Apply</h2>
           <p className="cardtext text-xl">Apply for a job.</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary" onClick={()=>navigate("/apply")}>Apply</button>
+            <button className="btn btn-primary" onClick={()=>{setRole("Apply to us"); navigate("/apply")}}>Apply</button>
           </div>
         </div>
       </div>

@@ -14,9 +14,7 @@ import { PasswordReset } from "./pages/PasswordReset";
 import { Contact } from "./pages/Contact";
 import { useState } from "react";
 import { Shifts } from "./pages/Shifts";
-import {Apply} from "./pages/Apply";
 import { HRcontacts } from "./pages/HRcontacts";
-import { Toast } from "./components/Toast";
 import { Toaster } from "sonner";
 
 function App() {
@@ -36,11 +34,10 @@ function App() {
           { path: "/", element: <Home setRole={setRole}/> },
           { path: "/profile", element: <Profile /> },
           {
-            path: "/authentication/signin",
+            path: "/signin",
             element: <Authentication role={role}/>,
           },
-          { path: "/authentication/signup", element: <Authentication /> },
-          { path: "/apply", element: <Apply/> },
+          { path: "/apply", element: <Authentication role={role}/> },
           { path: "/resetpassword", element: <PasswordReset /> },
           { path: "/contact", element: <Contact /> },
 
