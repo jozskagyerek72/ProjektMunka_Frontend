@@ -3,15 +3,26 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { changeWorkerActiveStatus, readSingleWorker} from "../utils/crudUtil";
+
+import { getWorkersShifts, getWorkersShiftsFromId } from "../utils/analytics_systemUtils";
+
 import { toast } from "sonner";
+
 
 export const WorkerDetails = () => {
   const { id } = useParams();
   const [worker, setWorker] = useState(null);
+  const [shifts, setShifts] = useState(null)
+
 
   useEffect(() => {
     readSingleWorker(id, setWorker);
+    getWorkersShiftsFromId(id, setShifts)
   }, []);
+
+
+  shifts&& console.log(shifts);
+  
 
    const handleWorkerStatusChange = async () => {
      try {
@@ -33,6 +44,7 @@ export const WorkerDetails = () => {
        toast.error("Failed to update worker status");
      }
    };
+
   
 
   return (
@@ -94,6 +106,8 @@ export const WorkerDetails = () => {
           </div>
         </div>
       )}
+
+      {shifts&& shifts.map((shift)=><p >{new Date(shift.start.seconds *1000).toLocaleString()} - { new Date(shift.end.seconds *1000).toLocaleString()} : {shift.duration}</p>)}
     </div>
   );
 };

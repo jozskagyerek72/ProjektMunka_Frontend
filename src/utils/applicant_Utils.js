@@ -5,7 +5,7 @@ import { db } from "./firebaseApp"
 export const addApplicant = async (name, email, imgURL) => 
 {
     const cRef =  collection(db, "workers")
-    const newApplicant = { name:name, email:email, imgURL:imgURL, field:"kisegítő", hourlypay:2000, status:"not active"}
+    const newApplicant = { name:name, email:email, imageURL:imgURL, field:"kisegítő", hourlypay:2000, status:"not active"}
 
     await addDoc(cRef, newApplicant)
 }
