@@ -56,3 +56,15 @@ export const getWorkersShiftsFromId = async ( workerId, setState ) =>
     });
     return unsubscribe;
 }
+
+//returns the shift history of one worker based on name
+export const getWorkersShiftsFromName = async ( name, setState ) =>
+{
+    const cRef = collection(db, "shifts")
+    const q = query(cRef, where("name", "==", name))
+    
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+        setState(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    });
+    return unsubscribe;
+}
