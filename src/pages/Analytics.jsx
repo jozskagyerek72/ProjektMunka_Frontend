@@ -63,7 +63,7 @@ export const Analytics = () => {
             <div className="stat-title text-white text-xl">Min. work hours</div>
             <div className="stat-value text-secondary">35hour</div>
             <div className="stat-desc text-white text-xl">
-              Min.work hours per week
+              Min. work hours per week
             </div>
           </div>
 

@@ -11,6 +11,7 @@ export const Toast = ({
   signup,
   signout,
   resetpassword,
+  update
 }) => {
   const { setMsg } = useContext(UserContext);
   const navigate = useNavigate();
@@ -18,13 +19,10 @@ export const Toast = ({
   useEffect(() => {
     if (err) {
       toast.error(err, { position: "top-left" });
-    } else if (signin || signup || resetpassword || signout ) {
-      toast.success(signin || signup, { position: "top-center" });
-      setTimeout(() => navigate("/"), 1000);
-    } else if (update) {
-      toast.success(update, { position: "top-center" });
+    } else if (signin || signup || resetpassword || signout || update) {
+      toast.success(signin || signup || resetpassword || signout || update, { position: "top-center" });
+      setTimeout(() => navigate("/"), 1500);
     }
-
     setMsg({});
   }, [signin, err, signup, signout, resetpassword, update]);
 
