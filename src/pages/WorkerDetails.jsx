@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { changeWorkerActiveStatus, readSingleWorker} from "../utils/crudUtil";
 
-import { getWorkersShifts, getWorkersShiftsFromId } from "../utils/analytics_systemUtils";
+import { getWorkersShiftsFromId } from "../utils/analytics_systemUtils";
 
 import { toast } from "sonner";
 
