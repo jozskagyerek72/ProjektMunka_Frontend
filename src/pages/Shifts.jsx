@@ -4,7 +4,14 @@ import { readShifts } from "../utils/crudUtil";
 
 export const Shifts = () => {
   const [shifts, setShifts] = useState([]);
+  const [search, setSearch] = useState(null)
   readShifts(setShifts);
+
+  const HandleSearch = () =>{
+    //console.log(search)
+    getWorkerShiftsFromNam()
+  }
+
 
   return (
     <div className="min-h-dvh items-center bg-gray-950">
@@ -12,12 +19,12 @@ export const Shifts = () => {
         <h1 className="text-3xl mt-17 wlh12 font-bold">Shifts</h1>
       </div>
       <div className="flex justify-center m-10">
-        <input
+        <input onChange={(e)=>setSearch(e.target.value)}
           type="text"
           placeholder="Search a name"
           className="input input-primary"
         />
-        <button className="btn btn-square ml-1 border-primary border-2">
+        <button onClick={HandleSearch} className="btn btn-square ml-1 border-primary border-2">
           <img src="./search.png" alt="" />
         </button>
       </div>
@@ -25,7 +32,7 @@ export const Shifts = () => {
       <div className="grid lg:grid-cols-4 ml-10 pb-10 gap-10 justify-center align-middle  grid-rows-5 shiftrow">
         {shifts &&
           shifts.map((shift) => (
-            <div className="card bg-gray-700 justify-center align-center border-white hover:border-2 hover:shadow-md shadow-white  text-primary-content w-80">
+            <div  key={shift.id} className="card bg-gray-700 justify-center align-center border-white hover:border-2 hover:shadow-md shadow-white  text-primary-content w-80">
               {shift.end ? (
                 <div className="light w-18 text-white font-bold h-7 p-1 text-center bg-red-500 rounded-xl">
                   Finished
