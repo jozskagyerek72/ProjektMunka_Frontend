@@ -6,8 +6,8 @@ import { changeWorkerActiveStatus, readSingleWorker} from "../utils/crudUtil";
 
 import { getWorkersShiftsFromId } from "../utils/analytics_systemUtils";
 
-import { toast } from "sonner";
 
+import { toast } from "sonner";
 
 export const WorkerDetails = () => {
   const { id } = useParams();
@@ -19,10 +19,6 @@ export const WorkerDetails = () => {
     readSingleWorker(id, setWorker);
     getWorkersShiftsFromId(id, setShifts)
   }, []);
-
-
-  shifts&& console.log(shifts);
-  
 
    const handleWorkerStatusChange = async () => {
      try {
@@ -44,8 +40,6 @@ export const WorkerDetails = () => {
        toast.error("Failed to update worker status");
      }
    };
-
-  
 
   return (
     <div className="min-h-dvh bg-gray-950 pt-20 pb-10">

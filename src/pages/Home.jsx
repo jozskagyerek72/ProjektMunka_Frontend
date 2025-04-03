@@ -1,5 +1,4 @@
 //import {React} from 'react'
-
 import { HomePageCards } from "../components/HomePageCards";
 import { Change } from "../components/Change";
 import { useNavigate } from "react-router-dom";

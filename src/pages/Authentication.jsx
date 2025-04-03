@@ -37,7 +37,7 @@ export const Authentication = ({ role }) => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-950 text-center">
+    <div className="flex justify-center items-center h-screen bg-gray-950 text-center pt-20">
       <div className="w-full max-w-xs flex-auto">
         <Form
           className="bg-gray-800 shadow-md shadow-white rounded-2xl px-8 pt-8 pb-8 mb-4"
