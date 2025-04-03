@@ -1,11 +1,11 @@
-import { collection, doc, getDocs, query, where } from "firebase/firestore"
+import { collection, doc, getDocs, onSnapshot, query, where } from "firebase/firestore"
 import { db } from "./firebaseApp"
 
 //returns a workers total hours based on id
 export const getWorkedHours = async ( workerID ) =>
 {
   const cRef = collection(db, "shifts")
-  const q = query(cRef, where("name", "==", workerID))
+  const q = query(cRef, where("workerId", "==", workerID))
   const workerShifts = await getDocs(q)
   let totalDuration = 0
  
@@ -37,11 +37,22 @@ export const getWorkerPayment = async ( workerID, setState ) =>
 export const getWorkerIdFromEmail = async ( email ) => 
 {
     const cRef = collection(db, "workers")
-    console.log(email);
     const q = query(cRef, where("email", "==", email))
     const docs = await getDocs(q)
 
     let docId
     docs.forEach( (doc) => docId = doc.id)
     return docId
+}
+
+//returns the shift history of one worker based on id
+export const getWorkersShiftsFromId = async ( workerId, setState ) =>
+{
+    const cRef = collection(db, "shifts")
+    const q = query(cRef, where("workerId", "==", workerId))
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+        setState(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    });
+    return unsubscribe;
 }
