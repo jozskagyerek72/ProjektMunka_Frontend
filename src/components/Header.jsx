@@ -123,6 +123,9 @@ export const Header = ({ setRole }) => {
                     <li>
                       <a onClick={() => navigate("/apply")}>Apply at us</a>
                     </li>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                      <a onClick={() => navigate("/analytics")}>Analytics</a>
+                    </li>
                   </>
                 )}
               </ul>
@@ -149,15 +152,16 @@ export const Header = ({ setRole }) => {
               <ul className="p-2 bg-gray-600">
                 {admin ? (
                   <>
-                    <li className="text-white text-center m-1 bg-gray-800 hover:bg-gray-950 rounded-md">
-                      <a onClick={() => navigate("/analytics")}>Analytics</a>
-                    </li>
+             
 
                     <li className="text-white m-1 text-center bg-gray-800 hover:bg-gray-950 rounded-md">
                       <a onClick={() => navigate("/contact")}>Contact</a>
                     </li>
                     <li className="text-white m-1 text-center bg-gray-800 hover:bg-gray-950 rounded-md">
                       <a onClick={() => navigate("/workers")}>Workers</a>
+                    </li>
+                    <li className="text-white text-center m-1 bg-gray-800 hover:bg-gray-950 rounded-md">
+                      <a onClick={() => navigate("/analytics")}>Analytics</a>
                     </li>
                   </>
                 ) : (
@@ -169,6 +173,9 @@ export const Header = ({ setRole }) => {
                       <a onClick={() => navigate("/gate")}>
                         <p className="text-center">Gates</p>
                       </a>
+                    </li>
+                    <li className="text-white text-center m-1 bg-gray-800 hover:bg-gray-950 rounded-md">
+                      <a onClick={() => navigate("/analytics")}>Analytics</a>
                     </li>
                   </>
                 )}
