@@ -105,10 +105,7 @@ export const WorkerDetails = () => {
         
       )}
 
-      <div className="w-200 h-fit justify-center align-center bg-amber-200">
-          {shifts&& shifts.map((shift)=><p >{new Date(shift.start?.seconds *1000).toLocaleString()} - { shift?.end&& new Date(shift.end?.seconds *1000).toLocaleString()} : {shift.duration}</p>)}
-          
-      </div>
+    
       
     </div>
   );
