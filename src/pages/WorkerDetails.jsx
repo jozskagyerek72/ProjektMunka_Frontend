@@ -128,8 +128,8 @@ export const WorkerDetails = () => {
                 </td>
                 {shift.duration ? (
                   <>
-                    <td className="p-4">{shift.duration}</td>
-                    <td className="p-4 font-bold text-emerald-500">nigga</td>
+                    <td className="p-4">{Math.round(shift.duration*100)/100}</td>
+                    <td className="p-4 font-bold text-emerald-500">+ {(Math.round(shift.duration*worker.hourlypay*100)/100).toLocaleString("en-US", {style:"currency", currency:"HUF"})}</td>
                   </>
                 ) : (
                   <>
