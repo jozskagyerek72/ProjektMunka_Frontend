@@ -3,14 +3,12 @@ import { useState, createContext, useEffect } from "react";
 import { auth } from "../utils/firebaseApp";
 import { checkAdmin } from "../utils/crudUtil";
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
-    const [msg, setMsg] = useState(null)
     const [admin, setAdmin] = useState(false)
 
     useEffect(() => {
@@ -66,7 +64,7 @@ export const UserProvider = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{ user, signOutUser, msg, setMsg, signInUser, signUpUser, resetPassword, updateUser, admin, setAdmin }}>
+        <UserContext.Provider value={{ user, signOutUser, signInUser, signUpUser, resetPassword, updateUser, admin, setAdmin }}>
             {children}
         </UserContext.Provider>
     )

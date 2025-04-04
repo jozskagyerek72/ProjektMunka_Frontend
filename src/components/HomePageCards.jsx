@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const HomePageCards = ({setRole}) => {
 
@@ -42,7 +42,7 @@ export const HomePageCards = ({setRole}) => {
           <h2 className="card-title text-4xl">Apply</h2>
           <p className="cardtext text-xl">Apply for a job.</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary" onClick={()=>{setRole("Apply to us"); navigate("/apply")}}>Apply</button>
+            <button className="btn btn-primary" onClick={()=>{setRole("Apply for a job"); navigate("/apply")}}>Apply</button>
           </div>
         </div>
       </div>
