@@ -97,12 +97,16 @@ export const WorkerDetails = () => {
                 </button>
               </div>
             </div>
+            
           </div>
+          
+        
         </div>
+        
       )}
 
       <div className="text-center mt-5">
-        <h1 className="font-bold text-3xl">Recent shifts</h1>
+        <h1 className="font-bold text-3xl text-white">Recent shifts</h1>
       </div>
       <table className="table-fixed border-collapse mt-3 bg-gray-700 rounded-xl text-center shadow-md shadow-gray-700">
         <caption className="caption-bottom">
@@ -131,8 +135,8 @@ export const WorkerDetails = () => {
                 </td>
                 {shift.duration ? (
                   <>
-                    <td className="p-4">{shift.duration}</td>
-                    <td className="p-4 font-bold text-emerald-500">nigga</td>
+                    <td className="p-4">{Math.round(shift.duration*100)/100}</td>
+                    <td className="p-4 font-bold text-emerald-500">+ {(Math.round(shift.duration*worker.hourlypay*100)/100).toLocaleString("en-US", {style:"currency", currency:"HUF"})}</td>
                   </>
                 ) : (
                   <>

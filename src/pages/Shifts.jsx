@@ -11,15 +11,11 @@ export const Shifts = () => {
   
   useEffect(()=>{readShifts(setShifts)},[]) // loads shifts array
   
-
-
   const HandleSearch = async () =>{ // not working yet
     console.log(shifts);
     
     if (await getWorkersShiftsFromName(search, setShifts) == []) { toast.error("Worker not found"); readShifts(setShifts); console.log("nigga");
     }
-
-
   }
 
 
