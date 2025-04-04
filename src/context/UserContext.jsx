@@ -9,7 +9,6 @@ export const UserContext = createContext()
 export const UserProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
-    const [msg, setMsg] = useState(null)
     const [admin, setAdmin] = useState(false)
 
     useEffect(() => {
@@ -65,7 +64,7 @@ export const UserProvider = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{ user, signOutUser, msg, setMsg, signInUser, signUpUser, resetPassword, updateUser, admin, setAdmin }}>
+        <UserContext.Provider value={{ user, signOutUser, signInUser, signUpUser, resetPassword, updateUser, admin, setAdmin }}>
             {children}
         </UserContext.Provider>
     )

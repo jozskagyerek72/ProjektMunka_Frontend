@@ -46,7 +46,7 @@ export const Analytics = () => {
         <h1 className="text-3xl font-bold text-center text-white wlh12">Analytics</h1>
       </div>
       <div className="flex flex-col items-center gap-8 px-4 mx-auto max-w-7xl pb-10">
-        <div className="stats shadow bg-gray-700 text-white w-full">
+        <div className="stats shadow bg-gray-700 text-white w-full flex">
           <div className="stat">
             <div className="stat-title text-white text-xl">You have worked</div>
             <div className="stat-value text-success">
