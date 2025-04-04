@@ -6,6 +6,7 @@ import {
   getWorkedHours,
   getWorkerIdFromEmail,
   getWorkerPayment,
+  getWorkersShiftsFromId,
 } from "../utils/analytics_systemUtils";
 
 export const Analytics = () => {
@@ -13,6 +14,7 @@ export const Analytics = () => {
   const [avatar, setAvatar] = useState(null);
   const [workedHours, setWorkedHours] = useState(null);
   const [payment, setPayment] = useState(null);
+  const [shifts, setShift] = useState(null)
 
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
@@ -31,6 +33,7 @@ export const Analytics = () => {
           await getWorkerIdFromEmail(await user?.email),
           setPayment
         );
+        getWorkersShiftsFromId(await getWorkerIdFromEmail(await user?.email), setShift)
       } catch (error) {
         console.error(error);
       }
@@ -78,6 +81,8 @@ export const Analytics = () => {
               </div>  
           </div>
         </div>
+        {shifts&& shifts.map((shift)=><p >{new Date(shift.start?.seconds *1000).toLocaleString()} - { shift?.end&& new Date(shift.end?.seconds *1000).toLocaleString()} : {shift.duration}</p>)}
+
       </div>
     </div>
   );
