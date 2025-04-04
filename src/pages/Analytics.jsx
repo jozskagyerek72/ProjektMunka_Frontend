@@ -41,7 +41,7 @@ export const Analytics = () => {
   }, [user]);
 
   return (
-    <div className="min-h-screen bg-gray-950 pt-20">
+    <div className="min-h-screen bg-gray-950 pt-20 flex flex-col items-center justify-center">
       <div className="flex justify-center w-full mb-10">
         <h1 className="text-3xl font-bold text-center text-white wlh12">Analytics</h1>
       </div>
@@ -81,9 +81,51 @@ export const Analytics = () => {
               </div>  
           </div>
         </div>
-        {shifts&& shifts.map((shift)=><p >{new Date(shift.start?.seconds *1000).toLocaleString()} - { shift?.end&& new Date(shift.end?.seconds *1000).toLocaleString()} : {shift.duration}</p>)}
+       
 
       </div>
+      <div className="text-center mt-5">
+        <h1 className="font-bold text-3xl text-white">Recent shifts</h1>
+      </div>
+      <table className="table-fixed border-collapse mt-3 bg-gray-700 rounded-xl text-center text-white shadow-md shadow-gray-700 mb-5">
+        <thead>
+          <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl  py-2 px-2">
+            Shift start
+          </th>
+          <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl  py-2 px-2">
+            Shift duration
+          </th>
+          <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl  py-2 px-2">
+            Earned wage
+          </th>
+        </thead>
+        <tbody>
+          {shifts &&
+            shifts.map((shift) => (
+              <tr
+                key={shift.id}
+                className="border border-t-gray-600 border-x-0 border-b-0"
+              >
+                <td className="p-4">
+                  {new Date(shift.start?.seconds * 1000).toLocaleString()}
+                </td>
+                {shift.duration ? (
+                  <>
+                    <td className="p-4">{shift.duration}</td>
+                    <td className="p-4 font-bold text-emerald-500">nigga</td>
+                  </>
+                ) : (
+                  <>
+                    <td className="p-4 font-bold">undended shift</td>
+                    <td className="p-4 font-bold text-red-500">not available</td>
+                  </>
+                )}
+              </tr>
+            ))}
+        </tbody>
+      </table>
+      
+      
     </div>
   );
 };
