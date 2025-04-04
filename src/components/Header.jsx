@@ -69,7 +69,7 @@ export const Header = ({ setRole }) => {
                       <a onClick={() => navigate("/contact")}>Contact us</a>
                     </li>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
-                      <a onClick={()=>{setRole("Apply to us"); navigate("/apply")}}>Apply at us</a>
+                      <a onClick={()=>{setRole("Apply for a job"); navigate("/apply")}}>Apply at us</a>
                     </li>
                   </>
                 )}
@@ -117,7 +117,7 @@ export const Header = ({ setRole }) => {
                       <a onClick={() => navigate("/contact")}>Contact</a>
                     </li>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
-                      <a onClick={()=>{setRole("Apply to us"); navigate("/apply")}}>Apply</a>
+                      <a onClick={()=>{setRole("Apply for a job"); navigate("/apply")}}>Apply</a>
                     </li>
                   </>
                 )}
