@@ -25,7 +25,7 @@ export const Shifts = () => {
           className="input input-primary"
         />
         <button onClick={HandleSearch} className="btn btn-square ml-1 border-primary border-2">
-          <img src="./search.png" alt="" />
+          <img src="search.png" alt="" />
         </button>
       </div>
 
