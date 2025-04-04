@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { readShifts } from "../utils/crudUtil";
+import { getWorkersShiftsFromName } from "../utils/analytics_systemUtils";
 
 export const Shifts = () => {
   const [shifts, setShifts] = useState([]);
@@ -8,8 +9,8 @@ export const Shifts = () => {
   readShifts(setShifts);
 
   const HandleSearch = () =>{
-    //console.log(search)
-    getWorkerShiftsFromNam()
+    console.log(search)
+    getWorkersShiftsFromName(search, setShifts)
   }
 
 
@@ -24,8 +25,8 @@ export const Shifts = () => {
           placeholder="Search a name"
           className="input input-primary"
         />
-        <button onClick={HandleSearch} className="btn btn-square ml-1 border-primary border-2">
-          <img src="search.png" alt="" />
+        <button onClick={()=>HandleSearch()} className="btn btn-square ml-1 border-primary border-2">
+          <img src="./search.png" alt="" />
         </button>
       </div>
 

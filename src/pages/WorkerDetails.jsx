@@ -101,7 +101,7 @@ export const WorkerDetails = () => {
         </div>
       )}
 
-      {shifts&& shifts.map((shift)=><p >{new Date(shift.start.seconds *1000).toLocaleString()} - { new Date(shift.end.seconds *1000).toLocaleString()} : {shift.duration}</p>)}
+      {shifts&& shifts.map((shift)=><p >{new Date(shift.start?.seconds *1000).toLocaleString()} - { shift?.end&& new Date(shift.end?.seconds *1000).toLocaleString()} : {shift.duration}</p>)}
     </div>
   );
 };

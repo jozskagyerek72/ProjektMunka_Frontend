@@ -3,7 +3,6 @@ import { useState, createContext, useEffect } from "react";
 import { auth } from "../utils/firebaseApp";
 import { checkAdmin } from "../utils/crudUtil";
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext()
 
