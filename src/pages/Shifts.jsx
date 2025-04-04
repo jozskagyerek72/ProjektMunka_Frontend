@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { readShifts } from "../utils/crudUtil";
 import { getWorkersShiftsFromName } from "../utils/analytics_systemUtils";
+import { useEffect } from "react";
 
 export const Shifts = () => {
   const [shifts, setShifts] = useState([]);
