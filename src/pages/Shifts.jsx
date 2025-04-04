@@ -2,15 +2,24 @@ import React from "react";
 import { useState } from "react";
 import { readShifts } from "../utils/crudUtil";
 import { getWorkersShiftsFromName } from "../utils/analytics_systemUtils";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 export const Shifts = () => {
-  const [shifts, setShifts] = useState([]);
-  const [search, setSearch] = useState(null)
-  readShifts(setShifts);
+  const [shifts, setShifts] = useState([]); // initialized with a value of empty array
+  const [search, setSearch] = useState("")
+  
+  useEffect(()=>{readShifts(setShifts)},[]) // loads shifts array
+  
 
-  const HandleSearch = () =>{
-    console.log(search)
-    getWorkersShiftsFromName(search, setShifts)
+
+  const HandleSearch = async () =>{ // not working yet
+    console.log(shifts);
+    
+    if (await getWorkersShiftsFromName(search, setShifts) == []) { toast.error("Worker not found"); readShifts(setShifts); console.log("nigga");
+    }
+
+
   }
 
 

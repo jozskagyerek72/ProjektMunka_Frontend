@@ -105,6 +105,9 @@ export const WorkerDetails = () => {
         <h1 className="font-bold text-3xl">Recent shifts</h1>
       </div>
       <table className="table-fixed border-collapse mt-3 bg-gray-700 rounded-xl text-center shadow-md shadow-gray-700">
+        <caption className="caption-bottom">
+          Shifts table: 'N/A' means the shift has not ended yet
+        </caption>
         <thead>
           <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
             Shift start
@@ -133,8 +136,8 @@ export const WorkerDetails = () => {
                   </>
                 ) : (
                   <>
-                    <td className="p-4 font-bold">undended shift</td>
-                    <td className="p-4 font-bold text-red-500">not available</td>
+                    <td className="p-4 font-bold">N/A</td>
+                    <td className="p-4 font-bold text-red-500">N/A</td>
                   </>
                 )}
               </tr>
