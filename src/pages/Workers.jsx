@@ -37,7 +37,7 @@ export const Workers = () => {
                   <td className="px-5 py-2">
                     <img
                       src={
-                        worker.imageURL
+                        worker.imageURL!="NaN"
                           ? worker.imageURL
                           : "public/blankpeople.jpg"
                       }
