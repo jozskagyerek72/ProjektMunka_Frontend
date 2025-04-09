@@ -6,18 +6,32 @@ import { useEffect } from "react";
 import { toast } from "sonner";
 
 export const Shifts = () => {
-  const [shifts, setShifts] = useState([]); // initialized with a value of empty array
-  const [search, setSearch] = useState("")
-  
-  useEffect(()=>{readShifts(setShifts)},[]) // loads shifts array
-  
-  const HandleSearch = async () =>{ // not working yet
-    console.log(shifts);
-    
-    if (await getWorkersShiftsFromName(search, setShifts) == []) { toast.error("Worker not found"); readShifts(setShifts); console.log("nigga");
-    }
-  }
+  const [shifts, setShifts] = useState([]);
+  const [search, setSearch] = useState("");
 
+  // loads shifts array on page load
+  useEffect(() => {
+    readShifts(setShifts);
+    toast.success("Loaded shifts")
+  }, []);
+
+  const handleSearch = () => {
+    if (!search.trim()) {
+      readShifts(setShifts);
+      toast.info("Showing all shifts");
+      return;
+    }
+
+    setShifts([]); // Clear previous results immediately
+
+    getWorkersShiftsFromName(search, (newShifts) => {
+      setShifts(newShifts);
+      if (newShifts.length === 0) {
+        toast.warning("No shifts found");
+        readShifts(setShifts); // Fallback to all shifts
+      }
+    });
+  };
 
   return (
     <div className="min-h-dvh items-center bg-gray-950">
@@ -25,12 +39,16 @@ export const Shifts = () => {
         <h1 className="text-3xl mt-17 wlh12 font-bold">Shifts</h1>
       </div>
       <div className="flex justify-center m-10">
-        <input onChange={(e)=>setSearch(e.target.value)}
+        <input
+          onChange={(e) => setSearch(e.target.value)}
           type="text"
           placeholder="Search a name"
           className="input input-primary"
         />
-        <button onClick={()=>HandleSearch()} className="btn btn-square ml-1 border-primary border-2">
+        <button
+          onClick={() => handleSearch()}
+          className="btn btn-square ml-1 border-primary border-2"
+        >
           <img src="./search.png" alt="" />
         </button>
       </div>
@@ -38,7 +56,10 @@ export const Shifts = () => {
       <div className="grid lg:grid-cols-4 ml-10 pb-10 gap-10 justify-center align-middle  grid-rows-5 shiftrow">
         {shifts &&
           shifts.map((shift) => (
-            <div  key={shift.id} className="card bg-gray-700 justify-center align-center border-white hover:border-2 hover:shadow-md shadow-white  text-primary-content w-80">
+            <div
+              key={shift.id}
+              className="card bg-gray-700 justify-center align-center border-white hover:border-2 hover:shadow-md shadow-white  text-primary-content w-80"
+            >
               {shift.end ? (
                 <div className="light w-18 text-white font-bold h-7 p-1 text-center bg-red-500 rounded-xl">
                   Finished
@@ -62,8 +83,7 @@ export const Shifts = () => {
                 </p>
                 <p>
                   {shift.duration &&
-                    shift.duration.toLocaleString().substring(0, 5)}{" "}
-                  h
+                    shift.duration.toLocaleString().substring(0, 5) + " h"}{" "}
                 </p>
                 <div className="card-actions justify-end"></div>
               </div>

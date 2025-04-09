@@ -108,7 +108,7 @@ export const WorkerDetails = () => {
       <div className="text-center mt-5">
         <h1 className="font-bold text-3xl text-white">Recent shifts</h1>
       </div>
-      <table className="table-fixed border-collapse mt-3 bg-gray-700 rounded-xl text-center shadow-md shadow-gray-700">
+      <table className="table-fixed border-collapse mt-3 bg-gray-700 rounded-xl text-center shadow-md shadow-gray-700 mx-5">
         <caption className="caption-bottom">
           Shifts table: 'N/A' means the shift has not ended yet
         </caption>
