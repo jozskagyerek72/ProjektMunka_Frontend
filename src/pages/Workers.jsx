@@ -41,7 +41,7 @@ export const Workers = () => {
                           ? worker.imageURL
                           : "public/blankpeople.jpg"
                       }
-                      className={`w-12 h-12 rounded-full border-2 object-cover ${worker.status === "active" ? "border-green-500" : "border-red-500" }`}
+                      className={`w-16 h-16 rounded-full border-2 object-cover ${worker.status === "active" ? "border-green-500" : "border-red-500" }`}
                       alt={worker.id}
                     />
                   </td>

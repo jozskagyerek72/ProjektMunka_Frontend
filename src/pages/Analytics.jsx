@@ -72,7 +72,7 @@ export const Analytics = () => {
               The sum of your wage is
             </div>
             <div className="stat-value flex">
-              {payment && payment.toFixed(2)} HUF
+              {payment && ((Math.round(payment)/100)*100).toLocaleString("en-US", {style:"currency", currency:"HUF"})}
             </div>
             <div className="stat-desc text-white text-xl">
               this sum is before tax
@@ -81,7 +81,7 @@ export const Analytics = () => {
 
           <div className="stat flex justify-center items-center">
               <div className="w-32">
-                <img src={avatar} alt="user profile" className="rounded-full"/>
+                <img src={avatar} alt="user profile" className="rounded-full border-5 border-gray-500"/>
               </div>  
           </div>
         </div>
