@@ -50,7 +50,7 @@ export const Analytics = () => {
         <h1 className="text-3xl font-bold text-center text-white wlh12">Analytics</h1>
       </div>
       <div className="flex flex-col items-center gap-8 px-4 mx-auto max-w-7xl pb-10">
-        <div className="stats shadow bg-gray-700 text-white w-full flex">
+        <div className="stats shadow bg-gray-700 text-white w-fit flex flex-col md:flex-row">
           <div className="stat">
             <div className="stat-title text-white text-xl">You have worked</div>
             <div className="stat-value text-success">
@@ -67,11 +67,11 @@ export const Analytics = () => {
             </div>
           </div>
 
-          <div className="stat">
-            <div className="stat-title text-white text-xl">
+          <div className="stat flex flex-col">
+            <div className="stat-title flex text-white text-xl">
               The sum of your wage is
             </div>
-            <div className="stat-value">
+            <div className="stat-value flex">
               {payment && payment.toFixed(2)} HUF
             </div>
             <div className="stat-desc text-white text-xl">
