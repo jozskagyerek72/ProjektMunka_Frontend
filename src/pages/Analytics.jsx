@@ -91,7 +91,7 @@ export const Analytics = () => {
       <div className="text-center mt-5">
         <h1 className="font-bold text-3xl text-white">Recent shifts</h1>
       </div>
-      <table className="table-fixed border-collapse mt-3 bg-gray-700 rounded-xl text-center text-white shadow-md shadow-gray-700 mb-5">
+      <table className="table-fixed border-collapse mt-3 bg-gray-700 rounded-xl text-center text-white shadow-md shadow-gray-700 mb-5 mx-4">
         <thead>
           <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl  py-2 px-2">
             Shift start
