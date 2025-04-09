@@ -8,6 +8,7 @@ import {
   getWorkerPayment,
   getWorkersShiftsFromId,
 } from "../utils/analytics_systemUtils";
+import { readSingleWorker } from "../utils/crudUtil";
 
 export const Analytics = () => {
   const { user } = useContext(UserContext);
@@ -15,6 +16,7 @@ export const Analytics = () => {
   const [workedHours, setWorkedHours] = useState(null);
   const [payment, setPayment] = useState(null);
   const [shifts, setShift] = useState(null)
+  const [worker, setWorker] = useState(null);
 
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
@@ -26,14 +28,16 @@ export const Analytics = () => {
     (async () => {
       if (!user) return;
       try {
+        const workerID = await getWorkerIdFromEmail(await user?.email)
         setWorkedHours(
-          await getWorkedHours(await getWorkerIdFromEmail(await user?.email))
+          await getWorkedHours(workerID)
         );
         getWorkerPayment(
           await getWorkerIdFromEmail(await user?.email),
           setPayment
         );
-        getWorkersShiftsFromId(await getWorkerIdFromEmail(await user?.email), setShift)
+        await readSingleWorker(workerID, setWorker);
+        await getWorkersShiftsFromId(workerID, setShift)
       } catch (error) {
         console.error(error);
       }
@@ -111,8 +115,8 @@ export const Analytics = () => {
                 </td>
                 {shift.duration ? (
                   <>
-                    <td className="p-4">{shift.duration}</td>
-                    <td className="p-4 font-bold text-emerald-500">nigga</td>
+                    <td className="p-4">{Math.round(shift.duration*100)/100}h</td>
+                    <td className="p-4 font-bold text-emerald-500">+{(Math.round(shift.duration*worker.hourlypay*100)/100).toLocaleString("en-US", {style:"currency", currency:"HUF"})}</td>
                   </>
                 ) : (
                   <>
