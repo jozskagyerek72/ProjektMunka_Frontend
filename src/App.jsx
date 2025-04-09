@@ -70,7 +70,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} future={{ v7_startTransition: true }} />
-      <Toaster position="top-center" richColors/>
+      <Toaster position="top-center" richColors duration={1250}/>
     </>
   );
 }

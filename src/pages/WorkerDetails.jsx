@@ -69,17 +69,17 @@ export const WorkerDetails = () => {
                   {worker && worker.name}
                 </h2>
                 <div></div>
-                <div className="badge m-1  w-full badge-success font-bold text-black hover:border-white border-1">
-                  {worker && worker.status.toUpperCase()}
+                <div className="badge m-1 w-full badge-success font-bold text-black hover:border-white border-1">
+                  Status: <span className="font-bold text-white">{worker && worker.status.toUpperCase()}</span>
                 </div>
                 <div className="badge m-1 w-full  badge-success font-bold text-black hover:border-white border-1">
-                  {worker && worker.field.toUpperCase()}
+                  Field: <span className="font-bold text-white">{worker && worker.field.toUpperCase()}</span>
                 </div>
                 <div className="badge badge-success w-full m-1  font-bold text-black  hover:border-white border-1 ">
-                  Hourly pay: {worker && worker.hourlypay}Ft
+                  Hourly pay: <span className="font-bold text-white">{worker && worker.hourlypay}Ft</span>
                 </div>
                 <div className="badge m-1 badge-success w-full  font-bold text-black hover:border-white border-1 ">
-                  Contact: {worker && worker.email}
+                  Contact:<span className="font-bold text-white">{worker && worker.email}</span>
                 </div>
               </div>
               <div className="m-auto">
@@ -97,12 +97,8 @@ export const WorkerDetails = () => {
                 </button>
               </div>
             </div>
-            
           </div>
-          
-        
         </div>
-        
       )}
 
       <div className="text-center mt-5">
@@ -135,8 +131,19 @@ export const WorkerDetails = () => {
                 </td>
                 {shift.duration ? (
                   <>
-                    <td className="p-4">{Math.round(shift.duration*100)/100}</td>
-                    <td className="p-4 font-bold text-emerald-500">+ {(Math.round(shift.duration*worker.hourlypay*100)/100).toLocaleString("en-US", {style:"currency", currency:"HUF"})}</td>
+                    <td className="p-4">
+                      {Math.round(shift.duration * 100) / 100} hours
+                    </td>
+                    <td className="p-4 font-bold text-emerald-500">
+                      +{" "}
+                      {(
+                        Math.round(shift.duration * worker.hourlypay * 100) /
+                        100
+                      ).toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "HUF",
+                      })}
+                    </td>
                   </>
                 ) : (
                   <>

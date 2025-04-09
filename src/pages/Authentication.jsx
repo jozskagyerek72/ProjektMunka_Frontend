@@ -1,5 +1,5 @@
 import React, { useContext} from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { Form } from "react-router-dom";
 import { addApplicant } from "../utils/applicant_Utils";
@@ -16,14 +16,14 @@ export const Authentication = ({ role }) => {
     event.preventDefault
     const data = new FormData(event.currentTarget)
     if (data.get("password").length < 6) {
-      toast.error(`A password length of ${data.get('password').length} is not accepted!`)
+      toast.warning(`A password length of ${data.get('password').length} is not accepted!`)
       console.log(data.get('password').length);
       return
     }
     else {
       if (isSignedIn) {
         signInUser(data.get("e-mail"), data.get("password"));
-        setTimeout(() => navigate("/"), 1500);
+        setTimeout(() => navigate("/"), 2000);
       } else {
         signUpUser(
           data.get("e-mail"),
@@ -31,7 +31,7 @@ export const Authentication = ({ role }) => {
           data.get("displayName")
         );
         addApplicant(data.get("displayName"), data.get("e-mail"), "NaN");
-        setTimeout(() => navigate("/"), 1500);
+        setTimeout(() => navigate("/"), 2000);
       }
     }
   };
@@ -99,14 +99,20 @@ export const Authentication = ({ role }) => {
           </div>
 
           {/* Forgot password */}
-          <div className="mt-4 mb-6">
-            <a
-              className="inline-block text-base font-normal text-[#5a28cc] hover:underline hover:underline-offset-4 transition-all"
-              onClick={() => navigate("/resetpassword")}
-            >
-              Forgot password?
-            </a>
-          </div>
+          
+            {!isSignedIn ? 
+              <></>
+              :
+              <div className="mt-4 mb-6">
+              <a
+                className="inline-block text-base font-normal text-[#5a28cc] hover:underline hover:underline-offset-4 transition-all"
+                onClick={() => navigate("/resetpassword")}
+              >
+                Forgot password?
+              </a>
+            </div>
+            }
+          
 
           {/* Submit button */}
           <div className="mb-4">
@@ -114,7 +120,7 @@ export const Authentication = ({ role }) => {
               className="w-full cursor-pointer rounded-lg border-2 border-solid border-[#5a28cc] bg-[#5a28cc] px-8 py-3 text-base font-medium text-white hover:bg-neutral-100 hover:text-[#5a28cc] transition-all duration-300"
               type="submit"
             >
-              Sign in
+              {isSignedIn ? "Sign in" : "Apply"}
             </button>
           </div>
         </Form>
