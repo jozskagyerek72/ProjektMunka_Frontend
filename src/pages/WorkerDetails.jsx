@@ -2,44 +2,42 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { changeWorkerActiveStatus, readSingleWorker} from "../utils/crudUtil";
+import { changeWorkerActiveStatus, readSingleWorker } from "../utils/crudUtil";
 
 import { getWorkersShiftsFromId } from "../utils/analytics_systemUtils";
-
 
 import { toast } from "sonner";
 
 export const WorkerDetails = () => {
   const { id } = useParams();
   const [worker, setWorker] = useState(null);
-  const [shifts, setShifts] = useState(null)
-
+  const [shifts, setShifts] = useState(null);
 
   useEffect(() => {
     readSingleWorker(id, setWorker);
-    getWorkersShiftsFromId(id, setShifts)
+    getWorkersShiftsFromId(id, setShifts);
   }, []);
 
-   const handleWorkerStatusChange = async () => {
-     try {
-       const toastId = toast.loading("Updating worker status...");
+  const handleWorkerStatusChange = async () => {
+    try {
+      const toastId = toast.loading("Updating worker status...");
 
-       await changeWorkerActiveStatus(worker.id);
+      await changeWorkerActiveStatus(worker.id);
 
-       const updatedWorker = {
-         ...worker,
-         status: worker.status === "active" ? "not active" : "active",
-       };
-       setWorker(updatedWorker);
+      const updatedWorker = {
+        ...worker,
+        status: worker.status === "active" ? "not active" : "active",
+      };
+      setWorker(updatedWorker);
 
-       toast.success(
-         `Worker status changed to ${updatedWorker.status} successfully!`,
-         { id: toastId }
-       );
-     } catch (error) {
-       toast.error("Failed to update worker status");
-     }
-   };
+      toast.success(
+        `Worker status changed to ${updatedWorker.status} successfully!`,
+        { id: toastId }
+      );
+    } catch (error) {
+      toast.error("Failed to update worker status");
+    }
+  };
 
   return (
     <div className="min-h-dvh bg-gray-950 pt-20 pb-10 flex flex-col items-center justify-center">
@@ -56,9 +54,9 @@ export const WorkerDetails = () => {
             <div className="flex justify-center items-center w-60">
               <img
                 src={
-                  worker && worker.imageURL
+                  worker.imageURL != "NaN"
                     ? worker.imageURL
-                    : "./public/blankpeople.jpg"
+                    : "../public/blankpeople.jpg"
                 }
                 className="w-full rounded-full shadow-2xl object-cover"
               />
@@ -70,16 +68,28 @@ export const WorkerDetails = () => {
                 </h2>
                 <div></div>
                 <div className="badge m-1 w-full badge-success font-bold text-black hover:border-white border-1">
-                  Status: <span className="font-bold text-white">{worker && worker.status.toUpperCase()}</span>
+                  Status:{" "}
+                  <span className="font-bold text-white">
+                    {worker && worker.status.toUpperCase()}
+                  </span>
                 </div>
                 <div className="badge m-1 w-full  badge-success font-bold text-black hover:border-white border-1">
-                  Field: <span className="font-bold text-white">{worker && worker.field.toUpperCase()}</span>
+                  Field:{" "}
+                  <span className="font-bold text-white">
+                    {worker && worker.field.toUpperCase()}
+                  </span>
                 </div>
                 <div className="badge badge-success w-full m-1  font-bold text-black  hover:border-white border-1 ">
-                  Hourly pay: <span className="font-bold text-white">{worker && worker.hourlypay}Ft</span>
+                  Hourly pay:{" "}
+                  <span className="font-bold text-white">
+                    {worker && worker.hourlypay}Ft
+                  </span>
                 </div>
                 <div className="badge m-1 badge-success w-full  font-bold text-black hover:border-white border-1 ">
-                  Contact:<span className="font-bold text-white">{worker && worker.email}</span>
+                  Contact:
+                  <span className="font-bold text-white">
+                    {worker && worker.email}
+                  </span>
                 </div>
               </div>
               <div className="m-auto">
@@ -101,60 +111,69 @@ export const WorkerDetails = () => {
         </div>
       )}
 
-      <div className="text-center mt-5">
-        <h1 className="font-bold text-3xl text-white">Recent shifts</h1>
-      </div>
-      <table className="table-fixed border-collapse mt-3 bg-gray-700 rounded-xl text-center shadow-md shadow-gray-700 mx-5">
-        <caption className="caption-bottom">
-          Shifts table: 'N/A' means the shift has not ended yet
-        </caption>
-        <thead>
-          <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
-            Shift start
-          </th>
-          <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
-            Shift duration
-          </th>
-          <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
-            Earned wage
-          </th>
-        </thead>
-        <tbody>
-          {shifts &&
-            shifts.map((shift) => (
-              <tr
-                key={shift.id}
-                className="border border-t-gray-600 border-x-0 border-b-0"
-              >
-                <td className="p-4">
-                  {new Date(shift.start?.seconds * 1000).toLocaleString()}
-                </td>
-                {shift.duration ? (
-                  <>
+      {!shifts || shifts.length === 0 ? (
+        <div className="text-center mt-5">
+          <h1 className="font-bold text-3xl text-white">No recent shifts</h1>
+        </div>
+      ) : (
+        <>
+          <div className="text-center mt-5">
+            <h1 className="font-bold text-3xl text-white">Recent shifts</h1>
+          </div>
+          <table className="table-fixed border-collapse mt-3 bg-gray-700 rounded-xl text-center shadow-md shadow-gray-700 mx-5">
+            <caption className="caption-bottom">
+              Shifts table: 'N/A' means the shift has not ended yet
+            </caption>
+            <thead>
+              <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
+                Shift start
+              </th>
+              <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
+                Shift duration
+              </th>
+              <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
+                Earned wage
+              </th>
+            </thead>
+            <tbody>
+              {shifts &&
+                shifts.map((shift) => (
+                  <tr
+                    key={shift.id}
+                    className="border border-t-gray-600 border-x-0 border-b-0"
+                  >
                     <td className="p-4">
-                      {Math.round(shift.duration * 100) / 100} hours
+                      {new Date(shift.start?.seconds * 1000).toLocaleString()}
                     </td>
-                    <td className="p-4 font-bold text-emerald-500">
-                      +{" "}
-                      {(
-                        Math.round(shift.duration * worker.hourlypay * 100) /
-                        100
-                      ).toLocaleString("en-US", {
-                        style: "currency",
-                        currency: "HUF",
-                      })}
-                    </td>
-                  </>
-                ) : (
-                  <>
-                    <td className="p-4 font-bold">N/A</td>
-                    <td className="p-4 font-bold text-red-500">N/A</td>
-                  </>
-                )}
-              </tr>
-            ))}
-        </tbody>
-      </table>
+                    {shift.duration ? (
+                      <>
+                        <td className="p-4">
+                          {Math.round(shift.duration * 100) / 100} hours
+                        </td>
+                        <td className="p-4 font-bold text-emerald-500">
+                          +{" "}
+                          {(
+                            Math.round(
+                              shift.duration * worker.hourlypay * 100
+                            ) / 100
+                          ).toLocaleString("en-US", {
+                            style: "currency",
+                            currency: "HUF",
+                          })}
+                        </td>
+                      </>
+                    ) : (
+                      <>
+                        <td className="p-4 font-bold">N/A</td>
+                        <td className="p-4 font-bold text-red-500">N/A</td>
+                      </>
+                    )}
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </>
+      )}
     </div>
   );
 };
