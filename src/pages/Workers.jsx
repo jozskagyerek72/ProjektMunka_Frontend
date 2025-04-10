@@ -15,7 +15,7 @@ export const Workers = () => {
         <div className="text-center justify-center flex flex-wrap">
           <h1 className="text-3xl mt-17 wlh12">Workers</h1>
         </div>
-        <table className="table-fixed border-collapse mt-3 bg-gray-700 rounded-xl text-center shadow-md shadow-gray-700 mx-5">
+        <table className="table-fixed border-collapse mt-3 bg-gray-700 rounded-xl text-center text-white shadow-md shadow-gray-700 mx-5">
           <thead>
             <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl px-5 py-2">
               Avatar
