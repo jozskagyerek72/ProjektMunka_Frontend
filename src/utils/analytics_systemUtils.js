@@ -13,8 +13,6 @@ export const getWorkedHours = async ( workerID ) =>
     {doc.data().duration ? totalDuration += doc.data().duration : totalDuration += 0} 
 })
 
-  console.log("type of total duration:", typeof totalDuration);
-  console.log(totalDuration);
   return totalDuration
 }
 
