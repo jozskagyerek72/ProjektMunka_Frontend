@@ -1,12 +1,41 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
+import { renderHook, act } from "@testing-library/react";
 import { readHRWorkers } from "../utils/crudUtil";
 import { useState } from "react";
 
-describe("getHRWorkers", ()=>
+
+vi.mock("../utils/crudUtil", () => 
+({
+  readHRWorkers: vi.fn()
+}))
+
+describe("getHRWorkers", () => 
 {
-  it("getHRWorkers to be 3 item long array",async ()=>{
-    const [hr, setHr] = useState(null)
-    await readHRWorkers(setHr)
-    expect(hr.length).toBe(3)
-  })    
+  it("should return 3 HR workers", async () => {
+    
+    const mockHRWorkers = [
+      { id: 1, name: "HR 1" },
+      { id: 2, name: "HR 2" },
+      { id: 3, name: "HR 3" }
+    ]
+    
+    readHRWorkers.mockImplementation((setter) =>
+    {
+      setter(mockHRWorkers);
+    })
+
+    const { result } = renderHook(() => 
+    {
+      const [hr, setHr] = useState(null)
+      return { hr, setHr }
+    })
+
+    await act(async () => 
+    {
+      await readHRWorkers(result.current.setHr)
+    })
+
+    expect(result.current.hr).toEqual(mockHRWorkers)
+    expect(result.current.hr.length).toBe(3)
+  })
 })
