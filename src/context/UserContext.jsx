@@ -14,14 +14,24 @@ export const UserProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             setUser(currentUser);
-            (await checkAdmin(currentUser.email)) ? setAdmin(true) : setAdmin(false);
+            if (currentUser) {
+                (await checkAdmin(currentUser.email))
+                  ? setAdmin(true)
+                  : setAdmin(false);
+            } else {
+                setAdmin(false);
+            }
         })
         return () => unsubscribe()
     }, [])
 
     const signOutUser = async () => {
-        await signOut(auth)
-        toast.success("Signed out successfully!");
+        try {
+            await signOut(auth)
+            toast.success("Signed out successfully!");
+        } catch (error) {
+            toast.error(error.message)
+        }
     }
 
     const signInUser = async (email, password) => {

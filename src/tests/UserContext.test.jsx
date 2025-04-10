@@ -89,7 +89,7 @@ describe("UserContext tests", () => {
       <UserProvider>
         <UserContext.Consumer>
           {(value) => {
-            value.signOut();
+            value.signOutUser();
             return null;
           }}
         </UserContext.Consumer>
