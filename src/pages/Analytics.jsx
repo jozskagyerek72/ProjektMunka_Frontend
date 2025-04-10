@@ -15,14 +15,12 @@ export const Analytics = () => {
   const [avatar, setAvatar] = useState(null);
   const [workedHours, setWorkedHours] = useState(null);
   const [payment, setPayment] = useState(null);
-  const [shifts, setShift] = useState(null);
+  const [shifts, setShifts] = useState(null);
   const [worker, setWorker] = useState(null);
 
   useEffect(() => {
-    user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
-
-    !user && setAvatar(null);
-  }, [user, user?.photoURL]);
+    setAvatar(user?.photoURL ? extractUrlAndId(user.photoURL).url : null)
+  }, [user?.photoURL]);
 
   useEffect(() => {
     (async () => {
@@ -35,7 +33,9 @@ export const Analytics = () => {
           setPayment
         );
         await readSingleWorker(workerID, setWorker);
-        await getWorkersShiftsFromId(workerID, setShift);
+        await getWorkersShiftsFromId(workerID, setShifts);
+        console.log(user?.email);
+        
       } catch (error) {
         console.error(error);
       }
