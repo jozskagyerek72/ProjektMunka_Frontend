@@ -7,19 +7,23 @@ import { NotFound } from "./NotFound";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { getWorkerIdFromEmail } from "../utils/analytics_systemUtils";
-import { updateWorkerPhoto } from "../utils/crudUtil";
+import { readSingleWorker, updateWorkerPhoto } from "../utils/crudUtil";
 
 export const Profile = () => {
   const { user, updateUser } = useContext(UserContext);
   const [avatar, setAvatar] = useState(null);
   const [workerId, setWorkerId] = useState("");
+  const [worker, setWorker] = useState([]);
   const navigate = useNavigate();
+  
   
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
     (async () => {
-      setWorkerId(await(getWorkerIdFromEmail(user?.email)));
-    })
+      const worker_id = await(getWorkerIdFromEmail(user?.email))
+      await readSingleWorker(worker_id, setWorker)
+      await setWorkerId(worker_id);
+    })()
   }, [user]);
 
   console.log(workerId);
@@ -69,7 +73,7 @@ export const Profile = () => {
 
   return (
     <div className="bg-gray-950 min-h-screen flex items-center justify-center p-4">
-      <div className="card card-side bg-base-100 border-2 border-gray-300 shadow-xl max-w-3xl">
+      <div className="card card-side bg-gray-700 text-white border-2 border-gray-300 shadow-xl max-w-3xl">
         {/* Avatar section */}
         {avatar ? (
           <figure className="w-48 border-2 border-black flex-shrink-0">
@@ -114,9 +118,9 @@ export const Profile = () => {
                   <span className="font-normal">{workerId && workerId}</span>
                   
                 </h3>
-                <p className="text-gray-600">
+                <p className=" text-white">
                   Job Title:{" "}
-                  <span className="font-medium">Senior Technician</span>
+                  <span className="font-medium">{worker && worker.field}</span>
                 </p>
               </div>
             </div>
