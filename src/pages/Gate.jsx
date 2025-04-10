@@ -11,7 +11,7 @@ export const Gate = () => {
   useEffect( ()=>{
       const load = async ()=>
       {
-        user?.email&& await setUserEmail(user?.email)
+        user?.email&& setUserEmail(user?.email)
         readSingleWorker(await getWorkerIdFromEmail(user?.email), setWorker)
       }
       load()

@@ -23,13 +23,13 @@ export const Shifts = () => {
       return;
     }
 
-    setShifts([]); // Clear previous results immediately
+    setShifts([]); // clears previous results immediately
 
     getWorkersShiftsFromName(search, (newShifts) => {
       setShifts(newShifts);
       if (newShifts.length === 0) {
         toast.warning("No shifts found");
-        readShifts(setShifts); // Fallback to all shifts
+        readShifts(setShifts); // loads shifts array with the default parameters, as a fallback
       }
     });
   };
