@@ -49,7 +49,8 @@ export const Header = ({ setRole }) => {
               <a className="bg-gray-800 hover:bg-gray-700 m-1">Pages</a>
               <ul className="p-2 bg-gray-600">
                 {admin || user ? (
-                  <>
+                  admin ? (
+                    <>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
                       <a onClick={() => navigate("/contact")} >Contact us</a>
                     </li>
@@ -63,6 +64,20 @@ export const Header = ({ setRole }) => {
                       <a onClick={() => navigate("/gate")}>Worker gates</a>
                     </li>
                   </>
+                  ) : (
+                    <>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                      <a onClick={() => navigate("/contact")} >Contact us</a>
+                    </li>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                      <a onClick={() => navigate("/analytics")}>Analytics</a>
+                    </li>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                      <a onClick={() => navigate("/gate")}>Worker gates</a>
+                    </li>
+                  </>
+                  )
+                  
                 ) : (
                   <>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
@@ -97,6 +112,7 @@ export const Header = ({ setRole }) => {
               <summary className="btn btn-ghost">Pages</summary>
               <ul className="p-2 bg-gray-600">
                 {admin || user ? (
+                  admin ? (
                   <>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
                       <a onClick={() => navigate("/contact")}>Contact</a>
@@ -111,6 +127,21 @@ export const Header = ({ setRole }) => {
                       <a onClick={() => navigate("/gate")}>Gates</a>
                     </li>
                   </>
+                  ) : 
+                  (
+                    <>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
+                      <a onClick={() => navigate("/contact")}>Contact</a>
+                    </li>
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
+                      <a onClick={() => navigate("/analytics")}>Analytics</a>
+                    </li>
+                    
+                    <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
+                      <a onClick={() => navigate("/gate")}>Gates</a>
+                    </li>
+                  </>
+                  )
                 ) : (
                   <>
                     <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
