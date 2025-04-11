@@ -1,4 +1,4 @@
-![logo](public\WL(good).png)
+![logo](https://raw.githubusercontent.com/jozskagyerek72/ProjektMunka_Frontend/refs/heads/master/public/WL(good).png)
 # WorkLinker
 **A Web-Based Work Tracking System**  
 
