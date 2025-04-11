@@ -16,28 +16,29 @@ import { useState } from "react";
 import { Shifts } from "./pages/Shifts";
 import { HRcontacts } from "./pages/HRcontacts";
 import { Toaster } from "sonner";
+import { Schema } from "./pages/Schema";
 
 function App() {
-  const [role, setRole ] = useState("")
+  const [role, setRole] = useState("");
 
   const router = createBrowserRouter(
     [
       {
         element: (
           <div>
-            <Header setRole={setRole}/>
+            <Header setRole={setRole} />
             <Outlet />
             <Footer />
           </div>
         ),
         children: [
-          { path: "/", element: <Home setRole={setRole}/> },
+          { path: "/", element: <Home setRole={setRole} /> },
           { path: "/profile", element: <Profile /> },
           {
             path: "/signin",
-            element: <Authentication role={role}/>,
+            element: <Authentication role={role} />,
           },
-          { path: "/apply", element: <Authentication role={role}/> },
+          { path: "/apply", element: <Authentication role={role} /> },
           { path: "/resetpassword", element: <PasswordReset /> },
           { path: "/contact", element: <Contact /> },
 
@@ -49,11 +50,12 @@ function App() {
           { path: "/tests", element: <Backendtests /> },
           { path: "/shifts", element: <Shifts /> },
           { path: "/hrcontact", element: <HRcontacts /> },
+          { path: "/schema", element: <Schema /> },
         ],
       },
     ],
     {
-      future: { 
+      future: {
         v7_relativeSplatPath: true,
 
         v7_normalizeFormMethod: true,
@@ -70,7 +72,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} future={{ v7_startTransition: true }} />
-      <Toaster position="top-center" richColors duration={1250}/>
+      <Toaster position="top-center" richColors duration={1250} />
     </>
   );
 }
