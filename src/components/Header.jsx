@@ -68,6 +68,9 @@ export const Header = ({ setRole }) => {
                           Database schemas
                         </a>
                       </li>
+                      <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                        <a onClick={() => navigate("/tests")}>Test results</a>
+                      </li>
                     </>
                   ) : (
                     <>
@@ -139,6 +142,9 @@ export const Header = ({ setRole }) => {
                       </li>
                       <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
                         <a onClick={() => navigate("/schema")}>Schemas</a>
+                      </li>
+                      <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md">
+                        <a onClick={() => navigate("/tests")}>Tests</a>
                       </li>
                     </>
                   ) : (
