@@ -29,7 +29,7 @@ export const UserProvider = ({ children }) => {
         try {
             await signOut(auth)
             toast.success("Signed out successfully!");
-        } catch (error) {
+        } catch (error) {            
             toast.error(error.message)
         }
     }
@@ -38,7 +38,7 @@ export const UserProvider = ({ children }) => {
         try {
             await signInWithEmailAndPassword(auth, email, password)
             toast.success("Signed in successfully!");
-        } catch (error) {
+        } catch (error) {            
             toast.error(error.message)
         }
     }
@@ -48,7 +48,7 @@ export const UserProvider = ({ children }) => {
             await createUserWithEmailAndPassword(auth, email, password)
             await updateProfile(auth.currentUser, { displayName })
             toast.success("Applied successfully!");
-        } catch (error) {
+        } catch (error) {            
             toast.error(error.message)
         }
     }
@@ -57,7 +57,7 @@ export const UserProvider = ({ children }) => {
         try {
             await sendPasswordResetEmail(auth, email)
             toast.success("Password reset e-mail sent successfully!");
-        } catch (error) {
+        } catch (error) {            
             toast.error(error.message)
         }
     }
@@ -68,7 +68,7 @@ export const UserProvider = ({ children }) => {
             else if (displayName) await updateProfile(auth.currentUser, { displayName })
             else if (photoURL) await updateProfile(auth.currentUser, { photoURL })
             toast.success("Profile successfully updated!");
-        } catch (error) {
+        } catch (error) {            
             toast.error(error.message)
         }
     }

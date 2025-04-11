@@ -35,6 +35,7 @@ export const WorkerDetails = () => {
         { id: toastId }
       );
     } catch (error) {
+      console.log(error);
       toast.error("Failed to update worker status");
     }
   };

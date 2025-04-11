@@ -84,7 +84,7 @@ export const Analytics = () => {
           <div className="stat flex justify-center items-center">
             <div className="w-32">
               <img
-                src={avatar ? avatar : "../public/blankpeople.jpg"}
+                src={avatar || "../public/blankpeople.jpg"}
                 alt="user profile"
                 className="rounded-full border-5 border-gray-500"
               />
