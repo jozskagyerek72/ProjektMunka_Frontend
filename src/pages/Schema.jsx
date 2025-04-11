@@ -18,11 +18,13 @@ export const Schema = () => {
   ];
 
   return (
-    <div className="min-h-dvh bg-gray-950 flex flex-col justify-center items-center p-4">
-      <h1 className="wlh12">Schemas</h1>
+    <div className="min-h-dvh bg-gray-950 flex flex-col justify-evenly items-center gap-0">
+      <div className="text-center justify-center flex flex-wrap mt-10">
+        <h1 className="text-3xl wlh12 font-bold m-0 md:m-17">Schemas</h1>
+      </div>
 
       {schema && (
-        <div className="w-full max-w-4xl overflow-x-auto flex flex-col gap-0 justify-start">
+        <div className="w-full max-w-4xl overflow-x-auto flex flex-col gap-0 justify-start px-4">
           <div className="flex flex-row justify-between items-center">
             <h2 className="text-xl font-bold text-white mb-4">
               Schema for {collectionName}

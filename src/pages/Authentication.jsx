@@ -40,7 +40,7 @@ export const Authentication = ({ role }) => {
     <div className="flex justify-center items-center h-screen bg-gray-950 text-center pt-20">
       <div className="w-full max-w-xs flex-auto">
         <Form
-          className="bg-gray-800 shadow-md shadow-white rounded-2xl px-8 pt-8 pb-8 mb-4"
+          className="bg-gray-800 shadow-md shadow-gray-900/50 hover:shadow-xl hover:shadow-gray-900/70 transition-shadow rounded-2xl px-8 pt-8 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
           {/* Title - changes with role */}
@@ -99,11 +99,11 @@ export const Authentication = ({ role }) => {
           </div>
 
           {/* Forgot password */}
-          
-            {!isSignedIn ? 
-              <></>
-              :
-              <div className="mt-4 mb-6">
+
+          {!isSignedIn ? (
+            <></>
+          ) : (
+            <div className="mt-4 mb-6">
               <a
                 className="inline-block text-base font-normal text-[#5a28cc] hover:underline hover:underline-offset-4 transition-all"
                 onClick={() => navigate("/resetpassword")}
@@ -111,8 +111,7 @@ export const Authentication = ({ role }) => {
                 Forgot password?
               </a>
             </div>
-            }
-          
+          )}
 
           {/* Submit button */}
           <div className="mb-4">
