@@ -17,6 +17,7 @@ import { Shifts } from "./pages/Shifts";
 import { HRcontacts } from "./pages/HRcontacts";
 import { Toaster } from "sonner";
 import { Schema } from "./pages/Schema";
+import { TestResults } from "./pages/TestResults";
 
 function App() {
   const [role, setRole] = useState("");
@@ -47,10 +48,11 @@ function App() {
           { path: "/gate", element: <Gate /> },
           { path: "/workerdetails/:id", element: <WorkerDetails /> },
 
-          { path: "/tests", element: <Backendtests /> },
+          { path: "/backendtests", element: <Backendtests /> },
           { path: "/shifts", element: <Shifts /> },
           { path: "/hrcontact", element: <HRcontacts /> },
           { path: "/schema", element: <Schema /> },
+          { path: "/tests", element: <TestResults /> },
         ],
       },
     ],
