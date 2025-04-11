@@ -95,7 +95,7 @@ export const Analytics = () => {
         </div>
 
         {/* Shifts table */}
-        <div className="w-full">
+        <div className="w-full flex flex-col justify-center items-center">
           {!shifts || shifts.length === 0 ? (
             <div className="text-center mt-5">
               <h1 className="font-bold text-3xl text-white">No recent shifts</h1>

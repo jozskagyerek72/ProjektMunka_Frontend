@@ -72,7 +72,10 @@ export const Profile = () => {
   }
 
   return (
-    <div className="bg-gray-950 min-h-screen flex items-center justify-center p-4">
+    <div className="bg-gray-950 min-h-screen flex flex-col items-center justify-center">
+      <div className="w-full flex justify-center items-center">
+        <h1 className="wlh12">Your profile</h1>
+      </div>
       <div className="card card-side bg-gray-700 text-white border-2 border-gray-300 shadow-xl max-w-3xl">
         {/* Avatar section */}
         {avatar ? (
