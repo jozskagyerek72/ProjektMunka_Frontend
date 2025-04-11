@@ -11,4 +11,5 @@ export default defineConfig({
     setupFiles: "src/tests/setup.js",
     reporters: ["default", ["json", { outputFile: "results.json" }]],
   },
+  build: {chunkSizeWarningLimit: 1600,}
 });
