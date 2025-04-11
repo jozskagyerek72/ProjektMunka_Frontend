@@ -107,7 +107,7 @@ export const readShifts = (setShifts) => {
 export const readHRWorkers = (setData) =>
 {
   const collectionRef = collection(db, "admins");
-  const q = query(collectionRef, orderBy("name", "asc"));
+  const q = query(collectionRef, orderBy("description", "asc"));
   const unsubscribe = onSnapshot(q, (snapshot) => {
     setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   });
