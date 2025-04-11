@@ -1,3 +1,4 @@
+![logo](https://raw.githubusercontent.com/jozskagyerek72/ProjektMunka_Frontend/refs/heads/master/public/WL(good).png)
 # WorkLinker
 **A Web-Based Work Tracking System**  
 
@@ -15,12 +16,13 @@ Manual work-hour tracking is prone to inaccuracies, data loss, and delays in pay
 
 ## Key Features  
 ### **Employee Module**  
-- Log into shifts (start/end).  
+- Log into shifts (start/end).  (This uses the Qr reader module of this project which you can view [here](https://github.com/jozskagyerek72/Qr_reader_vizsgaprojekt))
 - View shift analytics (worked hours, estimated paycheck).  
 
 ### **HR Module**  
 - Activate/deactivate workers.  
 - View all employees and their analytics.  
+- Choosable database schemas are accessible to admins
 
 ### **Cloud & Security**  
 - Real-time cloud storage for accessibility.  
