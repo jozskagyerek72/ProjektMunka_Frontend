@@ -3,13 +3,15 @@ import testResults from "../../results.json";
 
 export const TestResults = () => {
   return (
-    <div className="min-h-dvh bg-gray-950 flex flex-col justify-center items-center">
+    <div className="min-h-dvh bg-gray-950 flex flex-col justify-center items-center pb-10">
       <div className="text-center justify-center flex flex-wrap mt-10">
-        <h1 className="text-3xl wlh12 font-bold m-0 md:m-17">Tests & results</h1>
+        <h1 className="text-3xl wlh12 font-bold m-0 md:m-17">
+          Tests & results
+        </h1>
       </div>
-      <div className="flex flex-col justify-evenly items-center bg-gray-800 rounded-lg w-auto p-4 gap-5">
+      <div className="flex flex-col justify-evenly items-center bg-gray-800 rounded-lg w-auto p-4 gap-5 mx-4">
         <h1 className="text-3xl font-bold text-white">Tests - summary</h1>
-        <div className="flex flex-row items-center justify-evenly w-full gap-5">
+        <div className="flex flex-col md:flex-row items-center justify-evenly w-full gap-5">
           <div className="rounded-xl p-4 bg-gray-600 border-1 border-white flex flex-col justify-center items-center w-full h-full">
             <span className="font-semibold">Total tests</span>
             <p>{testResults.numTotalTests}</p>

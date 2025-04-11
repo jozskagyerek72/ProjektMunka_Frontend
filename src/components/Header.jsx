@@ -197,14 +197,10 @@ export const Header = ({ setRole }) => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              {avatar ? (
-                <img alt="Tailwind CSS Navbar component" src={avatar} />
-              ) : (
-                <img
-                  alt="Tailwind CSS Header component"
-                  src="../public/blankpeople.jpg"
-                />
-              )}
+              <img
+                alt="Tailwind CSS Navbar component"
+                src={avatar || "../public/blankpeople.jpg"}
+              />
             </div>
           </div>
           <ul

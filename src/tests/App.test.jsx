@@ -12,10 +12,8 @@ import { NotFound } from "../pages/NotFound";
 it("renders without crashing", async () => {
   const mockUser = { displayName: "Gyula", email: "gulya@mockuser.com" };
   render(
-    <UserContext.Provider value={{ user: mockUser }}>
-      <MemoryRouter initialEntries={["/"]}>
-        <App />
-      </MemoryRouter>
+    <UserContext.Provider value={{ user: mockUser }}> 
+      <App />
     </UserContext.Provider>
   );
 });

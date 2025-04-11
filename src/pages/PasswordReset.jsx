@@ -15,7 +15,7 @@ export const PasswordReset = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-950">
+    <div className="flex justify-center items-center min-h-screen bg-gray-950 pb-10">
       <div className="w-full max-w-xs flex-auto">
         <Form
           className="bg-gray-800 shadow-md px-8 pt-6 pb-8 mb-4 rounded-2xl"
