@@ -15,20 +15,18 @@ export const Profile = () => {
   const [workerId, setWorkerId] = useState("");
   const [worker, setWorker] = useState([]);
   const navigate = useNavigate();
-  
-  
+
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
     (async () => {
-      const worker_id = await(getWorkerIdFromEmail(user?.email))
-      await readSingleWorker(worker_id, setWorker)
+      const worker_id = await getWorkerIdFromEmail(user?.email);
+      await readSingleWorker(worker_id, setWorker);
       await setWorkerId(worker_id);
-    })()
+    })();
   }, [user]);
 
   console.log(workerId);
-  
-  
+
   const {
     register,
     handleSubmit,
@@ -73,11 +71,11 @@ export const Profile = () => {
 
   return (
     <div className="bg-gray-950 min-h-screen flex flex-col items-center justify-center">
-      <div className="w-full flex justify-center items-center">
-        <h1 className="wlh12">Your profile</h1>
+      <div className="text-center justify-center flex flex-wrap mt-10">
+        <h1 className="text-3xl wlh12 font-bold m-0 md:m-17">Profile</h1>
       </div>
+
       <div className="card card-side bg-gray-700 text-white border-2 border-gray-300 shadow-xl max-w-3xl">
-        {/* Avatar section */}
         {avatar ? (
           <figure className="w-48 border-2 border-black flex-shrink-0">
             <img
@@ -96,10 +94,8 @@ export const Profile = () => {
           </figure>
         )}
 
-        {/* Form section */}
         <div className="card-body p-6">
           <Form onSubmit={handleSubmit(onSubmit)}>
-            {/* Profile info */}
             <div className="space-y-4">
               <h2 className="card-title text-2xl font-bold">Worker Profile</h2>
 
@@ -119,7 +115,6 @@ export const Profile = () => {
                 <h3 className="font-medium">
                   Worker ID:{" "}
                   <span className="font-normal">{workerId && workerId}</span>
-                  
                 </h3>
                 <p className=" text-white">
                   Job Title:{" "}
@@ -128,7 +123,6 @@ export const Profile = () => {
               </div>
             </div>
 
-            {/* File upload */}
             <div className="form-control mt-6">
               <label className="label">
                 <span className="label-text">Profile Picture</span>
@@ -150,7 +144,6 @@ export const Profile = () => {
               )}
             </div>
 
-            {/* Submit button */}
             <div className="card-actions justify-end mt-8">
               <button
                 className="btn btn-primary w-full sm:w-auto"

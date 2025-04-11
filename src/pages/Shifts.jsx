@@ -35,9 +35,9 @@ export const Shifts = () => {
   };
 
   return (
-    <div className="min-h-dvh items-center bg-gray-950">
-      <div className="text-center justify-center flex flex-wrap">
-        <h1 className="text-3xl mt-17 wlh12 font-bold">Shifts</h1>
+    <div className="min-h-dvh items-center bg-gray-950 flex flex-col justify-center">
+      <div className="text-center justify-center flex flex-wrap mt-10">
+        <h1 className="text-3xl wlh12 font-bold m-17">Shifts</h1>
       </div>
       <div className="flex justify-center m-10">
         <input

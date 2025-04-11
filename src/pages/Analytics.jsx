@@ -19,7 +19,7 @@ export const Analytics = () => {
   const [worker, setWorker] = useState(null);
 
   useEffect(() => {
-    setAvatar(user?.photoURL ? extractUrlAndId(user.photoURL).url : null)
+    setAvatar(user?.photoURL ? extractUrlAndId(user.photoURL).url : null);
   }, [user?.photoURL]);
 
   useEffect(() => {
@@ -34,8 +34,6 @@ export const Analytics = () => {
         );
         await readSingleWorker(workerID, setWorker);
         await getWorkersShiftsFromId(workerID, setShifts);
-        console.log(user?.email);
-        
       } catch (error) {
         console.error(error);
       }
@@ -86,7 +84,7 @@ export const Analytics = () => {
           <div className="stat flex justify-center items-center">
             <div className="w-32">
               <img
-                src={avatar ? avatar : '../public/blankpeople.jpg'}
+                src={avatar ? avatar : "../public/blankpeople.jpg"}
                 alt="user profile"
                 className="rounded-full border-5 border-gray-500"
               />
@@ -98,7 +96,9 @@ export const Analytics = () => {
         <div className="w-full flex flex-col justify-center items-center">
           {!shifts || shifts.length === 0 ? (
             <div className="text-center mt-5">
-              <h1 className="font-bold text-3xl text-white">No recent shifts</h1>
+              <h1 className="font-bold text-3xl text-white">
+                No recent shifts
+              </h1>
             </div>
           ) : (
             <>
