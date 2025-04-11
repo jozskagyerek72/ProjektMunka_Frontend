@@ -1,36 +1,60 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { readHRWorkers } from "../utils/crudUtil";
 
 export const HRcontacts = () => {
-    const [hrContacts,setHrContacts] = useState([])
-    readHRWorkers(setHrContacts)
+  const [hrContacts, setHrContacts] = useState([]);
+  readHRWorkers(setHrContacts);
 
   return (
-    <div className="min-h-dvh bg-gray-950">
-      <div className="text-center justify-center flex flex-wrap">
+    <div className="min-h-dvh bg-gray-950 flex flex-col justify-center items-center gap-10 pb-10">
+      <div className="text-center justify-center flex flex-wrap items-center">
         <h1 className="text-3xl mt-17 wlh12 font-bold">Our team</h1>
       </div>
 
-      <div className="grid lg:grid-cols-3 justify-center  grid-rows-1 hrcont">
-      {hrContacts && hrContacts.map((hr)=>
-              <div className="card bg-base-100 w-96 m-30 shadow-sm" key={hr.id}>
-              <figure className="px-10 pt-10">
-                <img
-                  src={hr.imgUrl}
-                  alt="Shoes"
-                  className="rounded-xl" />
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title">{hr.name}</h2>
-                <p><b>{hr.email}</b></p>
-                <p><b>{hr.description}</b></p>
-                <div className="card-actions">
-                  <button className="btn btn-primary">{hr.phone}</button>
+      <div className="flex flex-col justify-center items-center bg-base-100 p-4 md:p-10 gap-5 rounded-xl mx-5">
+        <img
+          src="public\OT.jpg"
+          alt="our team"
+          className="rounded-xl border-2 border-white w-full max-w-2xl"
+        />
+        <div className="flex flex-col justify-center items-center gap-5 w-full">
+          <h1 className="font-bold text-3xl md:text-4xl text-center">
+            About us
+          </h1>
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-evenly w-full gap-6 md:gap-2">
+            {hrContacts &&
+              hrContacts.map((hr) => (
+                <div
+                  key={hr.id}
+                  className="flex justify-center w-auto bg-base-200 p-5 rounded-xl border-2 border-white"
+                >
+                  <ul className="list-disc space-y-2 pl-5 text-sm md:text-base">
+                    <li>
+                      <span className="font-semibold">Name:</span> {hr.name}
+                    </li>
+                    <li>
+                      <span className="font-semibold">E-mail:</span> {hr.email}
+                    </li>
+                    <li>
+                      <span className="font-semibold">Role:</span>{" "}
+                      {hr.description}
+                    </li>
+                    <li>
+                      <span className="font-semibold">Profile:</span>{" "}
+                      <a
+                        href={hr.profileLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline text-blue-500 hover:text-blue-700"
+                      >
+                        {hr.profileLink}
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-              </div>
-            </div>
-        )}
-         
+              ))}
+          </div>
+        </div>
       </div>
     </div>
   );

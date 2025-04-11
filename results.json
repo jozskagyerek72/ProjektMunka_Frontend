@@ -1,1 +1,153 @@
-{"numTotalTestSuites":9,"numPassedTestSuites":9,"numFailedTestSuites":0,"numPendingTestSuites":0,"numTotalTests":10,"numPassedTests":10,"numFailedTests":0,"numPendingTests":0,"numTodoTests":0,"snapshot":{"added":0,"failure":false,"filesAdded":0,"filesRemoved":0,"filesRemovedList":[],"filesUnmatched":0,"filesUpdated":0,"matched":0,"total":0,"unchecked":0,"uncheckedKeysByFile":[],"unmatched":0,"updated":0,"didUpdate":false},"startTime":1744292162565,"success":true,"testResults":[{"assertionResults":[{"ancestorTitles":["getWorkerIdFromEmail"],"fullName":"getWorkerIdFromEmail gillichbalint@gmail.com to be WFZUQ5L3G7TbbTHoWRIc","status":"passed","title":"gillichbalint@gmail.com to be WFZUQ5L3G7TbbTHoWRIc","duration":473.3845000000001,"failureMessages":[],"meta":{}}],"startTime":1744292165341,"endTime":1744292165814.3845,"status":"passed","message":"","name":"C:/Delete/GillichBalint_13A/Projekt/pro-front/ProjektMunka_Frontend/src/tests/analytics_systemUtils.test.js"},{"assertionResults":[{"ancestorTitles":[],"fullName":"renders without crashing","status":"passed","title":"renders without crashing","duration":89.91840000000002,"failureMessages":[],"meta":{}},{"ancestorTitles":[],"fullName":"renders NotFound page for unknown routes","status":"passed","title":"renders NotFound page for unknown routes","duration":6.555599999999686,"failureMessages":[],"meta":{}}],"startTime":1744292164698,"endTime":1744292164794.5557,"status":"passed","message":"","name":"C:/Delete/GillichBalint_13A/Projekt/pro-front/ProjektMunka_Frontend/src/tests/App.test.jsx"},{"assertionResults":[{"ancestorTitles":["getHRWorkers"],"fullName":"getHRWorkers should return 3 HR workers","status":"passed","title":"should return 3 HR workers","duration":14.993400000000065,"failureMessages":[],"meta":{}}],"startTime":1744292163878,"endTime":1744292163892.9934,"status":"passed","message":"","name":"C:/Delete/GillichBalint_13A/Projekt/pro-front/ProjektMunka_Frontend/src/tests/crudUtil.test.js"},{"assertionResults":[{"ancestorTitles":["something truthy and falsy"],"fullName":"something truthy and falsy true to be true","status":"passed","title":"true to be true","duration":1.268000000000029,"failureMessages":[],"meta":{}},{"ancestorTitles":["something truthy and falsy"],"fullName":"something truthy and falsy false to be false","status":"passed","title":"false to be false","duration":0.17919999999992342,"failureMessages":[],"meta":{}}],"startTime":1744292165703,"endTime":1744292165704.268,"status":"passed","message":"","name":"C:/Delete/GillichBalint_13A/Projekt/pro-front/ProjektMunka_Frontend/src/tests/test1.test.js"},{"assertionResults":[{"ancestorTitles":["UserContext tests"],"fullName":"UserContext tests should initialize user state as null","status":"passed","title":"should initialize user state as null","duration":15.571300000000065,"failureMessages":[],"meta":{}},{"ancestorTitles":["UserContext tests"],"fullName":"UserContext tests should set user state when onAuthStateChanged fires","status":"passed","title":"should set user state when onAuthStateChanged fires","duration":175.37750000000005,"failureMessages":[],"meta":{}},{"ancestorTitles":["UserContext tests"],"fullName":"UserContext tests should call signInWithEmailAndPassword and update state","status":"passed","title":"should call signInWithEmailAndPassword and update state","duration":11.236599999999953,"failureMessages":[],"meta":{}},{"ancestorTitles":["UserContext tests"],"fullName":"UserContext tests should call signOut and reset user state","status":"passed","title":"should call signOut and reset user state","duration":15.336299999999937,"failureMessages":[],"meta":{}}],"startTime":1744292164460,"endTime":1744292164677.3362,"status":"passed","message":"","name":"C:/Delete/GillichBalint_13A/Projekt/pro-front/ProjektMunka_Frontend/src/tests/UserContext.test.jsx"}]}
+
+{
+    "numTotalTestSuites": 7,
+    "numPassedTestSuites": 7,
+    "numFailedTestSuites": 0,
+    "numPendingTestSuites": 0,
+    "numTotalTests": 8,
+    "numPassedTests": 8,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "numTodoTests": 0,
+    "snapshot": {
+        "added": 0,
+        "failure": false,
+        "filesAdded": 0,
+        "filesRemoved": 0,
+        "filesRemovedList": [],
+        "filesUnmatched": 0,
+        "filesUpdated": 0,
+        "matched": 0,
+        "total": 0,
+        "unchecked": 0,
+        "uncheckedKeysByFile": [],
+        "unmatched": 0,
+        "updated": 0,
+        "didUpdate": false
+    },
+    "startTime": 1744291724850,
+    "success": true,
+    "testResults": [
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "getWorkerIdFromEmail"
+                    ],
+                    "fullName": "getWorkerIdFromEmail gillichbalint@gmail.com to be WFZUQ5L3G7TbbTHoWRIc",
+                    "status": "passed",
+                    "title": "gillichbalint@gmail.com to be WFZUQ5L3G7TbbTHoWRIc",
+                    "duration": 466.4964,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1744291727509,
+            "endTime": 1744291727975.4963,
+            "status": "passed",
+            "message": "",
+            "name": "C:/Delete/marton_david_stefan_13A/project-frontend/src/tests/analytics_systemUtils.test.js"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [],
+                    "fullName": "renders without crashing",
+                    "status": "passed",
+                    "title": "renders without crashing",
+                    "duration": 85.35020000000009,
+                    "failureMessages": [],
+                    "meta": {}
+                },
+                {
+                    "ancestorTitles": [],
+                    "fullName": "renders NotFound page for unknown routes",
+                    "status": "passed",
+                    "title": "renders NotFound page for unknown routes",
+                    "duration": 5.819800000000214,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1744291726887,
+            "endTime": 1744291726978.8198,
+            "status": "passed",
+            "message": "",
+            "name": "C:/Delete/marton_david_stefan_13A/project-frontend/src/tests/App.test.jsx"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "getHRWorkers"
+                    ],
+                    "fullName": "getHRWorkers should return 3 HR workers",
+                    "status": "passed",
+                    "title": "should return 3 HR workers",
+                    "duration": 15.900900000000092,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1744291726131,
+            "endTime": 1744291726146.901,
+            "status": "passed",
+            "message": "",
+            "name": "C:/Delete/marton_david_stefan_13A/project-frontend/src/tests/crudUtil.test.js"
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "UserContext tests"
+                    ],
+                    "fullName": "UserContext tests should initialize user state as null",
+                    "status": "passed",
+                    "title": "should initialize user state as null",
+                    "duration": 13.388599999999997,
+                    "failureMessages": [],
+                    "meta": {}
+                },
+                {
+                    "ancestorTitles": [
+                        "UserContext tests"
+                    ],
+                    "fullName": "UserContext tests should set user state when onAuthStateChanged fires",
+                    "status": "passed",
+                    "title": "should set user state when onAuthStateChanged fires",
+                    "duration": 185.26689999999985,
+                    "failureMessages": [],
+                    "meta": {}
+                },
+                {
+                    "ancestorTitles": [
+                        "UserContext tests"
+                    ],
+                    "fullName": "UserContext tests should call signInWithEmailAndPassword and update state",
+                    "status": "passed",
+                    "title": "should call signInWithEmailAndPassword and update state",
+                    "duration": 14.52949999999987,
+                    "failureMessages": [],
+                    "meta": {}
+                },
+                {
+                    "ancestorTitles": [
+                        "UserContext tests"
+                    ],
+                    "fullName": "UserContext tests should call signOut and reset user state",
+                    "status": "passed",
+                    "title": "should call signOut and reset user state",
+                    "duration": 16.200700000000097,
+                    "failureMessages": [],
+                    "meta": {}
+                }
+            ],
+            "startTime": 1744291726653,
+            "endTime": 1744291726883.2007,
+            "status": "passed",
+            "message": "",
+            "name": "C:/Delete/marton_david_stefan_13A/project-frontend/src/tests/UserContext.test.jsx"
+        }
+    ]
+}
+
