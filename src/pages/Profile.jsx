@@ -26,8 +26,6 @@ export const Profile = () => {
     })();
   }, [user]);
 
-  console.log(workerId);
-
   const {
     register,
     handleSubmit,
@@ -42,15 +40,19 @@ export const Profile = () => {
 
   const onSubmit = async (data) => {
     try {
+      const toastId = toast.loading("Updating profile...") // Loading toast
+
       const file = data?.file ? data?.file[0] : null;
       const { url, id } = file ? await uploadImage(file) : null;
       const workerid = await getWorkerIdFromEmail(user?.email);
       await updateWorkerPhoto(workerid, url);
-      updateUser(data.displayName, url + "/" + id);
+
+      await updateUser(data.displayName, url + "/" + id);
+
+      toast.dismiss(toastId)
       setTimeout(() => navigate("/"), 1500);
     } catch (error) {
       console.log(error);
-      toast.error(error.message);
     }
   };
 
