@@ -1,11 +1,11 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { Form } from "react-router-dom";
 import { addApplicant } from "../utils/applicant_Utils";
 import { toast } from "sonner";
 
-export const Authentication = ({ role }) => {
+export const Authentication = () => {
   const { user, signInUser, signUpUser } = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -13,14 +13,14 @@ export const Authentication = ({ role }) => {
   const isSignedIn = location.pathname == "/signin"; //ha egyenlő, true értéket fog kapni
 
   const handleSubmit = async (event) => {
-    event.preventDefault
-    const data = new FormData(event.currentTarget)
+    event.preventDefault;
+    const data = new FormData(event.currentTarget);
     if (data.get("password").length < 6) {
-      toast.warning(`A password length of ${data.get('password').length} is not accepted!`)
-      console.log(data.get('password').length);
-      return
-    }
-    else {
+      toast.warning(
+        `A password length of ${data.get("password").length} is not accepted!`
+      );
+      return;
+    } else {
       if (isSignedIn) {
         signInUser(data.get("e-mail"), data.get("password"));
         setTimeout(() => navigate("/"), 2000);
@@ -37,51 +37,57 @@ export const Authentication = ({ role }) => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-950 text-center pt-20">
-      <div className="w-full max-w-xs flex-auto">
+    <div className="flex justify-center items-center h-screen bg-gray-950 text-center pt-20 flex-col md:flex-row gap-10">
+      <div className="flex flex-col items-center justify-center">
+        <h2 className="text-center text-4xl font-extrabold text-white">
+          {isSignedIn ? "Sign in to WorkLinker" : "Join WorkLinker"}
+        </h2>
+
+        <p className="mt-2 text-center text-sm text-gray-300">
+          {isSignedIn
+            ? "Sign in to access your career opportunities"
+            : "Create your account and take the next step in your career"}
+        </p>
+      </div>
+      <div className="w-full max-w-sm flex-auto ">
         <Form
-          className="bg-gray-800 shadow-md shadow-gray-900/50 hover:shadow-xl hover:shadow-gray-900/70 transition-shadow rounded-2xl px-8 pt-8 pb-8 mb-4"
+          className="bg-gray-800 border border-transparent hover:border-gray-400 text-primary-content transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50 rounded-2xl px-8 pt-8 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
-          {/* Title - changes with role */}
-          <h1 className="font-bold mb-6 text-white text-xl">{role}</h1>
-
-          {/* Email field */}
           <div className="mb-6">
             <label
               className="block text-white text-sm font-bold mb-3 text-left"
               htmlFor="e-mail"
             >
-              E-mail
+              E-mail address
             </label>
             <input
               className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc]"
               name="e-mail"
               type="email"
-              placeholder="E-mail"
-              id="email"
+              placeholder="johndoe@example.com"
+              id="e-mail"
             />
           </div>
 
-          {/* Conditional name field */}
           {!isSignedIn && (
             <div className="mb-6">
               <label
                 className="block text-white text-sm font-bold mb-3 text-left"
                 htmlFor="displayName"
               >
-                Name
+                Your name
               </label>
               <input
                 className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc]"
                 name="displayName"
                 type="text"
-                placeholder="Your name"
+                placeholder="John Doe"
+                id="displayName"
               />
             </div>
           )}
 
-          {/* Password field */}
           <div className="mb-6">
             <label
               className="block text-white text-sm font-bold mb-3 text-left"
@@ -93,16 +99,15 @@ export const Authentication = ({ role }) => {
               className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc]"
               name="password"
               type="password"
-              placeholder="******"
+              placeholder="°°°°°°"
+              id="password"
               onChange={(e) => console.log(e.target.value)}
+              required
+              autoComplete={isSignedIn ? "current-password" : "new-password"}
             />
           </div>
 
-          {/* Forgot password */}
-
-          {!isSignedIn ? (
-            <></>
-          ) : (
+          {isSignedIn && (
             <div className="mt-4 mb-6">
               <a
                 className="inline-block text-base font-normal text-[#5a28cc] hover:underline hover:underline-offset-4 transition-all"
@@ -113,18 +118,40 @@ export const Authentication = ({ role }) => {
             </div>
           )}
 
-          {/* Submit button */}
           <div className="mb-4">
             <button
               className="w-full cursor-pointer rounded-lg border-2 border-solid border-[#5a28cc] bg-[#5a28cc] px-8 py-3 text-base font-medium text-white hover:bg-neutral-100 hover:text-[#5a28cc] transition-all duration-300"
               type="submit"
             >
-              {isSignedIn ? "Sign in" : "Apply"}
+              {isSignedIn ? "Sign in" : "Get started"}
             </button>
+          </div>
+          <div className="mt-6">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-600"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-2 bg-gray-800/50 text-gray-400">
+                  {isSignedIn
+                    ? "New to WorkLinker?"
+                    : "Already have an account?"}
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-4">
+              <button
+                type="button"
+                onClick={() => navigate(isSignedIn ? "/apply" : "/signin")}
+                className="w-full flex justify-center py-2 px-4 border border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors duration-200"
+              >
+                {isSignedIn ? "Create your account" : "Sign in instead"}
+              </button>
+            </div>
           </div>
         </Form>
 
-        {/* Footer */}
         <p
           className="text-center text-gray-400 text-xs mt-4 cursor-pointer hover:text-gray-300 transition-colors"
           onClick={() => navigate("/hrcontact")}

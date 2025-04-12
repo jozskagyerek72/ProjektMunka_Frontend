@@ -79,7 +79,7 @@ export const Profile = () => {
         <h1 className="text-3xl wlh12 font-bold m-0 md:m-17">Profile</h1>
       </div>
 
-      <div className="card md:card-side bg-gray-700 text-white border-2 border-gray-300 shadow-xl w-3xs md:w-auto">
+      <div className="card md:card-side bg-gray-700 border border-transparent hover:border-gray-400 text-primary-content transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50 w-3xs md:w-auto">
         <figure className="w-full md:w-48 border-2 border-black flex-shrink-0 max-h-[50vh] overflow-hidden">
           <img
             src={avatar || "../public/blankpeople.jpg"}

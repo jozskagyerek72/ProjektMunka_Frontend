@@ -11,14 +11,14 @@ export const HRcontacts = () => {
         <h1 className="text-3xl mt-17 wlh12 font-bold">Our team</h1>
       </div>
 
-      <div className="flex flex-col justify-center items-center bg-base-100 p-4 md:p-10 gap-5 rounded-xl mx-5">
+      <div className="flex flex-col justify-center items-center bg-base-100 p-4 md:p-10 gap-5 rounded-xl mx-5 shadow-md shadow-gray-900/50 hover:shadow-xl hover:shadow-gray-900/70 transition-shadow">
         <img
           src="public\OT.jpg"
           alt="our team"
-          className="rounded-xl border-2 border-white w-full max-w-2xl"
+          className="rounded-xl border border-transparent hover:border-gray-400 text-primary-content transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50 w-full max-w-2xl"
         />
         <div className="flex flex-col justify-center items-center gap-5 w-full">
-          <h1 className="font-bold text-3xl md:text-4xl text-center">
+          <h1 className="font-bold text-4xl md:text-4xl text-center">
             About us
           </h1>
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-evenly w-full gap-6 md:gap-2">
@@ -26,7 +26,7 @@ export const HRcontacts = () => {
               hrContacts.map((hr) => (
                 <div
                   key={hr.id}
-                  className="flex justify-center w-auto bg-base-200 p-5 rounded-xl border-2 border-white"
+                  className="flex justify-center min-w-sm bg-base-200 p-5 rounded-xl border border-transparent hover:border-gray-400 text-primary-content transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50"
                 >
                   <ul className="list-disc space-y-2 pl-5 text-sm md:text-base">
                     <li>
