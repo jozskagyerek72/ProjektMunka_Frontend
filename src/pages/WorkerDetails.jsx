@@ -2,7 +2,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { changeWorkerActiveStatus, readSingleWorker } from "../utils/crudUtil";
+import {
+  changeWorkerActiveStatus,
+  checkAdmin,
+  readSingleWorker,
+} from "../utils/crudUtil";
 
 import { getWorkersShiftsFromId } from "../utils/analytics_systemUtils";
 
@@ -12,11 +16,22 @@ export const WorkerDetails = () => {
   const { id } = useParams();
   const [worker, setWorker] = useState(null);
   const [shifts, setShifts] = useState(null);
+  const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
     readSingleWorker(id, setWorker);
     getWorkersShiftsFromId(id, setShifts);
-  }, []);
+  }, [id]);
+
+  useEffect(() => {
+    const checkAdminStatus = async () => {
+      if (worker?.email) {
+        setAdmin(await checkAdmin(worker.email));
+        console.log("Admin status:", admin, "for email:", worker.email);
+      }
+    };
+    checkAdminStatus();
+  }, [worker]);
 
   const handleWorkerStatusChange = async () => {
     try {
@@ -50,7 +65,7 @@ export const WorkerDetails = () => {
         <div className="hero bg-gray-950">
           <div
             key={worker.id}
-            className="hero-content bg-gray-700 shadow-md shadow-gray-600 rounded-xl flex-col lg:flex-row"
+            className="hero-content bg-gray-700 rounded-xl flex-col lg:flex-row hover:scale-[1.01] transition-all duration-300 hover:shadow-lg hover:shadow-gray-800/50"
           >
             <div className="flex justify-center items-center w-60">
               <img
@@ -59,47 +74,57 @@ export const WorkerDetails = () => {
                     ? worker.imageURL
                     : "../public/blankpeople.jpg"
                 }
-                className="w-full rounded-full shadow-2xl object-cover"
+                className="w-full rounded-full shadow-2xl object-cover hover:scale-[1.02] transition-all duration-300"
               />
             </div>
-            <div className="flex flex-col flex-wrap gap-10">
-              <div className="grid lg:grid-cols-2 lg:grid-rows-2 grid-rows-1 gap-5">
-                <h2 className="text-4xl ml-5 text-white font-bold">
-                  {worker && worker.name}
-                </h2>
-                <div></div>
-                <div className="badge m-1 w-full badge-success font-bold text-black hover:border-white border-1">
-                  Status:{" "}
-                  <span className="font-bold text-white">
-                    {worker && worker.status.toUpperCase()}
-                  </span>
+
+            <div className="flex flex-col flex-wrap gap-5 justify-center items-center">
+              <div className="flex flex-col md:flex-row items-end gap-10 text-center">
+                <div className="flex flex-col gap-3 w-full">
+                  <h2 className="text-4xl text-white font-bold underline">
+                    {worker && worker.name}
+                  </h2>
+                  <div className="badge m-1 flex justify-center items-center badge-success w-full font-bold text-black hover:border-green-300 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50 border-1">
+                    Status:
+                    <span className="font-bold text-white">
+                      {worker && worker.status.toUpperCase()}
+                    </span>
+                  </div>
+                  <div className="badge m-1 flex justify-center items-center badge-success w-full font-bold text-black hover:border-green-300 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50 border-1">
+                    Position:{" "}
+                    <span className="font-bold text-white">
+                      {admin ? "HR" : "worker"}
+                    </span>
+                  </div>
                 </div>
-                <div className="badge m-1 w-full  badge-success font-bold text-black hover:border-white border-1">
-                  Field:{" "}
-                  <span className="font-bold text-white">
-                    {worker && worker.field.toUpperCase()}
-                  </span>
-                </div>
-                <div className="badge badge-success w-full m-1  font-bold text-black  hover:border-white border-1 ">
-                  Hourly pay:{" "}
-                  <span className="font-bold text-white">
-                    {worker && worker.hourlypay}Ft
-                  </span>
-                </div>
-                <div className="badge m-1 badge-success w-full  font-bold text-black hover:border-white border-1 ">
-                  Contact:
-                  <span className="font-bold text-white">
-                    {worker && worker.email}
-                  </span>
+                <div className="flex flex-col gap-3 w-full">
+                  <div className="badge m-1 flex justify-center items-center badge-success w-full font-bold text-black hover:border-green-300 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50 border-1">
+                    Field:
+                    <span className="font-bold text-white">
+                      {worker && worker.field.toUpperCase()}
+                    </span>
+                  </div>
+                  <div className="badge m-1 flex justify-center items-center badge-success w-full font-bold text-black hover:border-green-300 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50 border-1">
+                    Hourly pay:
+                    <span className="font-bold text-white">
+                      {worker && worker.hourlypay}Ft
+                    </span>
+                  </div>
+                  <div className="badge m-1 flex justify-center items-center badge-success w-full font-bold text-black hover:border-green-300 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50 border-1">
+                    Contact:
+                    <span className="font-bold text-white">
+                      {worker && worker.email}
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className="m-auto">
+              <div>
                 <button
                   onClick={handleWorkerStatusChange}
                   className={
                     worker.status == "active"
-                      ? "bg-warning btn btn-xs sm:btn-sm md:btn-md hover:bg-amber-300 font-bold hover:border-2 w-40  hover:border-white lg:btn-md xl:btn-md"
-                      : "bg-success btn btn-xs sm:btn-sm md:btn-md hover:bg-green-300 font-bold hover:border-2 w-40  hover:border-white lg:btn-md xl:btn-md"
+                      ? "bg-error btn btn-md md:btn-lg py-2 w-50 hover:bg-red-400 font-bold hover:border-1  hover:border-red-500 rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50"
+                      : "bg-success btn btn-md md:btn-lg py-2 w-50 hover:bg-green-400 font-bold hover:border-1  hover:border-green-500 rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50"
                   }
                 >
                   {worker.status == "active"
@@ -108,6 +133,7 @@ export const WorkerDetails = () => {
                 </button>
               </div>
             </div>
+            <div className="m-auto"></div>
           </div>
         </div>
       )}
@@ -126,15 +152,17 @@ export const WorkerDetails = () => {
               Shifts table: 'N/A' means the shift has not ended yet
             </caption>
             <thead>
-              <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
-                Shift start
-              </th>
-              <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
-                Shift duration
-              </th>
-              <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
-                Earned wage
-              </th>
+              <tr>
+                <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
+                  Shift start
+                </th>
+                <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
+                  Shift duration
+                </th>
+                <th className="border border-b-gray-600 border-x-0 border-t-0 text-sm md:text-xl py-2 px-2">
+                  Earned wage
+                </th>
+              </tr>
             </thead>
             <tbody>
               {shifts &&
@@ -152,7 +180,7 @@ export const WorkerDetails = () => {
                           {Math.round(shift.duration * 100) / 100} hours
                         </td>
                         <td className="p-4 font-bold text-emerald-500">
-                          +{" "}
+                          +
                           {(
                             Math.round(
                               shift.duration * worker.hourlypay * 100

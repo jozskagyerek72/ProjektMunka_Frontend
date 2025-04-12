@@ -86,13 +86,7 @@ export const checkAdmin = async (hrEmail) => {
   const q = query(collectionRef, where("email", "==", hrEmail));
 
   const docs = await getDocs(q)
-
-  let hrExists = false
-  docs.forEach((doc)=> {
-    if(doc.data() == null) hrExists = false;
-    else hrExists = true;
-  })
-  return hrExists
+  return !docs.empty
 }
 
 export const readShifts = (setShifts) => {
