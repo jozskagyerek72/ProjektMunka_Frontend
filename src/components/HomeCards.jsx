@@ -6,6 +6,7 @@ export const HomeCards = () => {
 
   const cards = [
     {
+      id: 1,
       title: "HR portal",
       description: "Manage workers and applicants",
       btnText: "HR login",
@@ -13,6 +14,7 @@ export const HomeCards = () => {
       navigateTo: "/signin",
     },
     {
+      id: 2,
       title: "Worker portal",
       description: "Analyze your statistics",
       btnText: "Worker login",
@@ -20,6 +22,7 @@ export const HomeCards = () => {
       navigateTo: "/signin",
     },
     {
+      id: 3,
       title: "Apply",
       description: "Join WorkLinker",
       btnText: "Join",

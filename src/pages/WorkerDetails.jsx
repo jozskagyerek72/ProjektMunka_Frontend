@@ -27,7 +27,7 @@ export const WorkerDetails = () => {
     const checkAdminStatus = async () => {
       if (worker?.email) {
         setAdmin(await checkAdmin(worker.email));
-        console.log("Admin status:", admin, "for email:", worker.email);
+        //console.log("Admin status:", admin, "for email:", worker.email);
       }
     };
     checkAdminStatus();
