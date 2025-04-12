@@ -16,7 +16,6 @@ export const Shifts = () => {
   }, []);
 
   const handleSearch = () => {
-    a;
     if (!search.trim()) {
       readShifts(setShifts);
       toast.info("Showing all shifts");
