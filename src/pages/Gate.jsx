@@ -5,17 +5,17 @@ import { UserContext } from "../context/UserContext";
 import { getWorkerIdFromEmail } from "../utils/analytics_systemUtils";
 export const Gate = () => {
   const [worker, setWorker] = useState(null);
-  const [useremail, setUserEmail] = useState(null)
   const { user } = useContext(UserContext);
- 
-  useEffect( ()=>{
-      const load = async ()=>
-      {
-        user?.email&& setUserEmail(user?.email)
-        readSingleWorker(await getWorkerIdFromEmail(user?.email), setWorker)
+
+  useEffect(() => {
+    const loadWorker = async () => {
+      if (user?.email) {
+        const workerId = await getWorkerIdFromEmail(user.email);
+        await readSingleWorker(workerId, setWorker);
       }
-      load()
-  },[user])
+    };
+    loadWorker();
+  }, [user]);
   
 
   return (
