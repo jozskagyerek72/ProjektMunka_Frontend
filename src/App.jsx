@@ -12,7 +12,6 @@ import { Authentication } from "./pages/Authentication";
 import { Backendtests } from "./utils/Backendtests";
 import { PasswordReset } from "./pages/PasswordReset";
 import { Contact } from "./pages/Contact";
-import { useState } from "react";
 import { Shifts } from "./pages/Shifts";
 import { HRcontacts } from "./pages/HRcontacts";
 import { Toaster } from "sonner";
@@ -20,26 +19,25 @@ import { Schema } from "./pages/Schema";
 import { TestResults } from "./pages/TestResults";
 
 function App() {
-  const [role, setRole] = useState("");
 
   const router = createBrowserRouter(
     [
       {
         element: (
           <div>
-            <Header setRole={setRole} />
+            <Header/>
             <Outlet />
             <Footer />
           </div>
         ),
         children: [
-          { path: "/", element: <Home setRole={setRole} /> },
+          { path: "/", element: <Home/> },
           { path: "/profile", element: <Profile /> },
           {
             path: "/signin",
-            element: <Authentication role={role} />,
+            element: <Authentication/>,
           },
-          { path: "/apply", element: <Authentication role={role} /> },
+          { path: "/apply", element: <Authentication/> },
           { path: "/resetpassword", element: <PasswordReset /> },
           { path: "/contact", element: <Contact /> },
 
