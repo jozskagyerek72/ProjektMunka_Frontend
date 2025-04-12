@@ -13,7 +13,7 @@ export const Home = () => {
         <p className="wlp text-3xl">
           <button
             onClick={() => navigate("/hrcontact")}
-            className="hover:text-purple-400 transition-colors"
+            
           >
             Building teams - Nurturing growth - Inspiring success.
           </button>
