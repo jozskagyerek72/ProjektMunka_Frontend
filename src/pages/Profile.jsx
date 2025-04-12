@@ -19,11 +19,12 @@ export const Profile = () => {
 
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
-    (async () => {
+    const loadWorker = async()=> {
       const worker_id = await getWorkerIdFromEmail(user?.email);
       await readSingleWorker(worker_id, setWorker);
       setWorkerId(worker_id);
-    })();
+    }
+    loadWorker()
   }, [user]);
 
   const {

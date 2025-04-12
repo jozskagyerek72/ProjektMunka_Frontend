@@ -20,7 +20,7 @@ export const HomeCards = () => {
           <p>Manage workers and applicants</p>
           <div className="card-actions justify-end mt-auto">
             <button
-              className="btn btn-primary"
+              className="btn btn-primary hover:scale-[1.03] duration-300 transition-all hover:border-primary-content"
               onClick={() => navigate("/signin")}
             >
               HR Login
@@ -43,7 +43,7 @@ export const HomeCards = () => {
           <p>Examine your statistics</p>
           <div className="card-actions justify-end mt-auto">
             <button
-              className="btn btn-primary"
+              className="btn btn-primary hover:scale-[1.03] duration-300 transition-all hover:border-primary-content"
               onClick={() => navigate("/signin")}
             >
               Worker sign in
@@ -66,7 +66,7 @@ export const HomeCards = () => {
           <p>Join WorkLinker</p>
           <div className="card-actions justify-end mt-auto">
             <button
-              className="btn btn-primary"
+              className="btn btn-primary hover:scale-[1.03] duration-300 transition-all hover:border-primary-content"
               onClick={() => navigate("/apply")}
             >
               Apply

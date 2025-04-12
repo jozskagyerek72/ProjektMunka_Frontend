@@ -63,13 +63,13 @@ export const Shifts = () => {
             >
               {shift.end ? (
                 <div className="flex justify-center">
-                  <div className="light text-white font-bold p-1 text-center bg-red-500 w-35 rounded-b-xl">
+                  <div className="light text-white font-bold p-1 text-center bg-red-500 w-35 rounded-b-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-red-800/50">
                     Finished
                   </div>
                 </div>
               ) : (
                 <div className="flex justify-center">
-                  <div className="light text-white font-bold p-1 text-center bg-green-500 w-35 rounded-b-xl">
+                  <div className="light text-white font-bold p-1 text-center bg-green-500 w-35 rounded-b-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-green-800/50">
                     Active
                   </div>
                 </div>
@@ -78,22 +78,22 @@ export const Shifts = () => {
                 <h1 className="font-bold">Shift statistics</h1>
               </div>
               <div className="card-body py-4 px-5 flex flex-col justify-center items-start">
-                <div className="flex flex-col items-center justify-center w-full bg-gray-600 rounded-xl py-3">
+                <div className="flex flex-col items-center justify-center w-full bg-gray-600 rounded-xl py-3 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50">
                   <h2>Name</h2>
                   <h2 className="font-xl font-semibold">{shift.name}</h2>
                 </div>
-                <div className="flex flex-col items-center justify-center w-full bg-gray-600 rounded-xl py-3">
+                <div className="flex flex-col items-center justify-center w-full bg-gray-600 rounded-xl py-3 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50">
                   <h2>ID</h2>
                   <h2 className="font-xl font-semibold">{shift.id}</h2>
                 </div>
-                <div className="flex flex-col items-center justify-center w-full bg-gray-600 rounded-xl py-3">
+                <div className="flex flex-col items-center justify-center w-full bg-gray-600 rounded-xl py-3 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50">
                   <h2>Shift start</h2>
                   <h2 className="font-xl font-semibold">
                     {shift.start &&
                       new Date(shift.start.seconds * 1000).toLocaleString()}
                   </h2>
                 </div>
-                <div className="flex flex-col items-center justify-center w-full bg-gray-600 rounded-xl py-3">
+                <div className="flex flex-col items-center justify-center w-full bg-gray-600 rounded-xl py-3 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50">
                   <h2>Shift end</h2>
                   <h2 className="font-xl font-semibold">
                     {shift.end
@@ -101,7 +101,7 @@ export const Shifts = () => {
                       : "N/A"}
                   </h2>
                 </div>
-                <div className="flex flex-col items-center justify-center w-full bg-gray-600 rounded-xl py-3">
+                <div className="flex flex-col items-center justify-center w-full bg-gray-600 rounded-xl py-3 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50">
                   <h2>Shift duration</h2>
                   <h2 className="font-xl font-semibold">
                     {shift.duration
