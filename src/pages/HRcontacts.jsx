@@ -13,7 +13,7 @@ export const HRcontacts = () => {
 
       <div className="flex flex-col justify-center items-center bg-base-100 p-4 md:p-10 gap-5 rounded-xl mx-5 shadow-md shadow-gray-900/50 hover:shadow-xl hover:shadow-gray-900/70 transition-shadow">
         <img
-          src="public\OT.jpg"
+          src="https://res.cloudinary.com/gb-cloud-blog/image/upload/v1744652272/OT_rzd4tf.jpg"
           alt="our team"
           className="rounded-xl border border-transparent hover:border-gray-400 text-primary-content transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50 w-full max-w-2xl"
         />

@@ -41,7 +41,7 @@ export const Workers = () => {
                       src={
                         worker.imageURL != "NaN"
                           ? worker.imageURL
-                          : "../public/blankpeople.jpg"
+                          : "https://res.cloudinary.com/gb-cloud-blog/image/upload/v1744652230/blankpeople_cqxuea.jpg"
                       }
                       className={`w-16 h-16 rounded-full border-2 object-cover ${
                         worker.status === "active"

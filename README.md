@@ -22,7 +22,7 @@ Manual work-hour tracking is prone to inaccuracies, data loss, and delays in pay
 ### **HR Module**  
 - Activate/deactivate workers.  
 - View all employees and their analytics.  
-- Choosable database schemas are accessible to admins
+- Choosable database schemas and the tests page are accessible to admins
 
 ### **Cloud & Security**  
 - Real-time cloud storage for accessibility.  

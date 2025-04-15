@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer className="footer bg-gray-800 text-white-content py-5">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center px-4 md:gap-20">
         <aside className="flex flex-col items-center md:items-start mb-4 md:mb-0">
-          <img src="./public/WL(good).png" height="50" width="50" className="rounded-full"/>
+          <img src="https://res.cloudinary.com/gb-cloud-blog/image/upload/v1744277989/vfrhwwec5urerfuy5ew1.png" height="50" width="50" className="rounded-full"/>
           <p className="font-bold text-center md:text-left mt-2">
             WorkLinker inc.
             <br />
@@ -27,7 +27,7 @@ export const Footer = () => {
             className="inline-block"
           >
             <img
-              src="./public/github-mark-white.svg"
+              src="https://res.cloudinary.com/gb-cloud-blog/image/upload/v1744737445/25231_hhmhmk.png"
               alt="GitHub svg"
               width="24"
               height="24"
