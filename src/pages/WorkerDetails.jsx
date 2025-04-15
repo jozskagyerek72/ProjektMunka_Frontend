@@ -72,7 +72,7 @@ export const WorkerDetails = () => {
                 src={
                   worker.imageURL != "NaN"
                     ? worker.imageURL
-                    : "../public/blankpeople.jpg"
+                    : "https://res.cloudinary.com/gb-cloud-blog/image/upload/v1744652230/blankpeople_cqxuea.jpg"
                 }
                 className="w-full rounded-full shadow-2xl object-cover hover:scale-[1.02] transition-all duration-300"
               />
