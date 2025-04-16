@@ -103,7 +103,7 @@ export const Profile = () => {
                   {...register("displayName")}
                   type="text"
                   placeholder="Enter your name"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-gray-500"
                 />
               </div>
 

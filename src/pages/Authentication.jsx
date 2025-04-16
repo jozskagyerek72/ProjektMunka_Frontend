@@ -64,7 +64,7 @@ export const Authentication = () => {
                 E-mail address
               </label>
               <input
-                className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc]"
+                className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc] text-black"
                 name="e-mail"
                 type="email"
                 placeholder="johndoe@example.com"
@@ -81,7 +81,7 @@ export const Authentication = () => {
                   Your name
                 </label>
                 <input
-                  className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc]"
+                  className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc] text-black"
                   name="displayName"
                   type="text"
                   placeholder="John Doe"
@@ -98,7 +98,7 @@ export const Authentication = () => {
                 Password
               </label>
               <input
-                className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc]"
+                className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc] text-black"
                 name="password"
                 type="password"
                 placeholder="°°°°°°"
