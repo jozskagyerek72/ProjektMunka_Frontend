@@ -55,11 +55,11 @@ export const Analytics = () => {
         </div>
 
         <div className="stat p-4 rounded-lg flex-col justify-between bg-gray-700 border border-gray-700 hover:border-gray-400 transition-all duration-300 hover:scale-[1.02]">
-          <div className="stat-title text-white text-xl">This equals to</div>
+          <div className="stat-title text-white text-xl">You have worked</div>
           <div className="stat-value text-secondary">
             {shifts ? shifts.length : "0"}
           </div>
-          <div className="stat-desc text-white text-xl">successful shifts</div>
+          <div className="stat-desc text-white text-xl">successful shifts so far</div>
         </div>
 
         <div className="stat flex rounded-full justify-center items-center p-2 bg-gray-700 border border-gray-700 hover:border-gray-400 transition-all duration-300 hover:scale-[1.02]">
@@ -74,7 +74,7 @@ export const Analytics = () => {
           <div className="stat-title flex text-white text-xl">
             The sum of your wage is
           </div>
-          <div className="stat-value">
+          <div className="stat-value text-white">
             {payment
               ? ((Math.round(payment) / 100) * 100).toLocaleString("en-US", {
                   style: "currency",
