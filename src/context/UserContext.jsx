@@ -82,11 +82,14 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const updateUser = async (updates) => {
+  const updateUser = async (displayName, photoURL) => {
     try {
-      if (!auth.currentUser) throw new Error("No user logged in");
-      await updateProfile(auth.currentUser, updates);
-      toast.success("Profile updated!");
+      if (displayName && photoURL)
+        await updateProfile(auth.currentUser, { displayName, photoURL });
+      else if (displayName)
+        await updateProfile(auth.currentUser, { displayName });
+      else if (photoURL) await updateProfile(auth.currentUser, { photoURL });
+      toast.success("Profile successfully updated!");
     } catch (error) {
       handleAuthError(error);
     }
