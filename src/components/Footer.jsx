@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <footer className="footer bg-gray-800 text-white-content py-5">
+    <footer className="footer bg-gray-800 text-white-content py-5 text-white">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center px-4 md:gap-20">
         <aside className="flex flex-col items-center md:items-start mb-4 md:mb-0">
           <img src="https://res.cloudinary.com/gb-cloud-blog/image/upload/v1744277989/vfrhwwec5urerfuy5ew1.png" height="50" width="50" className="rounded-full"/>

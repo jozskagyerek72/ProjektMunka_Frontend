@@ -11,7 +11,7 @@ export const HRcontacts = () => {
         <h1 className="text-3xl mt-17 wlh12 font-bold">Our team</h1>
       </div>
 
-      <div className="flex flex-col justify-center items-center bg-base-100 p-4 md:p-10 gap-5 rounded-xl mx-5 shadow-md shadow-gray-900/50 hover:shadow-xl hover:shadow-gray-900/70 transition-shadow">
+      <div className="flex bg-gray-800 flex-col justify-center items-center p-4 md:p-10 gap-5 rounded-xl mx-5 shadow-md shadow-gray-900/50 hover:shadow-xl hover:shadow-gray-900/70 transition-shadow">
         <img
           src="https://res.cloudinary.com/gb-cloud-blog/image/upload/v1744652272/OT_rzd4tf.jpg"
           alt="our team"
@@ -26,7 +26,7 @@ export const HRcontacts = () => {
               hrContacts.map((hr) => (
                 <div
                   key={hr.id}
-                  className="flex justify-center min-w-sm bg-base-200 p-5 rounded-xl border border-transparent hover:border-gray-400 text-primary-content transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50"
+                  className="flex justify-center bg-gray-600 min-w-sm  p-5 rounded-xl border border-transparent hover:border-gray-400 text-primary-content transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50"
                 >
                   <ul className="list-disc space-y-2 pl-5 text-sm md:text-base">
                     <li>

@@ -43,11 +43,11 @@ export const Shifts = () => {
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           placeholder="Search a name"
-          className="input input-primary"
+          className="input input-primary bg-gray-700 text-white"
         />
         <button
           onClick={() => handleSearch()}
-          className="btn btn-square ml-1 border-primary border-2"
+          className="btn btn-square bg-gray-700 text-white ml-1 border-primary border-2"
         >
           <img src="./search.png" />
         </button>
