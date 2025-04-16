@@ -33,7 +33,7 @@ export const PasswordReset = () => {
               Enter your e-mail address
             </label>
             <input
-              className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc]"
+              className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc] text-black"
               name="e-mail"
               type="text"
               placeholder="johndoe@example.com"

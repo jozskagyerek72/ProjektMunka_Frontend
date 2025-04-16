@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { extractUrlAndId } from "../utils/utilities";
 import { useNavigate } from "react-router-dom";
 
-export const Header = ({ setRole }) => {
+export const Header = () => {
   const { user, signOutUser, admin } = useContext(UserContext);
   const [avatar, setAvatar] = useState(null);
   const navigate = useNavigate();
@@ -148,7 +148,6 @@ export const Header = ({ setRole }) => {
                       <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
                         <a onClick={() => navigate("/analytics")}>Analytics</a>
                       </li>
-
                       <li className="text-white bg-gray-800 hover:bg-gray-600 rounded-md mt-0.5 mb-0.5">
                         <a onClick={() => navigate("/gate")}>Gates</a>
                       </li>
