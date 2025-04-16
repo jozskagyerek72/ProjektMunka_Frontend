@@ -8,6 +8,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { getWorkerIdFromEmail } from "../utils/analytics_systemUtils";
 import { readSingleWorker, updateWorkerPhoto } from "../utils/crudUtil";
+import { toast } from "sonner";
 
 export const Profile = () => {
   const { user, updateUser } = useContext(UserContext);
@@ -15,20 +16,17 @@ export const Profile = () => {
   const [workerId, setWorkerId] = useState("");
   const [worker, setWorker] = useState([]);
   const navigate = useNavigate();
-  
-  
+
   useEffect(() => {
     user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url);
-    (async () => {
-      const worker_id = await(getWorkerIdFromEmail(user?.email))
-      await readSingleWorker(worker_id, setWorker)
-      await setWorkerId(worker_id);
-    })()
+    const loadWorker = async()=> {
+      const worker_id = await getWorkerIdFromEmail(user?.email);
+      await readSingleWorker(worker_id, setWorker);
+      setWorkerId(worker_id);
+    }
+    loadWorker()
   }, [user]);
 
-  console.log(workerId);
-  
-  
   const {
     register,
     handleSubmit,
@@ -43,11 +41,16 @@ export const Profile = () => {
 
   const onSubmit = async (data) => {
     try {
+      const toastId = toast.loading("Updating profile...") // Loading toast
+
       const file = data?.file ? data?.file[0] : null;
       const { url, id } = file ? await uploadImage(file) : null;
       const workerid = await getWorkerIdFromEmail(user?.email);
       await updateWorkerPhoto(workerid, url);
-      updateUser(data.displayName, url + "/" + id);
+
+      await updateUser(data.displayName, url + "/" + id);
+
+      toast.dismiss(toastId)
       setTimeout(() => navigate("/"), 1500);
     } catch (error) {
       console.log(error);
@@ -61,42 +64,34 @@ export const Profile = () => {
     const fileExtension = value[0].name.split(".").pop().toLowerCase();
 
     if (!acceptedFormats.includes(fileExtension)) {
-      return "Only JPG/PNG files allowed";
+      toast.error("Only JPG/PNG files allowed");
+      return false;
     }
 
     if (value[0].size > 1 * 1024 * 1024) {
-      return "File size must be less than 1MB";
+      toast.error("File size must be less than 1MB");
+      return false;
     }
 
     return true;
   }
 
   return (
-    <div className="bg-gray-950 min-h-screen flex items-center justify-center p-4">
-      <div className="card card-side bg-gray-700 text-white border-2 border-gray-300 shadow-xl max-w-3xl">
-        {/* Avatar section */}
-        {avatar ? (
-          <figure className="w-48 border-2 border-black flex-shrink-0">
-            <img
-              src={avatar}
-              alt="Profile"
-              className="w-full h-full object-cover"
-            />
-          </figure>
-        ) : (
-          <figure className="w-48 border-2 border-black flex-shrink-0">
-            <img
-              src="../public/blankpeople.jpg"
-              alt="Profile"
-              className="w-full h-full object-cover"
-            />
-          </figure>
-        )}
+    <div className="bg-gray-950 min-h-screen flex flex-col items-center justify-center">
+      <div className="text-center justify-center flex flex-wrap mt-10">
+        <h1 className="text-3xl wlh12 font-bold m-0 md:m-17">Profile</h1>
+      </div>
 
-        {/* Form section */}
+      <div className="card md:card-side bg-gray-700 border border-transparent hover:border-gray-400 text-primary-content transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50 w-3xs md:w-auto">
+        <figure className="w-full md:w-48 border-2 border-black flex-shrink-0 max-h-[50vh] overflow-hidden">
+          <img
+            src={avatar || "../public/blankpeople.jpg"}
+            alt="Profile"
+            className="object-cover w-full h-full max-h-[50vh]"
+          />
+        </figure>
         <div className="card-body p-6">
           <Form onSubmit={handleSubmit(onSubmit)}>
-            {/* Profile info */}
             <div className="space-y-4">
               <h2 className="card-title text-2xl font-bold">Worker Profile</h2>
 
@@ -116,7 +111,6 @@ export const Profile = () => {
                 <h3 className="font-medium">
                   Worker ID:{" "}
                   <span className="font-normal">{workerId && workerId}</span>
-                  
                 </h3>
                 <p className=" text-white">
                   Job Title:{" "}
@@ -125,7 +119,6 @@ export const Profile = () => {
               </div>
             </div>
 
-            {/* File upload */}
             <div className="form-control mt-6">
               <label className="label">
                 <span className="label-text">Profile Picture</span>
@@ -140,20 +133,13 @@ export const Profile = () => {
                   e.target.files?.[0] &&
                   setAvatar(URL.createObjectURL(e.target.files[0]))
                 }
-                className="file-input file-input-bordered w-full"
+                className="file-input file-input-neutral"
               />
-              {errors.file && (
-                <p className="mt-2 text-sm text-error">{errors.file.message}</p>
-              )}
             </div>
 
-            {/* Submit button */}
             <div className="card-actions justify-end mt-8">
-              <button
-                className="btn btn-primary w-full sm:w-auto"
-                type="submit"
-              >
-                Save Changes
+              <button className="btn btn-soft btn-success w-full" type="submit">
+                Save changes
               </button>
             </div>
           </Form>

@@ -1,42 +1,30 @@
-//import {React} from 'react'
-import { HomePageCards } from "../components/HomePageCards";
-import { Change } from "../components/Change";
 import { useNavigate } from "react-router-dom";
+import { AboutUs } from "../components/AboutUs";
+import { QR } from "../components/QR";
+import { HomeCards } from "../components/HomeCards";
 
-export const Home = ({setRole}) => {
-
-  const navigate = useNavigate()
+export const Home = () => {
+  const navigate = useNavigate();
 
   return (
-    <div className="min-h-dvh bg-gray-950 flex flex-wrap justify-center items-center">
-      <div className="container flex flex-wrap flex-col justify-center items-center min-h-dvh w-full">
+    <div className="min-h-dvh bg-gray-950 flex flex-wrap justify-center items-center flex-col pt-20 pb-10 md:gap-20 gap-5">
+      <div>
         <h1 className="wlh1 p-2">WorkLinker</h1>
         <p className="wlp text-3xl">
-          <a onClick={()=>navigate('/hrcontact')}>Building teams - Nurturing growth - Inspiring success.</a>
+          <button
+            onClick={() => navigate("/hrcontact")}
+            
+          >
+            Building teams - Nurturing growth - Inspiring success.
+          </button>
         </p>
       </div>
-      <div className="flex flex-wrap w-full">
-        <HomePageCards setRole={setRole} />
-      </div>
 
-      <div className="grid lg:grid-cols-2 lg:grid-rows-1 grid-rows-2 justify-center items-center w-full pl-1.5 pr-1.5 gap-2.5">
-        <Change />
-        <div className="flex flex-wrap rounded-2xl justify-center items-center bg-gray-950 glass text-center">
-          <h2 className="text-4xl text-center text-white pt-10 gambetta">
-            How can I enter?
-          </h2>
-          <div className="player_wrapper sm:w-max flex object-contain flex-wrap m-10 p-1">
-            <video className="sm:w-max" controls={false} muted loop autoPlay>
-              <source src="./public/qr.mp4" type="video/mp4" />
-            </video>
-          </div>
+      <HomeCards />
 
-          <div className="flex flex-wrap">
-            <p className="text-center text-xl text-white mb-10 gambetta">
-              By using QR authentication, we provide an easy-to-use entry into your workplace.
-            </p>
-          </div>
-        </div>
+      <div className="flex justify-center flex-col lg:flex-row items-center gap-10 w-full px-5 lg:px-10">
+        <AboutUs />
+        <QR />
       </div>
     </div>
   );

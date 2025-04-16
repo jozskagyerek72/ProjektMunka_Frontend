@@ -15,24 +15,29 @@ export const PasswordReset = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-950">
-      <div className="w-full max-w-xs flex-auto">
+    <div className="flex justify-center items-center min-h-screen bg-gray-950 pb-10 gap-20 flex-col md:flex-row">
+      <h2 className="text-center text-4xl font-extrabold text-white">
+        Reset your password
+      </h2>
+
+      <div className="w-full max-w-sm">
         <Form
-          className="bg-gray-800 shadow-md px-8 pt-6 pb-8 mb-4 rounded-2xl"
+          className="bg-gray-800 border border-transparent hover:border-gray-400 text-primary-content transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-800/50 px-8 pt-6 pb-8 mb-4 rounded-2xl flex flex-col"
           onSubmit={handleSubmit}
         >
           <div className="mb-4">
             <label
-              className="block font-bold mb-6 text-white text-xl text-center"
+              className="block font-bold mb-6 text-white text-sm text-left"
               htmlFor="e-mail"
             >
-              Enter your e-mail
+              Enter your e-mail address
             </label>
             <input
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs focus:ring-2 focus:ring-[#5a28cc]"
               name="e-mail"
               type="text"
-              placeholder="E-mail"
+              placeholder="johndoe@example.com"
+              id="e-mail"
             />
           </div>
 
@@ -46,7 +51,7 @@ export const PasswordReset = () => {
           </div>
         </Form>
         <p
-          className="text-center text-gray-500 text-xs"
+          className="text-center text-gray-400 text-xs mt-4 cursor-pointer hover:text-gray-300 transition-colors"
           onClick={() => navigate("/hrcontact")}
         >
           &copy;2025 WorkLinker inc. All rights reserved.

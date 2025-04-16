@@ -5,21 +5,21 @@ import { UserContext } from "../context/UserContext";
 import { getWorkerIdFromEmail } from "../utils/analytics_systemUtils";
 export const Gate = () => {
   const [worker, setWorker] = useState(null);
-  const [useremail, setUserEmail] = useState(null)
   const { user } = useContext(UserContext);
- 
-  useEffect( ()=>{
-      const load = async ()=>
-      {
-        user?.email&& setUserEmail(user?.email)
-        readSingleWorker(await getWorkerIdFromEmail(user?.email), setWorker)
+
+  useEffect(() => {
+    const loadWorker = async () => {
+      if (user?.email) {
+        const workerId = await getWorkerIdFromEmail(user.email);
+        await readSingleWorker(workerId, setWorker);
       }
-      load()
-  },[user])
+    };
+    loadWorker();
+  }, [user]);
   
 
   return (
-    <div className="min-h-dvh items-center bg-gray-950 flex flex-col justify-center gap-10">
+    <div className="min-h-dvh items-center bg-gray-950 flex flex-col justify-center gap-10 pb-10">
       <div className="flex justify-center items-center flex-col flex-wrap">
         <h1 className="text-3xl wlh12 m-20 font-bold text-center">Check-in</h1>
         <h2 className="m-auto text-xs md:text-xl text-justify text-white">

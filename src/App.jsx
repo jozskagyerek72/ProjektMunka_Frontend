@@ -12,32 +12,32 @@ import { Authentication } from "./pages/Authentication";
 import { Backendtests } from "./utils/Backendtests";
 import { PasswordReset } from "./pages/PasswordReset";
 import { Contact } from "./pages/Contact";
-import { useState } from "react";
 import { Shifts } from "./pages/Shifts";
 import { HRcontacts } from "./pages/HRcontacts";
 import { Toaster } from "sonner";
+import { Schema } from "./pages/Schema";
+import { TestResults } from "./pages/TestResults";
 
 function App() {
-  const [role, setRole ] = useState("")
 
   const router = createBrowserRouter(
     [
       {
         element: (
           <div>
-            <Header setRole={setRole}/>
+            <Header/>
             <Outlet />
             <Footer />
           </div>
         ),
         children: [
-          { path: "/", element: <Home setRole={setRole}/> },
+          { path: "/", element: <Home/> },
           { path: "/profile", element: <Profile /> },
           {
             path: "/signin",
-            element: <Authentication role={role}/>,
+            element: <Authentication/>,
           },
-          { path: "/apply", element: <Authentication role={role}/> },
+          { path: "/apply", element: <Authentication/> },
           { path: "/resetpassword", element: <PasswordReset /> },
           { path: "/contact", element: <Contact /> },
 
@@ -46,14 +46,16 @@ function App() {
           { path: "/gate", element: <Gate /> },
           { path: "/workerdetails/:id", element: <WorkerDetails /> },
 
-          { path: "/tests", element: <Backendtests /> },
+          { path: "/backendtests", element: <Backendtests /> },
           { path: "/shifts", element: <Shifts /> },
           { path: "/hrcontact", element: <HRcontacts /> },
+          { path: "/schema", element: <Schema /> },
+          { path: "/tests", element: <TestResults /> },
         ],
       },
     ],
     {
-      future: { 
+      future: {
         v7_relativeSplatPath: true,
 
         v7_normalizeFormMethod: true,
@@ -70,7 +72,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} future={{ v7_startTransition: true }} />
-      <Toaster position="top-center" richColors duration={1250}/>
+      <Toaster position="top-center" richColors duration={1250} />
     </>
   );
 }

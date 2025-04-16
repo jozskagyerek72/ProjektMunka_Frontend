@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tailwindcss";
 @plugin "daisyui";
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
@@ -11,9 +10,13 @@
   transition: 700ms ease;
   font-variation-settings: "wght" 311;
   margin-bottom: 0.8rem;
-  color: PaleGoldenRod;
-  outline: none;
+  color: #eee8aa; /* PaleGoldenRod */
   text-align: center;
+}
+
+.wlh1:hover {
+  font-variation-settings: "wght" 582;
+  letter-spacing: 1px;
 }
 
 .wlh12 {
@@ -24,35 +27,35 @@
   transition: 700ms ease;
   font-variation-settings: "wght" 311;
   margin-bottom: 0.8rem;
-  color: PaleGoldenRod;
-  outline: none;
+  color: #eee8aa;
   text-align: justify;
 }
 
-h1:hover {
-  font-variation-settings: "wght" 582;
+.wlh12:hover {
+  font-variation-settings: "wght", 582;
   letter-spacing: 1px;
 }
 
 .changeP {
   font-family: "Gambetta", serif;
-  background-color: rgb(90, 90, 90, 0.3);
+  background-color: rgba(90, 90, 90, 0.3);
 }
 
 .gambetta {
-  font-family: 'Gambetta', serif;
+  font-family: "Gambetta", serif;
 }
 
 .wlp {
   line-height: 150%;
   text-align: center;
-  color: MintCream;
+  color: #f5fffa; /* MintCream */
   letter-spacing: 0.5px;
-  font-family: "Rocher";
-  --s: 0.2em; /* the thickness of the line */
-  --c: PaleGoldenRod; /* the color */
+  font-family: "Rocher", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+  --s: 0.2em;
+  --c: #eee8aa;
 
-  color: #0000;
+  color: transparent;
   padding-bottom: var(--s);
   background: linear-gradient(90deg, var(--c) 50%, #ffffff 0)
       calc(100% - var(--_p, 0%)) / 200% 100%,
@@ -60,8 +63,7 @@ h1:hover {
   -webkit-background-clip: text, padding-box;
   background-clip: text, padding-box;
   transition: 0.5s;
-  font-size: 5;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.25rem;
   cursor: pointer;
 }
 
@@ -69,10 +71,6 @@ h1:hover {
   --_p: 100%;
 }
 
-
-@media screen and (min-width: 481px) {
-  .mobile {
-    display: none;
-  }
+html {
+  scroll-behavior: smooth;
 }
-
