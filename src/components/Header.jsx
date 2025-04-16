@@ -185,7 +185,7 @@ export const Header = ({ setRole }) => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src={avatar || "../public/blankpeople.jpg"}
+                src={avatar || "https://res.cloudinary.com/gb-cloud-blog/image/upload/v1744652230/blankpeople_cqxuea.jpg"}
               />
             </div>
           </div>
